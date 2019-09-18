@@ -8,16 +8,17 @@ import {
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
     render() {
-        const { nowMovieList } = this.props;
+        const {nowMovieList} = this.props
+         const {history} = this.props
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
                 {
                     nowMovieList.map(v=>(
-                        <div key={v.id} onClick={()=>{console.log(111)}}>
+                        <div key={v.id} onClick={()=>{history.push({pathname:'/details',state:{detailsId:v.id}})}}>
                             <div className="main_block">
                                 <div className="avatar_left">
-                                    <img src={v.img.replace(/w.h/,'')} alt=""/>
+                                    <img src={v.img.replace(/w.h/,'')} alt='' />
                                 </div>
                                 <div className="avatar_right">
                                     <div className="box-context">
@@ -61,5 +62,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
     return bindActionCreators(movieListCreate,dispatch)
 }
-
 export default connect(mapStateToProps,mapDispatchToProps) (BeingMovieBox)

@@ -7,6 +7,11 @@
     display: -ms-flexbox;
     position: relative;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    display: flex;
+    justify-content:space-between;
+}
+.whiteBlock{
+    width: 15px;
 }
 .Movie-nav-header-left{
     height: 50.5px;

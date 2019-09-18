@@ -1,0 +1,240 @@
+.login{
+    background-color: #f8f8f8;
+    height: 100%;
+}
+/*顶部导航*/
+.p-navbar {
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    background: #df2d2d;
+    border-bottom: 1px solid #bc1d1d;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    position: relative;
+}
+
+.p-navbar .p-nav-wrap-left {
+    width: 22.5px;
+    padding: 0 15px;
+    height: 50px;
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-navbar .p-nav-wrap-left span {
+    width: 22.5px;
+    height: 22.5px;
+    font-size: 23px;
+}
+
+.p-navbar .p-nav-header {
+    display: block;
+    width: 71%;
+    -webkit-box-flex: 1;
+    float: left;
+    -ms-flex: 1;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0;
+    font-size: 18px;
+    line-height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*login*/
+#p-login .p-list {
+    border-top: 1px solid #d6d6d6;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+#p-login .p-list .p-list-nav {
+    margin: 0;
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: 400;
+    position: relative;
+}
+
+#p-login .p-list .p-list-nav .p-taba {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    padding-left: 10px;
+    height: 34px;
+    padding-right: 10px;
+    position: relative;
+    border-bottom: 4px solid #d6d6d6;
+}
+
+.p-list-nav .p-taba .p-active {
+    font-size: 12.5px;
+    color: #222222;
+}
+
+.p-list-nav .p-taba li {
+    text-align: center;
+    width: 50%;
+    float: left;
+}
+
+.p-list-nav .p-taba .p-react {
+    font-size: 12px;
+    color: #222222;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    display: block;
+    height: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.p-solid {
+    position: absolute;
+    bottom: -4px;
+    border-bottom: 4px solid #FFC300;
+    /*border-bottom: 4px solid #df2d2d;*/
+    -webkit-transition: left .2s ease-in;
+    width: 47%;
+    left: 3%;
+}
+
+.p-list-in {
+    margin: 0;
+    border-top: 0;
+}
+
+.p-list-in dd {
+    margin: 0;
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: 400;
+    position: relative;
+}
+
+.p-list-in > dd {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.kv-line-r {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    margin: 10px 0;
+}
+
+.p-list-in .input-weak {
+    width: 100%;
+    border: 0;
+    height: 30px;
+    text-indent: 5px;
+    line-height: 1;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 0;
+    outline: none;
+}
+
+.input-weak:focus {
+    background: #ececec;
+    outline: 0;
+}
+
+#normal-login-form .p-input {
+    padding-left: 7px;
+}
+
+.p-input dd {
+    border-bottom: 0.5px solid #d6d6d6;
+    padding: 7px 0;
+    padding-right: 7px;
+}
+
+.p-input dd:last-child {
+    border: none;
+}
+/*手机验证登录*/
+.btn-weak {
+    border: 1px solid #df2d2d ;
+    padding: 0 15px ;
+    background: 0 ;
+    color: #df2d2d ;
+}
+.p-btn {
+    display: inline-block;
+    margin-left: 14px;
+    text-align: center;
+    height: 30px;
+    padding: 0 16px !important;
+    border-radius: 3px;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-user-select: none;
+    border: 1px solid #df2d2d;
+    background: 0;
+    color: #df2d2d;
+}
+.mobile-input{
+    width: 65% !important;
+}
+/*登录*/
+.btn-wrapper {
+    margin: 14px 10px;
+}
+
+.login-btn {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 3px;
+    color: #fff;
+    border: 0;
+    background-color: #df2d2d;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+.subline {
+    margin: 14px 10px;
+}
+
+.subline li {
+    display: inline-block;
+
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.subline-text-color {
+    font-size: 13px;
+    color: #FE8C00;
+}
+
+/*页脚*/
+.login-footer {
+    margin-top: 15px;
+    padding: 0 10px 20px;
+    font-size: 14px;
+}
+.login-footer .copyright {
+    text-align: center;
+}
+.login-footer .copyright a{
+    color: #df2d2d;
+}
