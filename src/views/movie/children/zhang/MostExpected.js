@@ -1,26 +1,13 @@
 import React from "react";
 export default class MostExpected extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      coming: [],
-      paging: {
-        hasMore: true,
-        limit: 10,
-        offset: 0,
-        total: 0,
-      }
-    }
-  }
   render() {
-    const { coming } = this.state;
+    const releaseExpectedList = this.props.releaseExpectedList;
     return (
       <div className="most-expected">
         <p className="title">近期最受期待</p>
         <div className="most-expected-list">
           {
-            coming.map(v=>{
-              // console.log(v);
+            releaseExpectedList.map(v=>{
               return (
                 <div className="expected-item" key={v.id}>
                   <div className="poster default-img-bg">
@@ -38,7 +25,7 @@ export default class MostExpected extends React.Component {
                     </div>
                   </div>
                   <h5 className="name line-ellipsis">{v.nm}</h5>
-                  <p className="date">{v.comingTitle}</p>
+                  <p className="date">{v.releaseExpectedListTitle}</p>
                 </div>
               )
             })
@@ -47,16 +34,7 @@ export default class MostExpected extends React.Component {
       </div>
     );
   }
-  async gitRelease() {
-    const {
-      data
-    } = await this.axios.get('mostExpected');
-    this.setState({
-      coming: data.coming,
-      paging:data.paging
-    })
-  }
   componentDidMount() {
-    this.gitRelease();
+    this.props.gitReleaseExpectedList();
   }
 }

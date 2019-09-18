@@ -34,23 +34,6 @@ class Movie extends React.Component {
                  </Switch>  
                 <div className='bottom-Occupying'></div>
             </div>
-            // <div>
-            //     我是电影
-            //     <nav>
-
-            //         <NavLink to={"/nav/movie/hot"}>热映</NavLink>/
-            //         <NavLink to={"/nav/movie/about"}>即将上映</NavLink>
-            //     </nav>
-
-            //     <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
-            //     <Switch>
-            //         {
-            //             router.map((item, i) => {
-            //                 return <Route key={i} path={item.path} exact={item.exact} component={item.component}/>
-            //             })
-            //         }
-            //     </Switch>
-            // </div>
         );
     }
 }

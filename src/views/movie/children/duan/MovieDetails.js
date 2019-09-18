@@ -13,7 +13,9 @@ export default class MovieDetails extends Component{
                 </header>
                 <div className="Movie-detail">
                     <div className="Movie-filter"></div>
-                    <div className="Movie-poster-bg" style="background-image:url(//p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"></div>
+                    <div className="Movie-poster-bg" style={{
+                        backgroundImage: "url( //p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"
+                    }}></div>
                     <div className="Movie-detail-context">
                         <div className="Movie-detail-context-poster">
                             <img src="http://p0.meituan.net/148.208/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg" alt=""/>
