@@ -3,7 +3,7 @@ class Longin extends React.Component{
     render(){
         return (
             <div>
-                登录注册
+                登录注册121212
             </div>
         );
     }

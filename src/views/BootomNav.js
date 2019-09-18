@@ -1,21 +1,22 @@
 import React from 'react';
-import {BrowserRouter as Router,Route, NavLink,Switch,withRouter} from 'react-router-dom'
+import {Route, NavLink,Switch} from 'react-router-dom'
 import "../assets/style/nav.css"
-import Routers from "../routers/bootomnav/index"
+import Routers from "../routers"
+
 class BootomNav extends React.Component {
     render() {
+        const router=Routers[Routers.length-1].children;
         return (
-            <Router>
+            <>
                 <Switch>
                     {
-                        Routers.map((item,i)=>{
-                            console.log(item)
-                            return   <Route key={i} path={item.path} exact={item.exact} component={item.component}/>
+                        router.map((item,i)=>{
+                            return   <Route key={i} path={item.path}  component={item.component}/>
                         })
                     }
                 </Switch>
                 <nav className="bottom-nav-bar">
-                    <NavLink to={"/"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
+                    <NavLink to={"/movie"} activeStyle={{color: "#f03d37"}}  className="nav-icon-wrapper">
                         <span className="iconfont icon mao-movie-cl"></span>
                         <span className="nav-text">电影</span>
                     </NavLink>
@@ -28,7 +29,7 @@ class BootomNav extends React.Component {
                         <span className="nav-text">我的</span>
                     </NavLink>
                 </nav>
-            </Router>
+            </>
 
         );
     }

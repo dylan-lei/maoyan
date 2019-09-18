@@ -5,7 +5,6 @@ import 'antd-mobile/dist/antd-mobile.css';
 import './assets/style/reset.css'
 //import store from "./store"
 import App from './App';
-import City from "./views/common/City"
 React.Component.prototype.axios=axios;
 
 //axios请求拦截
