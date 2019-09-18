@@ -7,7 +7,7 @@ import Details from '../views/movie/children/duan/MovieDetails'
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
 import Movie from "../views/movie/Movie"
-import Cinema from "../views/cinema/Cinema"
+import Cinema from "../views/cinema/index/Cinema"
 
 
 //底部导航栏电影模块的子路由（三级路由）

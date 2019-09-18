@@ -1,0 +1,205 @@
+*{
+    font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
+
+}
+/*header*/
+.headers{
+    height: 50.5px;
+    color: #fff;
+    background: #e54847;
+    border-bottom: 1px solid #e54847;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    position: relative;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 50.5px
+}
+.headers h1{
+    margin-right: 0!important;
+    display: block;
+    -webkit-box-flex: 1;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 50px;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*topbar*/
+.topbar{
+    background: #f5f5f5;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 44px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #777;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.topbar .city{
+    padding-left: 15px;
+    font-size: 15px;
+    color: #666;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.topbar .city span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
+    max-width: 19.2vw;
+}
+.topbar .search{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    display: flex;
+    background-color: #fff;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 28px;
+    font-size: 13px;
+    color: #b2b2b2;
+    margin-left: 18px;
+    border: .5px solid #e6e6e6;
+    border-radius: 5px;
+    margin-right: 15px;
+    line-height: 17px;
+}
+.topbar .search img{
+    width: 14px;
+    height: 14px;
+    margin-left: 3px;
+    margin-right: 4px;
+    display: block;
+    border: 0;
+}
+/*select*/
+.line{
+    background: #fff;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
+}
+
+
+
+
+
+
+/*list*/
+.cinema-list{
+    width: 358px;
+
+}
+.cinema-list .item{
+    padding: 13px 15px 13px 0;
+    margin-left: 15px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    color: #777;
+    font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
+}
+.cinema-list .item .title{
+    height: 23px;
+    line-height: 23px;
+    font-size: 16px;
+    color: #000;
+}
+.cinema-list .item .title .price-block{
+    padding-top: 9px;
+    padding-left: 3px;
+}
+.cinema-list .item .title .price-block .price{
+    font-size: 18px;
+    color: #f03d37;
+}
+.cinema-list .item .title .price-block .q{
+    margin-left: 3px;
+    font-size: 11px;
+    color: #f03d37;
+}
+
+.cinema-list .item .location{
+    margin-top: 6px;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    line-height: 1.5;
+}
+.cinema-list .item .location .location-item{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #666;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.cinema-list .item .location .distance{
+    margin-left: 5px;
+}
+.cinema-list .item .discount{
+    color: #999;
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+.cinema-list .item .discount .card{
+
+    display: inline-flex;
+}
+.cinema-list .item .discount .card img{
+    width: 15px;
+    height: 14px;
+    position: relative;
+    top: 3px;
+}
+.cinema-list .item .discount .card .discont-text{
+    margin-left: 5px;
+    font-size: 11px;
+    padding-top: 1px
+}
+.cinema-list .item .label-block{
+    height: 17px;
+    line-height: 17px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    font-size: 0;
+    flex-shrink: 0;
+}
+.cinema-list .item .label-block>div{
+    position: relative;
+    display: inline-block;
+    padding: 0 3px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 2px;
+    font-size: .6rem;
+    color: #589daf;
+    border: 1px solid #589daf;
+}
+.cinema-list .item .label-block>div+div{
+    margin-left: 5px;
+}
+.cinema-list .item .label-block .snack,.cinema-list .item .label-block .vipTag{
+    color: #f90;
+    border: 1px solid #f90;
+}
+
+
+
+
+
+
+
+

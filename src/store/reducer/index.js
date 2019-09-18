@@ -1,6 +1,7 @@
 import {combineReducers} from "redux"
 import moves from './movie/index'
-
+import cinema from "./cinema"
 export default combineReducers({
-    moves
+    moves,
+    cinema
 })
