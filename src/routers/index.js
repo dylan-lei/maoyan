@@ -2,7 +2,7 @@
 import BootomNav from "../views/BootomNav"
 import Login from "../views/login/Longin"
 import City from "../views/common/City"
-import details from '../views/movie/children/duan/MovieDetails'
+import Details from '../views/movie/children/duan/MovieDetails'
 
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
@@ -18,7 +18,7 @@ export default [
     //一级路由，页面跳转
     {
         path:"/details",
-        component:details,
+        component:Details,
         title:"正在热映电影详情",
     },
     {

@@ -9,11 +9,8 @@ import {
 import{
     withRouter
 }from 'react-router-dom'
-import movieListCreate,{changeMoviesList} from '../../../store/actionCreate/movie/BeingMovie'
+import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
-    constructor(props){
-        super(props)
-    }
     render() {
         const {nowMovieList} = this.props
         // const {histroy} = this.props
@@ -58,17 +55,11 @@ class BeingMovieBox extends Component {
             </div>
         )
     }
-    nowMoveListView(){
-        
-    }
     componentDidMount(){
        this.props.getNowMovieList()
-       console.log(this.props.nowMovieList)
     }
 }
 function mapStateToProps(state){
-    console.log(state)
-    console.log(state.moves.movesnow.nowMovieList)
     return{
         nowMovieList:state.moves.movesnow.nowMovieList
     }

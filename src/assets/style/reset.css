@@ -23,7 +23,6 @@ time, mark, audio, video {
     font: inherit;
     font-weight: normal;
     vertical-align: baseline;
-    touch-action: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -36,6 +35,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    /* touch-action: none; */
 }
 
 ol, ul, li {
