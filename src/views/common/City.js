@@ -17,7 +17,6 @@ class City extends React.Component {
         const position = this.state.position;
         if (hotCity.length > 0) {
             Object.keys(this.state.cityList.cityList).forEach(key => cityList.push(this.state.cityList.cityList[key]));
-            console.log(cityList)
         }
 
         return (

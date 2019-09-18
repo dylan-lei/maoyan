@@ -12,7 +12,6 @@ export default {
     getCinemaList() {
         return async (dispatch) => {
             const data = await axios.get("cinemaList")
-            console.log(data)
             dispatch(changeCinemaList(data.cinemas))
         }
     }
