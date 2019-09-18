@@ -92,7 +92,6 @@ class Cinemahome extends React.Component {
     }
 }
 function mapStateToProps(state) {
-    console.log(state.cinema.cinemaIndex.cinemaList)
     return{
          cinemaList:state.cinema.cinemaIndex.cinemaList
     }
