@@ -3,6 +3,7 @@ import BootomNav from "../views/BootomNav"
 import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
+import Head from '../views/cinema/details/Head'
 
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
@@ -20,6 +21,11 @@ export default [
         path:"/details",
         component:Details,
         title:"正在热映电影详情",
+    },
+    {
+        path:"/zdetails",
+        component:Head,
+        title:"影院详情页",
     },
     {
         path:"/city",
