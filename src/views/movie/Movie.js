@@ -21,7 +21,7 @@ class Movie extends React.Component {
                         <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' exact={true} to={'/nav/movie/hot'}>正在热映</NavLink>
                         <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' to={'/nav/movie/about'}>即将上映</NavLink>
                     </nav>
-                    <div className='iconfont mao-sousuo index-search-entry'></div>
+                    <div className='iconfont mao-sousuo index-search-entry' onClick={()=>{this.props.history.push("/movieseek")}}></div>
                 </div>
                 <div className='Occupying'></div>
                 <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>

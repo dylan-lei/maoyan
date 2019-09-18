@@ -4,6 +4,7 @@ import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
 import Head from '../views/cinema/details/Head'
+import MovieSeek from "../views/common/MovieSeek"
 
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
@@ -17,6 +18,11 @@ import About from "../views/movie/children/About"
 
 export default [
     //一级路由，页面跳转
+    {
+        path:"/movieseek",
+        component:MovieSeek,
+        title:"电影模块上的搜索",
+    },
     {
         path:"/details",
         component:Details,
