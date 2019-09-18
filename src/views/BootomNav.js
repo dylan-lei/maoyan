@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, NavLink,Switch} from 'react-router-dom'
+import {Route, NavLink,Switch,Redirect} from 'react-router-dom'
 import "../assets/style/nav.css"
 import Routers from "../routers"
 
@@ -8,6 +8,7 @@ class BootomNav extends React.Component {
         const router=Routers[Routers.length-1].children;
         return (
             <>
+            <Redirect  from={"/nav"} to={"/nav/movie"}/>
                 <Switch>
                     {
                         router.map((item,i)=>{
@@ -16,15 +17,15 @@ class BootomNav extends React.Component {
                     }
                 </Switch>
                 <nav className="bottom-nav-bar">
-                    <NavLink to={"/movie"} activeStyle={{color: "#f03d37"}}  className="nav-icon-wrapper">
+                    <NavLink to={"/nav/movie/hot"} activeStyle={{color: "#f03d37"}}  className="nav-icon-wrapper">
                         <span className="iconfont icon mao-movie-cl"></span>
                         <span className="nav-text">电影</span>
                     </NavLink>
-                    <NavLink to={"/cinema"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
+                    <NavLink to={"/nav/cinema"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
                         <span className="iconfont icon mao-yingyuan1 nav-mao-yingyuan1"></span>
                         <span className="nav-text">影院</span>
                     </NavLink>
-                    <NavLink to={"/my"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
+                    <NavLink to={"/nav/my"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
                         <span className="iconfont icon mao-wode1 nav-mao-wode1"></span>
                         <span className="nav-text">我的</span>
                     </NavLink>

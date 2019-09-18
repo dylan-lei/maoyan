@@ -28,34 +28,34 @@ export default [
         title:"登录注册"
     },
     {
-        path:"/",
+        path:"/nav",
         component:BootomNav,
         title:"底部导航栏",
         exact:true,
         children:[
             {
-                path:"/my",
+                path:"/nav/my",
                 component:My,
                 title:"我的"
             },
             {
-                path:"/cinema",
+                path:"/nav/cinema",
                 component:Cinema,
                 title:"影院"
             },
             {
-                path:"/movie",
+                path:"/nav/movie",
                 component:Movie,
                 exact:true,
                 title:"电影",
                 children:[
                     {
-                        path:"/movie/about",
+                        path:"/nav/movie/about",
                         component:About,
                         title:"即将上映"
                     },
                     {
-                        path:"/movie/hot",
+                        path:"/nav/movie/hot",
                         component:Hot,
                         title:"正在热映",
                         exact:true

@@ -11,11 +11,11 @@ class Movie extends React.Component {
                 我是电影
                 <nav>
 
-                    <NavLink to={"/movie/hot"}>热映</NavLink>/
-                    <NavLink to={"/movie/about"}>即将上映</NavLink>
+                    <NavLink to={"/nav/movie/hot"}>热映</NavLink>/
+                    <NavLink to={"/nav/movie/about"}>即将上映</NavLink>
                 </nav>
-                <Redirect from={"/movie"} to={"/movie/hot"}/>
 
+                <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
                 <Switch>
                     {
                         router.map((item, i) => {
