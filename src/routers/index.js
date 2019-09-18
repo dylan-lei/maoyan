@@ -46,19 +46,18 @@ export default [
             {
                 path:"/nav/movie",
                 component:Movie,
-                exact:true,
+                exact:false,
                 title:"电影",
                 children:[
                     {
                         path:"/nav/movie/about",
                         component:About,
-                        title:"即将上映"
+                        title:"即将上映",
                     },
                     {
                         path:"/nav/movie/hot",
                         component:Hot,
                         title:"正在热映",
-                        exact:true
                     }
                 ]
             },
