@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import 'antd-mobile/dist/antd-mobile.css';
 import './assets/style/reset.css'
-//import store from "./store"
+import store from "./store"
 import App from './App';
+import{
+    Provider
+} from 'react-redux'
 React.Component.prototype.axios=axios;
 
 //axios请求拦截
@@ -24,4 +27,4 @@ axios.interceptors.response.use(({data}) => {
 
 
 //ReactDOM.render(<City/>, document.getElementById('root'));
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
