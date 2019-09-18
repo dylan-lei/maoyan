@@ -1,0 +1,234 @@
+.Movie-navbar{
+    height: 50.5px;
+    color: #fff;
+    background: #e54847;
+    border-bottom: 1px solid #e54847;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    position: relative;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.Movie-nav-header-left{
+    height: 50.5px;
+    line-height: 50.5px;
+    color: #fff;
+}
+.Movie-nav-header-back{
+    height: 50px;
+    width: 22.5px;
+    line-height: 50px;
+    padding: 0 15px;
+    cursor: pointer;
+    display: block;
+    text-align: left;
+}
+.Movie-nav-header-back i{
+    display: inline-block;
+    width: 22.5px;
+    height: 22.5px;
+    vertical-align: middle;
+    position: relative;
+    line-height: 22.5px;
+    font-size: 28px;
+    color: #fff;
+}
+.Movie-nav-header-back i:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.Movie-nav-header-name{
+    display: block;
+    -webkit-box-flex: 1;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 50px;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 52.5px;
+    color: #fff;
+}
+.Movie-detail{
+    height: 188px;
+    position: relative;
+    cursor: pointer;
+}
+.Movie-filter{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    cursor: pointer;
+}
+.Movie-poster-bg{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    -webkit-filter: blur(1.2rem);
+    filter: blur(1.2rem);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .55;
+    cursor: pointer;
+}
+.Movie-detail-context{
+    height: 150px;
+    padding: 19px 30px 19px 15px;
+    display: flex;
+    cursor: pointer;
+}
+.Movie-detail-context-poster{
+    cursor: pointer;
+}
+.Movie-detail-context-poster img{
+    width: 110px;
+    height: 150px;
+    box-sizing: border-box;
+    display: block;
+    cursor: pointer;
+}
+.Movie-detail-context-content{
+    overflow-x: hidden;
+    margin-left: 12.5px;
+    line-height: 1;
+    color: #fff;
+    -webkit-box-flex: 1;
+    flex: 1;
+    cursor: pointer;
+}
+.Movie-detail-context-content-title{
+    font-size: 20px;
+    margin-top: 2px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+    color: #fff;
+    cursor: pointer;
+}
+.Movie-title-en-name{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-score{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fc0;
+    margin-top: 11px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-score span{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1;
+}
+.Movie-detail-type{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-detail-type span{
+    font-size: 12px;
+    color: #fff;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-detail-time{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-detail-pubDesc{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+    opacity: .8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+}
+.Movie-arrow-g{
+    position: absolute;
+    width: 10px;
+    right: 15px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    color: #777;
+}
+.Movie-showDays{
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    color: #777;
+}
+.Movie-timeline{
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+    height: 45px;
+    white-space: nowrap;
+    background-size: 1px 1px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMV…GdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
+   
+}
+/* 取消overflow-x的滚动条 */
+.Movie-timeline::-webkit-scrollbar {
+    display:none;
+}
+.Movie-showDay-chosen{
+    border-bottom: 2px solid #f03d37;
+    color: #666;;
+    position: relative;
+    display: inline-block;
+    width: 115px;
+    line-height: 43px;
+    margin-left: 4.5px;
+    font-size: 14px;
+    text-align: center;
+    list-style: none;
+}

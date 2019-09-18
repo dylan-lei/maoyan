@@ -1,0 +1,273 @@
+/* 即将上映的内容 */
+.page-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.page {
+    position: absolute;
+    width: 100%;
+}
+.list-wrap {
+    background-color: #f5f5f5;
+}
+/* 上边的轮播图 */
+.list-wrap .most-expected {
+    padding: 12px 0 30px 15px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+.list-wrap .most-expected .title {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+}
+.list-wrap .most-expected-list {
+    overflow: scroll;
+    white-space: nowrap;
+    overflow-y: hidden;
+    margin-bottom: -15px;
+    width: 326px;
+}
+.list-wrap .most-expected-list::-webkit-scrollbar {
+    display: none;
+}
+.list-wrap .expected-item {
+    display: inline-block;
+    width: 85px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.list-wrap .expected-item .poster {
+    width: 85px;
+    height: 115px;
+    position: relative;
+    margin-bottom: 6px;
+}
+.default-img-bg {
+    background-color: #e1e1e1;
+    background-size: 100% 100%;
+}
+.default-img-bg img{
+    width: 100%;
+    height: 100%;
+}
+.list-wrap .expected-item .poster img {
+    width: 100%;
+    height: 100%;
+}
+.list-wrap .expected-item .poster .wish-bg {
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    background-image: -webkit-linear-gradient(top, rgba(77, 77, 77, 0), #000);
+    background-image: linear-gradient(-180deg, rgba(77, 77, 77, 0), #000);
+}
+.list-wrap .expected-item .poster .wish {
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+    color: #faaf00;
+    font-size: 11px;
+    z-index: 1;
+    font-weight: 600;
+}
+.list-wrap .expected-item .poster .toggle-wish {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    background: rgba(61, 63, 71, .6);
+    text-align: center;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.list-wrap .expected-item .poster .toggle-wish span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAoCAYAAACFFRgXAAAABGdBTUEAALGPC/xhBQAAAytJREFUWAnVmLtrFFEUh3cWFAtRE5FEEUREsFAkooUIgl3+CUEU7LVR1LBIMERCLFLZRG1CrFJYpLBQENRGC4n4wBeKRUQ2PlAQX+v3m70z7MzemZ3HZp05cPbce86553w7O7Mzc51KjDQaDYfwDvSAseux69Cv6Ef0LXoHXXAc5y82UqhVJbgLPYhuQTega9DPaB19ht6VpVYDaxUBWYUGewkcQzdbE4LOJabXaHQ76G7OqHWI0RG0v+mJ/XxPdJpaD2xZbcAUX0XiSXS/bUEH3yPil2imL1Chln6RE+huzVPKffJV60frugAwDfoI1tBtrUkpx4vknzVrLmAHU65vTX/F5DzQnzynDwzsCpwX0e1eMIfV+S3ReZpXXlDgFNC/VEgXgifHGXQDVvUE2g1Y1RKT2FxxgTm6cg4bXxHNsGH0j/DhIlKGmFzGKuSbCAyFgkWcDsG6UaeE/m/LIvsEvKcstGIV8ECJgAcErJtFWaRPwCvLQitWAbv3/ZJALwlYj3ZlkbqA9YBRFnkp4HtloRWrgJ+g/uNbgeHF+LTKY5tebWYLDOqhzYpVR1hyE33njor5ITYxNp/WIP/DeBINvI4ooQAipknD6D9eVnC8JjCOxr799vgLiGXcsLmtvVPCnRB4yGDanRTjQ2/PYvIlACwvCTcwM37G/xvMGJYAQRuwoiRex8wFMns7mTMMbV2twMpiwVXMfNuK5XfMm97WTpHAJvsy9pZ15fI41Us9IyUWmG+qPa4ptBe3b/WYMj2zAWsVBfQfPYEGrlbFuiiqPWF6xZaNPcLeSgr9ZjyGLni+LlrVHDM9OpZNBKwqFPyJGUWfa94lUa1RUztRSX9vLVE2SewNrMboaG9NuiYi7w3+M8B+i4hb3amBVQXotRjdxpPsHWtJWLQHfBrYL+FAp3kmYBUFWnu/2u1Mu03wgTXajaxjU0tmYHUCehAj6H7NE4ggBSvoTJL4orNVp/Eifm1eJ/lplXMuD6wYcgGrAAA6H0fQ75pHiGIjJjciJZk7N7DaAKIrvobarnj5aiaHYT7JdQ6HW5sL8Sj+nSb2GHsF2EwXWLi+5v8ArR6xIZ+h44wAAAAASUVORK5CYII=);
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-size: 100%;
+}
+.list-wrap .expected-item .name {
+    margin: 0;
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 3px;
+}
+.line-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.list-wrap .expected-item .date {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+/* 电影列表 */
+.list-wrap .coming-list {
+    background-color: #fff;
+}
+.list-wrap .coming-list .group-date {
+    padding: 12px 15px 0;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+.list-wrap .item {
+    padding-left: 15px;
+    background-color: #fff;
+}
+.list-wrap .item .main-block {
+    position: relative;
+    width: 100%;
+}
+.list-wrap .item .avatar {
+    width: 64px;
+    height: 90px;
+    position: relative;
+    margin-top: 12px;
+    float: left;
+}
+.list-wrap .item .avatar:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.default-img-bg {
+    background-color: #e1e1e1;
+    background-size: 100% 100%;
+}
+.list-wrap .item .avatar img {
+    background-color: transparent;
+    height: 90px;
+}
+.list-wrap .item .content-wrapper {
+    padding: 12px 14px 12px 0;
+    margin-left: 74px;
+    height: 90px;
+    max-height: 90px;
+    position: relative;
+}
+.list-wrap .item .content {
+    padding-right: 5px;
+    margin-right: 48px;
+    overflow: hidden;
+}
+.list-wrap .item .movie-title {
+    max-height: 24px;
+    margin-bottom: 7px;
+    line-height: 24px;
+    overflow: hidden;
+    position: relative;
+}
+.list-wrap .item .name,
+.list-wrap .item .title {
+    font-size: 17px;
+    color: #333;
+    font-weight: 700;
+    padding-right: 5px;
+    flex-shrink: 1;
+}
+
+.line-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+.version.v3d {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAcCAYAAAAEN20fAAAAAXNSR0IArs4c6QAAA0VJREFUSA3tV1tIFGEU/mZ23F11vaTrZbNs1TIxawkSuyEWIRVU2ksEvRQFRU+91EvQmw9Rb1EQRARFVCC9iCRF201MKlRCMctN3RRb23VRd9e9TecfW2XWmdEedvOh8zJzzn/+c745t39+DkRH73evEcOBqwBXJ4qihckSTRzHjQGinROMF5tP2JycBCIU6BaBnEQ7V7LPAW4uxWgTWCT+FQgGTPJNGHiWDiWkyZVxdXyyakLrwxgGisjKoP9A4vMgxAvieYHnsHe9GdacNESiIhxuH14P/kKY3hlV5JtQSmsxYuLx6Vk4J/1wzQRj4iWfmkCyjAKaDlZidaYR/lAEOo6DXuDRWGXBpZZe+EhWU7wKDcQrUdeoFzffOZYFSBPIme1WCcStdgdefpsAT0CO2YrQuNmCQ5sK8ajrx7z/y619cHh8MOh45JsM2LY2G0dI5/rhKpxv7sHUbHheV+lFtVgpI6iksA9MTKPtiwuhiIjZcBSt/eOSHUuGQWaPRcwXjMDjD6HfNY0Hn5y49uorMgwCjm8tkukqMaoRYbk+9bhr0R6bJUuS9Y5PLVqLF3QOT2KIosTSd7tjKH5ZxqsCkWkRc7pmHTaY01Gam4ann8ekVMXrKPFObwC7rDnQU8qCkaiSiiRTTU38jnyTHuZ0vVQnzCjrpuXQzJ/aMBl0murLjkjTiwHJUG1pLi7Ulklfd+/DiKZxtphHhRuk2nL7Qpq6qhEppGI8t8OK3SXyv4M3NEMmqSCrqSuWIpNeh3JKp9PrX0oVqkC8gRD2lefhZHUxpWPBTgEBZPPFG9Bux9QUHmd3liCduuZJz+iCAZU31dT4Q1G09f/E/ooCXKmvgJ3mCKuRPWVm0N8VWvrm2jhml4H2UPjZwGPRrCrMRHZqCp4PuNAx5ImpqT5VgbAddzqHwdq4fmMetlgyJSMsLTfeDqL9u1tm9AABZsSOATbi2fx5Rh/y0emV6akxXMPd93OHhpoGyfU6DgUZRgRoaP3N+aFhctGSZkRi2kGaqiN0iCWSVIs1kU6VbK8cIHP3CyWMyZMxDBQR0Z48l2qeRDvPblo0r+S9qKafADnzzTDw0nWPblo0ox4mM03Ml+STfDMMvwErHhRiC0ymfAAAAABJRU5ErkJggg==);
+    position: absolute;
+}
+.version.v2d {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAAAcCAYAAAD7lUj9AAAAAXNSR0IArs4c6QAABotJREFUaAXtWmlsVFUUPrN2mzJtaacUSkspLQVa2SooW7CpQSAKpDFqjEiUGENigvEPP8B/+EtBxfhTDQkiIJBYCxpasKyytWUrSzeg0+k27bS0na4z4/kufePr7JOxgjInmfS+e887797vnvOdc1+fgliK9lbkO+wjhx0OSnWQQ4m+sASHgFal7OQ7yhwOzceH3p3XpACodtvIxScN6NFNi4JbyVOmbekfppO15uGD10y9Drs6Ty08NeylIW9TfJSGivJSNGxId7CqabcS4R+y1bABJwIFMxI1CoWiUPmkKcA5o/9JA547OGKLDyeqcdrQMLBhYMcJgXEyq/ZnV8EKyzISKCtRR8QXNe19dLahgxyjN+YYdDQ9Idppxs4Drb2DZOzqp/a+IWd/KI3y+g6yc5Z9KTNRmDlVZ6b+YTstmhpHiTFar6bLas3Md3Z6MT2ewH1yae4ZpMqmbtJHqmnptAT5ENWY+8Rvqj6S8lImjBkbstmptMZMSsbi5ewkUimAkLv4BJaLXtpemC2M9w/b2JiCXp2tpFdyDPTpb3fIxotdnBZP63NT3C1zT5Wpm7491xAywIeumQgLkoDdX9lE7WLzkumDF9I9PhvgfHO2Xoylx0e5AfvzdROdrGknFSOUO2mCAFgyZNBF0M7SezTAm/LlulyaFBshDdHeK41UcruVip6b7BVUKPvk2NfnThagHr3RTJsPVtHG/RX0y60Wmp0cS6tnGZwPQ2P78dv09o9X6b0DlbStpJow8Tms98VruRQb4XP/xtgJ5gKeax2yebzl1+oWj/3oBGDn73fS5AmRZOMQO8WeLRd48ZalGcju9DVvjhSdN1t66NidNsqcGENvzZ8iv8Wt7RPYFdMn0hBP4qeqJrKyx8JrpAnPTGJqkAk8GovECeRuey/tqzDS5+W1AlR/k5CZCbgJTxvgZ55gr3MVzOH8fYvwRtcxXIPKcO+m59MohcEtq3W3AZopzEqi2609VMzOhM3Yc66etCoFbV2R6dNb8QyvwIJD7rT10pGbzQJQKEMyE2PE326evD+59LCLHlisgi786QY7nhQTQdm8ucc4LMHrcjnOXgWaWuLCnZJOKW+GPlJDC1L1tJJ5G/kAzuAq7y9Op2SmgX2VRtpVXkdtzMsb89MolbnXn3gFFpPdfbqODrC3SqJmtNfNmUQOnvSZBrxz8C/G7gFKiNbyTnt9lH8jXjTWzkqmNubaSw8tTo1hm4N+v9tGcznppOqjnP1SA/O5yw6znKMRiQfAQkrvuXttpFpJW5dn0gjbvNxo4Y2IozWcXwKRgFebEK2hnatnUY4hlvhFg8cd9vTAvsER0a2LUHkaDqkPHhnPm1Ys49PTHOaPBoZp7exkj7bhrRAJUINOK3LGOeZchLurxHE1oRl1iiQfFYjrfQEBO3+KnnZxEkqLixKZFpwbqCRxhgVPd1r9U0egNiU9RNAqLnmqmQfrO62iu4RBBm8uZO9yFdBDOSe8GK2a7jNFoRzDT8/gIUcAXLkgar86Uy+ocBqXlIiECi7RAhG/wCL0d3DJBU79pPiWmEgghqGj06oomznZ2N0f6C1B662aaRAehaR6i7N2AwO8JicZJbebXGnsoi5eR9/QiHAQlGP4XRgFtMwlER65YeI800OgnB2FMymGq5s9rP9oNArdHiDr8FkH5fOuI3Ne53r0s5M1otiW3euzGaVR0odLMsRkDp1v8KkbyiBCFZRwljm/lZNLlEZFBVmPedPVLmgAtfieDXlc1449WCDjA2DTowFRhtV1WDm/mET7nYWpIkdsXpTOHlwnavNtBVmu5sdc+wR2Y/5UoWy2DtEbc8fWbZiAxFdQKuSQtHC4a5nwUVCj6MaiofPng7+Ty5in/0MX8CiEOChhDbejGVxXQQmGk1YuJzXUr67Cr/sEsJjvm/NSBYA47X20bLoz8a7MnEgXHnTSRU6WJzjZ4eTlTbwCi4wolRUFM9wNwIvlwK7m8IOg4MaRtsbcKzjpqjEwTvI2wUD6s5huUHrhtAWQPQm/3RdzAzieZMGUOFGC/VHXwZHpoEYuwXCixJFdLls4ClGGfnf5oTg8yU9lcj3F+u/5vzJPgfzX/zUjh3DDD5e8HxDkiuF28Aj4rQqCNxm+AwiEgR0nP+ASW+F+3Binhz0LZlF9RKhVFpR1xmdhwf/WGvFtAb9LKVUqlOqisNeGDjs89fCN5scfbPDXMOLkF/7EKHRgEf7wVOkTo78AGr+2qUYoDr0AAAAASUVORK5CYII=);
+    position: absolute;
+}
+
+.pre-show,
+.version {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 14px;
+    width: 17px;
+    display: inline-block;
+    margin-top: 5px;
+    flex: 0 0 auto;
+    margin-right: 3px;
+}
+
+.list-wrap .item .detail {
+    box-sizing: border-box;
+    line-height: 1;
+    overflow: hidden;
+}
+.list-wrap .item .detail .wantsee .person {
+    color: #faaf00;
+    font-size: 15px;
+    font-weight: 600;
+}
+.list-wrap .item .detail .wantsee .p-suffix {
+    font-size: 13px;
+    margin-left: 2px;
+    display: inline-block;
+    color: #666;
+}
+.list-wrap .item .detail .actor{
+    font-size: 13px;
+    color: #666;
+    display: block;
+}
+.list-wrap .item .detail>div+div {
+    margin-top: 6px;
+    line-height: 15px;
+}
+.list-wrap .item .button-block {
+    font-size: 12px;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    bottom: 0;
+    height: 27px;
+    margin: auto;
+}
+.list-wrap .item .button-block .btn.pre {
+    background-color: #3c9fe6;
+}
+.list-wrap .item .button-block .btn {
+    width: 47px;
+    height: 27px;
+    line-height: 28px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #f03d37;
+    color: #fff;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: pointer;
+}
+.list-wrap .item .button-block .btn {
+    width: 47px;
+    height: 27px;
+    line-height: 28px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #f03d37;
+    color: #fff;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: pointer;
+}
