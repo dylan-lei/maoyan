@@ -1,0 +1,35 @@
+.bottom-nav-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-top: .5px solid #d8d8d8;
+    display: -webkit-box;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-icon-wrapper {
+    width: 33.333%;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    color: #696969;
+    align-items: center;
+
+}
+.nav-icon-wrapper .nav-text{
+    font-size: 10px;
+    padding-top:4px;
+}
+.icon {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 25px;
+}
+.nav-mao-yingyuan1{font-size:20px;}
+.nav-mao-wode1{font-size:20px;}
