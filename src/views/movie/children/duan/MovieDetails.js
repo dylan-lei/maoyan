@@ -1,5 +1,9 @@
-import React,{Component}from 'react'
-export default class MovieDetails extends Component{
+import React,{Component}from 'react';
+import '../../../../assets/style/Movie/MovieDetails.css'
+import{
+    connect
+}from 'react-redux'
+class MovieDetails extends Component{
     render(){
         return(
             <div>
@@ -10,10 +14,11 @@ export default class MovieDetails extends Component{
                         </a>
                     </div>
                     <h1 className="Movie-nav-header-name">名侦探柯南：绀青之拳</h1>
+                    <div className='whiteBlock'></div>
                 </header>
                 <div className="Movie-detail">
                     <div className="Movie-filter"></div>
-                    <div className="Movie-poster-bg" style="background-image:url(//p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"></div>
+                    <div className="Movie-poster-bg" style={{backgroundImage:"url(//p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"}}></div>
                     <div className="Movie-detail-context">
                         <div className="Movie-detail-context-poster">
                             <img src="http://p0.meituan.net/148.208/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg" alt=""/>
@@ -46,4 +51,13 @@ export default class MovieDetails extends Component{
             
         )
     }
+    async getDetails(){
+        const {detailsId} = this.props.location.state
+        const data =await this.axios('detailmovie/'+detailsId)
+        console.log(data)
+    }
+    componentDidMount(){
+        this.getDetails()
+    }
 }
+export default MovieDetails
