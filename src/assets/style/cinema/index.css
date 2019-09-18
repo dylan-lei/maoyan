@@ -129,14 +129,14 @@
     color: #f03d37;
 }
 
-.cinema-list .item .location{
+.cinema-list .item .locationindex{
     margin-top: 6px;
     font-size: 13px;
     color: #666;
     display: flex;
     line-height: 1.5;
 }
-.cinema-list .item .location .location-item{
+.cinema-list .item .locationindex .location-item{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -145,7 +145,7 @@
     -webkit-box-flex: 1;
     flex: 1;
 }
-.cinema-list .item .location .distance{
+.cinema-list .item .locationindex .distance{
     margin-left: 5px;
 }
 .cinema-list .item .discount{

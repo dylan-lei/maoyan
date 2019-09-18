@@ -4,7 +4,7 @@ import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
 import Head from '../views/cinema/details/Head'
-
+import Search from '../views/cinema/index/Search'
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
 import Movie from "../views/movie/Movie"
@@ -26,6 +26,11 @@ export default [
         path:"/zdetails",
         component:Head,
         title:"影院详情页",
+    },
+    {
+        path:"/cinemasearch",
+        component:Search,
+        title:"影院搜索",
     },
     {
         path:"/city",
