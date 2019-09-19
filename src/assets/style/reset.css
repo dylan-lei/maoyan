@@ -52,6 +52,17 @@ q:before, q:after {
     content: '';
     content: none;
 }
+/*ui的样式*/
+.am-search {
+    border-bottom: 1px solid #ddd;
+    touch-action: none;
+}
+.sub-title {
+    color: #888;
+    font-size: 14px;
+    padding: 30px 0 18px 0;
+    touch-action: none;
+}
 
 table {
     border-collapse: collapse;
