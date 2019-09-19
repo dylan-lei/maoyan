@@ -9,7 +9,6 @@ const tabs = [
 const TabExample = () => (
     <div>
         <Tabs tabs={tabs}
-              initialPage={1}
               onChange={(tab, index) => { console.log('onChange', index, tab); }}
               onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
         >

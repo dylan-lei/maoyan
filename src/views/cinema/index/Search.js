@@ -1,12 +1,12 @@
 import React from "react"
 import "../../../assets/style/movieSeek.css"
-import {SearchBar, ActivityIndicator} from 'antd-mobile';
+import {SearchBar} from 'antd-mobile';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux"
 import actionSeek from "../../../store/actionCreate/common/seek"
 import loding from "../../../components/loding"
 
-class CinemaSearch extends React.Component {
+class MovieSeek extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -159,4 +159,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(loding(CinemaSearch))
+export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(loding(MovieSeek))
