@@ -7,7 +7,7 @@ class MovieSeek extends React.Component{
                 {/*顶部导航*/}
                 <header className="navbar">
                     <div className="nav-warp-left" onClick={()=>{this.props.history.go(-1)}}>
-                        <a href="#" className="back">
+                        <a href='##' className="back">
                             <i className="icon-back"></i>
                         </a>
                     </div>

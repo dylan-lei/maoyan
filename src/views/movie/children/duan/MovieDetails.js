@@ -1,16 +1,26 @@
 import React,{Component}from 'react';
-import '../../../../assets/style/Movie/MovieDetails.css'
+import "../../../../assets/style/Movie/MovieDetails.css"
+import{
+    connect
+}from 'react-redux'
+import {
+    bindActionCreators
+}from 'redux'
+import MovieDetail from '../../../../store/actionCreate/movie/MovieDetail'
 class MovieDetails extends Component{
     render(){
+        console.log(this.props)
+        const {movieDetail} = this.props.movieDetail
+        // console.log((movieDetail.img+"").replace(/w.h/,''))
         return(
             <div>
                 <header className="Movie-navbar">
-                    <div className="Movie-nav-header-left">
+                    <div className="Movie-nav-header-left" onClick={()=>{this.props.history.go(-1)}}>
                         <a href="##" className="Movie-nav-header-back">
                             <i className="iconfont mao-zuofanhui1"></i>
                         </a>
                     </div>
-                    <h1 className="Movie-nav-header-name">名侦探柯南：绀青之拳</h1>
+                    <h1 className="Movie-nav-header-name">{movieDetail.nm}</h1>
                     <div className='whiteBlock'></div>
                 </header>
                 <div className="Movie-detail">
@@ -21,17 +31,17 @@ class MovieDetails extends Component{
                     <div className="Movie-poster-bg" style={{backgroundImage:"url(//p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"}}></div>
                     <div className="Movie-detail-context">
                         <div className="Movie-detail-context-poster">
-                            <img src="http://p0.meituan.net/148.208/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg" alt=""/>
+                            <img src ={(movieDetail.img+"").replace(/w.h/,'')} alt=""/>
                         </div>
                         <div className="Movie-detail-context-content">
-                                <div className="Movie-detail-context-content-title">名侦探柯南：绀青之拳</div>
-                                <div className="Movie-title-en-name">名探偵コナン 紺青の拳</div>
-                                <div className="Movie-score">8.9<span className="Movie-score-snum">(15.4人评论)</span></div>
+                                <div className="Movie-detail-context-content-title">{movieDetail.nm}</div>
+                                <div className="Movie-title-en-name">{movieDetail.enm}</div>
+                                <div className="Movie-score">{movieDetail.sc}<span className="Movie-score-snum">(15.4人评论)</span></div>
                                 <div className="Movie-detail-type">
-                                    <span>动画,悬疑,动作</span>
+                                    <span>{movieDetail.cat}</span>
                                 </div>
-                                <div className="Movie-detail-time">日本/110分钟</div>
-                                <div className="Movie-detail-pubDesc">2019-09-13大陆上映</div>
+                                <div className="Movie-detail-time">{movieDetail.src}/{movieDetail.episodeDur}分钟</div>
+                                <div className="Movie-detail-pubDesc">{movieDetail.pubDesc}</div>
                             </div>
                     </div>
                     <div className="Movie-arrow-g">
@@ -51,13 +61,17 @@ class MovieDetails extends Component{
             
         )
     }
-    async getDetails(){
-        const {detailsId} = this.props.location.state
-        const data =await this.axios('detailmovie/'+detailsId)
-        console.log(data)
-    }
     componentDidMount(){
-        this.getDetails()
+        this.props.getDetails()
     }
 }
-export default MovieDetails
+function mapStateToProps(state){
+    // console.log(state)
+    return {
+        movieDetail:state.moves.movesDetail
+    }
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(MovieDetail,dispatch)
+}
+export default connect(mapStateToProps,mapDispatchToProps) (MovieDetails)

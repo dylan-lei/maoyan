@@ -9,7 +9,7 @@ class CinemaSearch extends React.Component{
                     <div onClick={()=>{
                         this.props.history.go(-1)
                     }} className="nav-warp-left">
-                        <a href="#" className="back">
+                        <a href="##" className="back">
                             <i className="icon-back">
                             </i>
                         </a>

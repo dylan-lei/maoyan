@@ -7,7 +7,7 @@ class Longin extends React.Component{
                   {/*顶部标题、返回*/}
                   <header className="p-navbar">
                       <div className="p-nav-wrap-left" onClick={()=>{
-                          this.props.history.go(-1);
+                          this.props.history.push("/nav");
                       }}>
                           <span className="iconfont mao-fanhui"></span>
                       </div>

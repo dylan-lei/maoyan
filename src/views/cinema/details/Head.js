@@ -1,5 +1,6 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
+import Cinema from "./Cinema"
 
 class Head extends React.Component{
     constructor(){
@@ -18,7 +19,7 @@ class Head extends React.Component{
           <div>
               <header className="navbar">
                   <div className="nav-warp-left">
-                      <a href="#" className="back">
+                      <a href="##" className="back">
                           <i className="icon-back">
                           </i>
                       </a>
@@ -36,6 +37,7 @@ class Head extends React.Component{
               </div>
 
 
+                    <Cinema></Cinema>
           </div>
 
         )

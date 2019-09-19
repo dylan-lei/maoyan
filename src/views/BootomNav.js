@@ -8,24 +8,26 @@ class BootomNav extends React.Component {
         const router=Routers[Routers.length-1].children;
         return (
             <>
-            <Redirect  from={"/nav"} to={"/nav/movie"}/>
+
                 <Switch>
                     {
                         router.map((item,i)=>{
-                            return   <Route key={i} path={item.path}  component={item.component}/>
+                            return   <Route key={i} path={item.path} component={item.component}/>
                         })
                     }
+                    <Redirect  from={"/nav"} to={"/nav/movie"}/>
                 </Switch>
+
                 <nav className="bottom-nav-bar">
-                    <NavLink to={"/nav/movie/hot"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
+                    <NavLink to={"/nav/movie"} activeStyle={{color: "#f03d37"}}  className="nav-icon-wrapper">
                         <span className="iconfont icon mao-movie-cl"></span>
                         <span className="nav-text">电影</span>
                     </NavLink>
-                    <NavLink to={"/nav/cinema"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
+                    <NavLink to={"/nav/cinema"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
                         <span className="iconfont icon mao-yingyuan1 nav-mao-yingyuan1"></span>
                         <span className="nav-text">影院</span>
                     </NavLink>
-                    <NavLink to={"/nav/my"} activeStyle={{color: "#f03d37"}} exact className="nav-icon-wrapper">
+                    <NavLink to={"/nav/my"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
                         <span className="iconfont icon mao-wode1 nav-mao-wode1"></span>
                         <span className="nav-text">我的</span>
                     </NavLink>
