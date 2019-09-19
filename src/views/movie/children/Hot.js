@@ -10,7 +10,6 @@ class BeingMovieBox extends Component {
     render() {
         const {nowMovieList} = this.props
          const {history} = this.props
-        // console.log(this.props.history)
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
@@ -51,11 +50,11 @@ class BeingMovieBox extends Component {
             </div>
         )
     }
-    componentDidMount(){
-       this.props.getNowMovieList()
+    componentDidMount() {
+        this.props.getNowMovieList()
     }
 }
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return{
         nowMovieList:state.moves.movesnow.nowMovieList
     }

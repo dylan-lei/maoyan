@@ -1,25 +1,19 @@
 import React from "react";
 export default class MostExpected extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      coming: []
-    }
-  }
   render() {
-    const { coming } = this.state;
+    const releaseList = this.props.releaseList;
     return (
-      <div className="coming-list">
+      <div className="releaseList-list">
         {
-          coming.map((v, i) => {
+          releaseList.map((v, i) => {
             i = (i<1?i+1:i-1);
             return (
               <div key={v.id}>
                 <p className="group-date" style={
                   {
-                  display:v.comingTitle === coming[i].comingTitle?"none":'block'
+                  display:v.releaseListTitle === releaseList[i].releaseListTitle?"none":'block'
                   }
-                }>{v.comingTitle}</p>
+                }>{v.releaseListTitle}</p>
                 <div className="item">
                   <div className="main-block">
                     <div className="avatar">
@@ -61,13 +55,7 @@ export default class MostExpected extends React.Component {
       </div>
     );
   }
-  async gitRelease() {
-    const { data } = await this.axios.get('comingList');
-    this.setState({
-      coming:data.coming
-    })
-  }
   componentDidMount() {
-    this.gitRelease();
+    this.props.gitReleaseList();
   }
 }

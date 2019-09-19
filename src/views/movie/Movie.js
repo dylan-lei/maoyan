@@ -36,7 +36,6 @@ class Movie extends React.Component {
 
                 <div className='bottom-Occupying'></div>
             </div>
-            
         );
     }
 }
