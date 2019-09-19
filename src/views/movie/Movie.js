@@ -21,7 +21,7 @@ class Movie extends React.Component {
                         <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' exact={true} to={'/nav/movie/hot'}>正在热映</NavLink>
                         <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' to={'/nav/movie/about'}>即将上映</NavLink>
                     </nav>
-                    <div className='iconfont mao-sousuo index-search-entry'></div>
+                    <div className='iconfont mao-sousuo index-search-entry' onClick={()=>{this.props.history.push("/movieseek")}}></div>
                 </div>
                 <div className='Occupying'></div>
                 <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
@@ -34,23 +34,6 @@ class Movie extends React.Component {
                  </Switch>  
                 <div className='bottom-Occupying'></div>
             </div>
-            // <div>
-            //     我是电影
-            //     <nav>
-
-            //         <NavLink to={"/nav/movie/hot"}>热映</NavLink>/
-            //         <NavLink to={"/nav/movie/about"}>即将上映</NavLink>
-            //     </nav>
-
-            //     <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
-            //     <Switch>
-            //         {
-            //             router.map((item, i) => {
-            //                 return <Route key={i} path={item.path} exact={item.exact} component={item.component}/>
-            //             })
-            //         }
-            //     </Switch>
-            // </div>
         );
     }
 }

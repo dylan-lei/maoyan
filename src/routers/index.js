@@ -4,6 +4,9 @@ import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
 import Head from '../views/cinema/details/Head'
+import MovieSeek from "../views/common/MovieSeek"
+import Search from '../views/cinema/index/Search'
+
 
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
@@ -18,6 +21,11 @@ import About from "../views/movie/children/About"
 export default [
     //一级路由，页面跳转
     {
+        path:"/movieseek",
+        component:MovieSeek,
+        title:"电影模块上的搜索",
+    },
+    {
         path:"/details",
         component:Details,
         title:"正在热映电影详情",
@@ -26,6 +34,11 @@ export default [
         path:"/zdetails",
         component:Head,
         title:"影院详情页",
+    },
+    {
+        path:"/cinemasearch",
+        component:Search,
+        title:"影院搜索",
     },
     {
         path:"/city",
@@ -56,19 +69,18 @@ export default [
             {
                 path:"/nav/movie",
                 component:Movie,
-                exact:true,
+                exact:false,
                 title:"电影",
                 children:[
                     {
                         path:"/nav/movie/about",
                         component:About,
-                        title:"即将上映"
+                        title:"即将上映",
                     },
                     {
                         path:"/nav/movie/hot",
                         component:Hot,
                         title:"正在热映",
-                        exact:true
                     }
                 ]
             },

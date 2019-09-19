@@ -17,7 +17,7 @@ class BootomNav extends React.Component {
                     }
                 </Switch>
                 <nav className="bottom-nav-bar">
-                    <NavLink to={"/nav/movie/hot"} activeStyle={{color: "#f03d37"}}  className="nav-icon-wrapper">
+                    <NavLink to={"/nav/movie/hot"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
                         <span className="iconfont icon mao-movie-cl"></span>
                         <span className="nav-text">电影</span>
                     </NavLink>

@@ -21,7 +21,6 @@ class Head extends React.Component{
                   <div className="nav-warp-left">
                       <a href="#" className="back">
                           <i className="icon-back">
-
                           </i>
                       </a>
                   </div>

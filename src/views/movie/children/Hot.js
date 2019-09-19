@@ -1,29 +1,24 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import{
     connect
 }from 'react-redux'
 import {
     bindActionCreators
 }from 'redux'
-import{
-    withRouter
-}from 'react-router-dom'
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
     render() {
         const {nowMovieList} = this.props
-        // const {histroy} = this.props
-        console.log(this.props)
+         const {history} = this.props
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
                 {
                     nowMovieList.map(v=>(
-                        <div key={v.id} onClick={()=>{console.log(111)}}>
+                        <div key={v.id} onClick={()=>{history.push({pathname:'/details',state:{detailsId:v.id}})}}>
                             <div className="main_block">
                                 <div className="avatar_left">
-                                    <img src={v.img.replace(/w.h/,'')} />
+                                    <img src={v.img.replace(/w.h/,'')} alt='' />
                                 </div>
                                 <div className="avatar_right">
                                     <div className="box-context">
@@ -55,11 +50,11 @@ class BeingMovieBox extends Component {
             </div>
         )
     }
-    componentDidMount(){
-       this.props.getNowMovieList()
+    componentDidMount() {
+        this.props.getNowMovieList()
     }
 }
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return{
         nowMovieList:state.moves.movesnow.nowMovieList
     }
@@ -67,4 +62,4 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return bindActionCreators(movieListCreate,dispatch)
 }
-export default connect(mapStateToProps,mapDispatchToProps) (withRouter(BeingMovieBox))
+export default connect(mapStateToProps,mapDispatchToProps) (BeingMovieBox)
