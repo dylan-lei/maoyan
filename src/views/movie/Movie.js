@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Route, Switch,Redirect,Link} from 'react-router-dom'
 import Routers from "../../routers"
-import '../../assets/style/Movie/nowhot.css'
+import "../../assets/style/movie/nowhot.css"
 class Movie extends React.Component {
     render() {
         const router=Routers[Routers.length-1].children[Routers[Routers.length-1].children.length-1].children;

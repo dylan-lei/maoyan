@@ -1,20 +1,20 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
+// import Goods from "./Goods"
+import {
+    connect
+}from "react-redux"
+import {
+    bindActionCreators
+} from "redux"
+import actionCreate from "../../../store/actionCreate/cinemaDetails"
+
 
 class Head extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            cinemaData:[]
-
-        }
-    }
-
-
     render(){
-        const {cinemaData} = this.state;
-        console.log(cinemaData)
+        const {cinemaData} = this.props
+        console.log(this.props)
         return(
           <div>
               <header className="navbar">
@@ -38,26 +38,37 @@ class Head extends React.Component{
 
 
                     <Cinema></Cinema>
+                    {/*<Goods></Goods>*/}
           </div>
 
         )
     }
 
-    async listMore(){
-        //const {data} = await this.axios.get("/maoyan/ajax/cinemaDetail?cinemaId=26195&movieId=359377")
-        const {data} = await this.axios.get("cinemaDetail/?cinemaId="+26195);
-        console.log(data)
-        this.setState({
-            cinemaData:data.cinemaData
-        })
-    }
+    // async listMore(){
+    //     //const {data} = await this.axios.get("/maoyan/ajax/cinemaDetail?cinemaId=26195&movieId=359377")
+    //     const {data} = await this.axios.get("cinemaDetail/?cinemaId="+107);
+    //     console.log(data)
+    //     this.setState({
+    //         cinemaData:data.cinemaData
+    //     })
+    // }
 
     componentDidMount() {
-        this.listMore();
-
+        //this.listMore();
+        this.props.getCinemaData();
     }
 
 }
+function mapStateProps(state){
+    return{
+        cinemaData:state.cinema.cinemaDetails.cinemaData
+    }
+
+}
+function mapDispatchProps(dispatch){
+    return bindActionCreators(actionCreate,dispatch)
+}
+export default connect(mapStateProps,mapDispatchProps)(Head)
 
 
-export default Head;
+

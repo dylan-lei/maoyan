@@ -1,5 +1,59 @@
 import React from 'react';
+import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
 import "../../assets/style/login/login.css"
+
+const tabs = [
+    { title: <Badge text={''}>美团账号登录</Badge> },
+    { title: <Badge text={''}>手机验证登录</Badge> }
+];
+const TabExample = () => (
+    <div>
+        <Tabs tabs={tabs}
+              onChange={(tab, index) => { console.log('onChange', index, tab); }}
+              onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+        >
+                {/*美团账号登录*/}
+                <div id="normal-login-form">
+                    <dl className="p-list p-list-in">
+                        <dd>
+                            <dl className="p-input ">
+                                <dd className=" kv-line-r ">
+                                    <input className="input-weak" type="text" placeholder="账户名/手机号/Email"/>
+                                </dd>
+                                <dd className="kv-line-r">
+                                    <input className="input-weak" type="password" placeholder="请输入您的密码"/>
+                                </dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                    <div className="btn-wrapper">
+                        <button className="login-btn">登录</button>
+                    </div>
+                </div>
+                {/*手机登录验证*/}
+                <div id="normal-login-form">
+                    <dl className="p-list p-list-in">
+                        <dd>
+                            <dl className="p-input ">
+                                <dd className=" kv-line-r ">
+                                    <input className="input-weak mobile-input" type="text" placeholder="账户名/手机号/Email"/>
+                                    <button className="p-btn btn-weak" disabled>获取验证码</button>
+                                </dd>
+                                <dd className="kv-line-r">
+                                    <input className="input-weak" type="password" disabled   placeholder="请输入短信验证码"/>
+                                </dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                    <div className="btn-wrapper">
+                        <button className="login-btn" disabled style={{backgroundColor: "#dcdcdc",color:"#999" }}>登录</button>
+                    </div>
+                </div>
+        </Tabs>
+        <WhiteSpace />
+    </div>
+);
+
 class Longin extends React.Component{
     render(){
         return (
@@ -16,60 +70,8 @@ class Longin extends React.Component{
                       </h1>
                   </header>
                   {/*登录*/}
-                  <div id="p-login">
-                      <dl className="p-list">
-                          <dd className="p-list-nav">
-                              <ul className="p-taba">
-                                  <li className="p-active">
-                                      <a href="##" className="p-react">美团账号登录</a>
-                                  </li>
-                                  <li className="p-active">
-                                      <a href="##" className="p-react">手机验证登录</a>
-                                  </li>
-                                  {/*active*/}
-                                  <div className="p-solid"></div>
-                              </ul>
-                          </dd>
-                      </dl>
-                      {/*美团账号登录*/}
-                      <div id="normal-login-form" style={{display: "block"}} >
-                          <dl className="p-list p-list-in">
-                              <dd>
-                                  <dl className="p-input ">
-                                      <dd className=" kv-line-r ">
-                                          <input className="input-weak" type="text" placeholder="账户名/手机号/Email"/>
-                                      </dd>
-                                      <dd className="kv-line-r">
-                                          <input className="input-weak" type="password" placeholder="请输入您的密码"/>
-                                      </dd>
-                                  </dl>
-                              </dd>
-                          </dl>
-                          <div className="btn-wrapper">
-                              <button className="login-btn">登录</button>
-                          </div>
-                      </div>
-                      {/*手机登录验证*/}
-                      <div id="normal-login-form" style={{display: "none"}}>
-                          <dl className="p-list p-list-in">
-                              <dd>
-                                  <dl className="p-input ">
-                                      <dd className=" kv-line-r ">
-                                          <input className="input-weak mobile-input" type="text" placeholder="账户名/手机号/Email"/>
-                                              <button className="p-btn btn-weak" disabled>获取验证码</button>
-                                      </dd>
-                                      <dd className="kv-line-r">
-                                          <input className="input-weak" type="password" disabled   placeholder="请输入短信验证码"/>
-                                      </dd>
-                                  </dl>
-                              </dd>
-                          </dl>
-                          <div className="btn-wrapper">
-                              <button className="login-btn" disabled style={{backgroundColor: "#dcdcdc",color:"#999" }}>登录</button>
-                          </div>
-                      </div>
-                  </div>
-                  {/*立即注册，找回密码*/}
+                  <TabExample/>
+
                   <ul className="subline">
                       <li>
                           <a href="##" className="subline-text-color">立即注册</a>
@@ -84,6 +86,7 @@ class Longin extends React.Component{
                           <span className="copyright">© 猫眼电影 客服电话：<a href="##">400-670-5335</a></span>
                       </div>
                   </footer>
+
               </div>
         );
     }
