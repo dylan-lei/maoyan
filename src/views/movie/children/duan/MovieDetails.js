@@ -1,6 +1,5 @@
-import React,{Component}from 'react';
-import "../../../../assets/style/Movie/MovieDetails.css"
-
+import React, { Component } from 'react';
+import "../../../../assets/style/Movie/movieDetails.css"
 import{
     connect
 }from 'react-redux'

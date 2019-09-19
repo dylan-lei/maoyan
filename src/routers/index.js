@@ -6,6 +6,12 @@ import Details from '../views/movie/children/duan/MovieDetails'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
+// 我的模块
+import MyMovie from '../views/my/children/MyMovie'
+import MyShop from '../views/my/children/MyShop'
+import MyOnLine from '../views/my/children/MyOnLine'
+import MyOnSale from '../views/my/children/MyOnSale'
+import MyDiscount from '../views/my/children/MyDiscount'
 
 
 //底部导航栏的子路由（二级路由）
@@ -20,6 +26,36 @@ import About from "../views/movie/children/About"
 
 export default [
     //一级路由，页面跳转
+    {
+        path: "/mymovie",
+        component: MyMovie,
+        title: "我的->电影",
+        exact: false
+    },
+    {
+        path: "/myshop",
+        component: MyShop,
+        title: "我的->商城",
+        exact: false
+    },
+    {
+        path: "/myonline",
+        component: MyOnLine,
+        title: "我的->在线观影",
+        exact: false
+    },
+    {
+        path: "/myonsale",
+        component: MyOnSale,
+        title: "我的->优惠券",
+        exact: false
+    },
+    {
+        path: "/mydiscount",
+        component: MyDiscount,
+        title: "我的->折扣卡",
+        exact: false
+    },
     {
         path:"/movieseek",
         component:MovieSeek,

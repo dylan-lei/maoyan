@@ -4,7 +4,7 @@ export default class ExactSelect extends React.Component{
     render() {
         return(
             <section style={{background:"#fff"}}>
-                <div className={"line"}>qq</div>
+                <div className={"l-line"}>qq</div>
             </section>
         )
     }

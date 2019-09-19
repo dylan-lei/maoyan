@@ -1,6 +1,6 @@
 import React from "react"
 import "../../assets/style/movieSeek.css"
-import {SearchBar, ActivityIndicator} from 'antd-mobile';
+import {SearchBar} from 'antd-mobile';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux"
 import actionSeek from "../../store/actionCreate/common/seek"
@@ -37,7 +37,6 @@ class MovieSeek extends React.Component {
         }
         return (
             <div className="p-cinema-search">
-
                 {/*顶部导航*/}
                 <header className="navbar">
                     <div className="nav-warp-left" onClick={() => {

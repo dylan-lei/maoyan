@@ -13,7 +13,7 @@
 }
 /* 上边的轮播图 */
 .list-wrap .most-expected {
-    padding: 12px 0 30px 15px;
+    padding: 12px 0 25px 15px;
     background-color: #fff;
     margin-bottom: 15px;
 }
@@ -28,19 +28,23 @@
     white-space: nowrap;
     overflow-y: hidden;
     margin-bottom: -15px;
-    width: 326px;
+    width: 94%;
+    /* padding-left: 20px; */
 }
 .list-wrap .most-expected-list::-webkit-scrollbar {
     display: none;
 }
 .list-wrap .expected-item {
     display: inline-block;
-    width: 85px;
+    width: 90px;
     overflow: hidden;
     margin-right: 15px;
 }
+.list-wrap .expected-item:last-child{
+    margin-right: 0;
+}
 .list-wrap .expected-item .poster {
-    width: 85px;
+    width: 90px;
     height: 115px;
     position: relative;
     margin-bottom: 6px;
@@ -93,7 +97,7 @@
     height: 10px;
     background-size: 100%;
 }
-.list-wrap .expected-item .name {
+.list-wrap .expected-item .z-name {
     margin: 0;
     font-size: 13px;
     color: #222;
@@ -171,7 +175,7 @@
     overflow: hidden;
     position: relative;
 }
-.list-wrap .item .name,
+.list-wrap .item .z-name,
 .list-wrap .item .title {
     font-size: 17px;
     color: #333;
@@ -235,7 +239,7 @@
 .list-wrap .item .button-block {
     font-size: 12px;
     position: absolute;
-    right: 14px;
+    right: 20px;
     top: 0;
     bottom: 0;
     height: 27px;
@@ -243,6 +247,9 @@
 }
 .list-wrap .item .button-block .btn.pre {
     background-color: #3c9fe6;
+}
+.list-wrap .item .button-block .btn.y-pre {
+    background-color: #faaf00;
 }
 .list-wrap .item .button-block .btn {
     width: 47px;

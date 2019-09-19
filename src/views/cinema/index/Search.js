@@ -37,7 +37,6 @@ class MovieSeek extends React.Component {
         }
         return (
             <div className="p-cinema-search">
-
                 {/*顶部导航*/}
                 <header className="navbar">
                     <div className="nav-warp-left" onClick={() => {
