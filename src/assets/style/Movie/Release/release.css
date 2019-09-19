@@ -13,7 +13,7 @@
 }
 /* 上边的轮播图 */
 .list-wrap .most-expected {
-    padding: 12px 0 30px 15px;
+    padding: 12px 0 15px 15px;
     background-color: #fff;
     margin-bottom: 15px;
 }
@@ -93,7 +93,7 @@
     height: 10px;
     background-size: 100%;
 }
-.list-wrap .expected-item .name {
+.list-wrap .expected-item .z-name {
     margin: 0;
     font-size: 13px;
     color: #222;
@@ -171,7 +171,7 @@
     overflow: hidden;
     position: relative;
 }
-.list-wrap .item .name,
+.list-wrap .item .z-name,
 .list-wrap .item .title {
     font-size: 17px;
     color: #333;
