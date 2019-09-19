@@ -10,7 +10,7 @@ export const changeCinemaList = (payload) => {
 export default {
     getCinemaList() {
         return async (dispatch) => {
-            const data = await axios.get("cinemaList")
+            const data = await axios.get("cinemaList?offset="+this.offset)
             dispatch(changeCinemaList(data.cinemas))
         }
     }

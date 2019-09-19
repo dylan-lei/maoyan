@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Route, Switch,Redirect,Link} from 'react-router-dom'
 import Routers from "../../routers"
-import '../../assets/style/Movie/nowhot.css'
+import "../../assets/style/Movie/nowhot.css"
 class Movie extends React.Component {
     render() {
         const router=Routers[Routers.length-1].children[Routers[Routers.length-1].children.length-1].children;
@@ -18,20 +18,22 @@ class Movie extends React.Component {
                         <i className='city-entry-arrow'></i>
                     </div>
                     <nav className='index-switch-hot'>
-                        <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' exact={true} to={'/nav/movie/hot'}>正在热映</NavLink>
+                        <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' to={'/nav/movie/hot'}>正在热映</NavLink>
                         <NavLink activeStyle={{color:"#ef4238",borderBottom:"2px solid #ef4238"}} className='nav-index-title' to={'/nav/movie/about'}>即将上映</NavLink>
                     </nav>
                     <div className='iconfont mao-sousuo index-search-entry' onClick={()=>{this.props.history.push("/movieseek")}}></div>
                 </div>
                 <div className='Occupying'></div>
-                <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
+
                  <Switch>
                      {
                          router.map((item, i) => {
-                             return <Route key={i} path={item.path} exact={item.exact} component={item.component}/>
+                             return <Route key={i} path={item.path}  component={item.component}/>
                          })
                      }
-                 </Switch>  
+                     <Redirect from={"/nav/movie"} to={"/nav/movie/hot"}/>
+                 </Switch>
+
                 <div className='bottom-Occupying'></div>
             </div>
         );
