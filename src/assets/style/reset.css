@@ -89,7 +89,7 @@ a {
 
 html, body {
     /*width: 100%;*/
-    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", "微软雅黑";
+    font-family:PingFangSC-Regular,Hiragino Sans GB,sans-serif;
 }
 
 body {

@@ -1,4 +1,3 @@
-
 import {CHANGE_CINEMA_LIST} from "../../actionType/cinema";
 import axios from 'axios'
 export const changeCinemaList = (payload) => {
