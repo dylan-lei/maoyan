@@ -5,7 +5,20 @@ import ComingList from '../children/zhang/ComingList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ReleaseList from '../../../store/actionCreate/movie/Release'
+import loding from "../../../components/loding"
 class Release extends React.Component {
+    constructor(){
+        super();
+        this.state={
+            animating:true
+        }
+    }
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({ animating:false});
+        },200)
+
+    }
     render() {
         return (
             <div className="page-wrap">
@@ -33,4 +46,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(ReleaseList,dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (Release);
+export default connect(mapStateToProps,mapDispatchToProps) (loding(Release));

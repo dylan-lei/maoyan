@@ -1,0 +1,5 @@
+//这是改变搜索到的影院，和电影的type
+export const CHANGE_SEARCHMOVIE_LIST = "CHANGE_SEARCHMOVIE_LIST";
+
+//这是改变搜索关键字的记录
+export const CHANGE_SEARCHRECORD_LIST = "CHANGE_SEARCHRECORD_LIST";
