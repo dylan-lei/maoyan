@@ -74,7 +74,9 @@
 
 
 
-
+body{
+    background:#fff;
+}
 
 /* 顶部样式 */
 .navbar {
@@ -172,12 +174,16 @@
     height: 22px;
     margin-top: 5px;
 }
+
+
+
+
 .cinema-nav {
-    padding: 20px 0;
-    padding-left: 5px;
-    padding-right: 15px;
+    padding: 20px 15px 0 5px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+
+
 }
 .swiper-container {
     margin-left: auto;
@@ -198,6 +204,7 @@
     filter: blur(30px);
     background-position-y: 40%;
     background-image:url(http://p0.meituan.net/148.208/movie/2918a5e403dde6e4254941968d7719ce3942369.jpg);
+
 }
 .cinema-nav .post-bg-filter {
     position: absolute;
@@ -219,8 +226,9 @@
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
-    box-sizing: content-box;
     transform: translate3d(57.5px, 0px, 0px); transition-duration: 0ms;
+    box-sizing: content-box;
+
 }
 .cinema-nav .swiper-slide.swiper-slide-active {
     padding-right: 5px;
