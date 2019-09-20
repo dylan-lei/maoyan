@@ -1,31 +1,46 @@
 import React from "react"
 import "../../assets/style/movieSeek.css"
-import {SearchBar, ActivityIndicator} from 'antd-mobile';
+import {SearchBar} from 'antd-mobile';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux"
 import actionSeek from "../../store/actionCreate/common/seek"
-import loding from  "../../components/loding"
+import loding from "../../components/loding"
+
 class MovieSeek extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             key: "",
-            animating:true
+            animating: true
         }
     }
-    componentDidMount(){
-        setTimeout(()=>{
-            this.setState({ animating:false});
-        },200)
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({animating: false});
+        }, 200)
 
     }
+
     render() {
         let recordList = this.props.searchRecordList.length > 0 ? this.props.searchRecordList : [];
         let movieList = this.props.searchMovie.movies ? this.props.searchMovie.movies : [];
         movieList = movieList.list && this.state.key.length > 0 ? movieList.list : [];
+        const num = movieList.length;
+        let arr = [];
+        if (movieList.length >= 3) {
+            for (let i = 0; i < movieList.length; i++) {
+                if (i >= 3) break;
+                arr.push(movieList[i]);
+
+
+
+                
+            }
+            movieList = arr;
+        }
         return (
             <div className="p-cinema-search">
-
                 {/*顶部导航*/}
                 <header className="navbar">
                     <div className="nav-warp-left" onClick={() => {
@@ -49,7 +64,7 @@ class MovieSeek extends React.Component {
                     />
 
                     {/*搜索记录*/}
-                    <div className="search-history" style={{display: (movieList.length <= 0 ? "block" : "none")}}>
+                    <div className="search-history" style={{display: (num <= 0 ? "block" : "none")}}>
                         {
                             recordList.map((v, i) => (
                                 <div className="history-item" key={i} onClick={() => {
@@ -109,12 +124,12 @@ class MovieSeek extends React.Component {
                                     ))
                                 }
                                 <div className="search-history "
-                                     style={{display: (movieList.length > 3 ? "block" : "none")}}>
+                                     style={{display: (num > 3 ? "block" : "none")}}>
                                     <div className={"history-item"} style={{
                                         textAlign: "center", justifyContent: "center", fontSize: "15px",
                                         color: "#ef4238"
                                     }}>
-                                        查看全部{movieList.length}部影视剧
+                                        查看全部{num}部影视剧
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +144,7 @@ class MovieSeek extends React.Component {
     onChange = (value) => {
         this.setState({key: value});
         this.props.getMovieList(value);
-        if (value.length >= 3) {
+        if (value.length >= 2) {
             this.props.changeSearchRecord_props(value)
         }
     };

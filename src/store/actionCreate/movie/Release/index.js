@@ -1,7 +1,5 @@
 import {
-    CHANGE_RELEASE_EXPECTED_LIST
-} from '../../../actionType/movie/Release'
-import {
+    CHANGE_RELEASE_EXPECTED_LIST,
     CHANGE_COMING_LIST
 } from '../../../actionType/movie/Release'
 import axios from 'axios';

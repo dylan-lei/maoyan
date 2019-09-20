@@ -34,14 +34,6 @@ class Up extends React.Component{
             useBodyScroll: false
         };
     }
-    // componentDidUpdate() {
-    //     if (this.state.useBodyScroll) {
-    //         document.body.style.overflow = 'auto';
-    //     } else {
-    //         document.body.style.overflow = 'hidden';
-    //     }
-    // }
-
     componentDidMount() {
         this.props.getCinemaList();
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
@@ -72,13 +64,6 @@ class Up extends React.Component{
             });
         }, 1000);
     };
-    // componentWillReceiveProps(nextProps) {
-    //   if (nextProps.dataSource !== this.props.dataSource) {
-    //     this.setState({
-    //       dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
-    //     });
-    //   }
-    // }
     render(){
         const data=this.props.cinemaList || []
         let index = data.length - 1;
@@ -95,7 +80,7 @@ class Up extends React.Component{
                      }}
                      className={"cinema-list"}
                 >
-                    <div className={"item line"} key={v.id}>
+                    <div className={"item line"} >
                         <div className={"title"}>
                             <span>{v.nm}</span>
                             <span className={"price-block"}>

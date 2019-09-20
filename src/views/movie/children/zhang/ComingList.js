@@ -3,17 +3,29 @@ export default class MostExpected extends React.Component {
   render() {
     const releaseList = this.props.releaseList;
     return (
-      <div className="releaseList-list">
+      <div className="coming-list">
         {
           releaseList.map((v, i) => {
-            i = (i<1?i+1:i-1);
+            let bol = true;
+            for (let n = 0; n < releaseList.length; n++){
+              if (v.comingTitle === releaseList[n].comingTitle) {
+                bol = true;
+                if (i === 0 && n === 0) {
+                  bol = !bol;
+                  break;
+                }
+              } else {
+                bol = false;
+                break;
+              }
+            }
             return (
               <div key={v.id}>
                 <p className="group-date" style={
                   {
-                  display:v.releaseListTitle === releaseList[i].releaseListTitle?"none":'block'
+                  display: bol ? "none" : 'block'
                   }
-                }>{v.releaseListTitle}</p>
+                }>{v.comingTitle}</p>
                 <div className="item">
                   <div className="main-block">
                     <div className="avatar">
@@ -41,8 +53,10 @@ export default class MostExpected extends React.Component {
                         </div>
                       </div>
                       <div className="button-block">
-                        <div className="btn pre">
-                          <span className="fix">预售</span>
+                        < div className = {
+                          v.showst === 4 ? 'btn pre' : 'btn y-pre'
+                        } >
+                          <span className="fix">{v.showst===4?'预售':'想看'}</span>
                         </div>
                       </div>
                     </div>

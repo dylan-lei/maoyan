@@ -1,6 +1,11 @@
 .login{
-    background-color: #f8f8f8;
     height: 100%;
+}
+.am-tabs-default-bar-tab-active {
+    color: black !important;
+}
+.am-tabs-default-bar-underline {
+    border: 2px  #FFC300 solid;
 }
 /*顶部导航*/
 .p-navbar {
@@ -125,6 +130,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .p-list-in .input-weak {

@@ -94,8 +94,7 @@ class ExactSelect extends React.Component {
                 {show ? initData ? menuEl : loadingEl : null}
                 {show ? <div className="menu-mask" onClick={this.onMaskClick} /> : null}
             </div>
-        );
-    }
+        );}
 }
 
 export default ExactSelect
