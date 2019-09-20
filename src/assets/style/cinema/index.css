@@ -2,6 +2,11 @@
     font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
 
 }
+
+.am-list-body::before{
+    content: '' !important;
+    background-color: #fff !important;
+}
 /*header*/
 .headers{
     height: 50.5px;

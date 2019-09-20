@@ -83,11 +83,14 @@ class My extends React.Component{
         );
     }
     UNSAFE_componentWillMount(){
-        // if(!window.localStorage.longin){
-        //     this.props.history.push({pathname:"/login"});
-        // }
-
-
+        if(!window.localStorage.longin){
+            this.props.history.push({pathname:"/login"});
+        }
+    }
+    componentDidMount() {
+        if (this.props.location.pathname === "/login") {
+            document.title = "我的"
+        }
     }
 
 }
