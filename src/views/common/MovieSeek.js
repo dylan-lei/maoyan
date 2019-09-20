@@ -1,6 +1,6 @@
 import React from "react"
 import "../../assets/style/movieSeek.css"
-import {SearchBar, ActivityIndicator} from 'antd-mobile';
+import {SearchBar} from 'antd-mobile';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux"
 import actionSeek from "../../store/actionCreate/common/seek"
@@ -32,6 +32,10 @@ class MovieSeek extends React.Component {
             for (let i = 0; i < movieList.length; i++) {
                 if (i >= 3) break;
                 arr.push(movieList[i]);
+
+
+
+                
             }
             movieList = arr;
         }
@@ -141,7 +145,7 @@ class MovieSeek extends React.Component {
     onChange = (value) => {
         this.setState({key: value});
         this.props.getMovieList(value);
-        if (value.length >= 3) {
+        if (value.length >= 2) {
             this.props.changeSearchRecord_props(value)
         }
     };
