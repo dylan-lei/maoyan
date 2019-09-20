@@ -1,7 +1,6 @@
 import React from "react"
-import axios from "axios"
 import ReactDOM from 'react-dom'
-import { PullToRefresh, ListView, Button } from 'antd-mobile';
+import {  ListView } from 'antd-mobile';
 import "../../../assets/style/cinema/index.css"
 import {
     connect

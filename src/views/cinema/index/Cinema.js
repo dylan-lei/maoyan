@@ -11,7 +11,6 @@ import actionCreate from '../../../store/actionCreate/cinema';
 import Up from "./up"
 class Cinemahome extends React.Component {
     render() {
-        const {cinemaList} = this.props;
         return (
             <div className={"cinema-home"}>
                 <header>
