@@ -1,5 +1,6 @@
 import {CHANGE_CINEMA_DATA} from "../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../actionType/cinemaDetails";
+import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
 import axios from "axios";
 export const changeCinemaData = (payload) =>{
     return{
@@ -13,6 +14,12 @@ export const changeShowData=(payload)=>{
         payload
     }
 }
+export const changeDealList=(payload)=>{
+    return{
+        type: "CHANGE_DEAL_LIST",
+        payload
+    }
+}
 export default {
     getCinemaData() {
         return async (dispatch) => {
@@ -20,6 +27,8 @@ export default {
 
             dispatch(changeCinemaData(data.cinemaData))
             dispatch(changeShowData(data.showData.movies))
+            dispatch(changeDealList(data.dealList))
+
         }
     },
 
