@@ -26,6 +26,7 @@ body{
     text-align: center;
     position: relative;
     font-family: Helvetica,Arial,sans-serif;
+
 }
 .nav-warp-left{
     height: 50px;
@@ -78,6 +79,7 @@ body{
     color:#777;
     font-size:14px;
     height:44px;
+
 }
 .name .title{
     font-size:17px;
@@ -87,6 +89,7 @@ body{
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+
 }
 .info{
     font-size:13px;
