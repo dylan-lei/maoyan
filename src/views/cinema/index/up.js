@@ -35,13 +35,13 @@ class Up extends React.Component{
             useBodyScroll: false
         };
     }
-    componentDidUpdate() {
-        if (this.state.useBodyScroll) {
-            document.body.style.overflow = 'auto';
-        } else {
-            document.body.style.overflow = 'hidden';
-        }
-    }
+    // componentDidUpdate() {
+    //     if (this.state.useBodyScroll) {
+    //         document.body.style.overflow = 'auto';
+    //     } else {
+    //         document.body.style.overflow = 'hidden';
+    //     }
+    // }
 
     componentDidMount() {
         this.props.getCinemaList();

@@ -19,7 +19,7 @@ class Head extends React.Component{
           <div>
               <header className="navbar">
                   <div className="nav-warp-left">
-                      <a href="#" className="back">
+                      <a href="##" className="back">
                           <i className="icon-back">
                           </i>
                       </a>

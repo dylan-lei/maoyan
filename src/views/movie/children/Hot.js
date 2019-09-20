@@ -5,6 +5,7 @@ import{
 import {
     bindActionCreators
 }from 'redux'
+import "../../../assets/style/Movie/MovieDetails.css"
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
     render() {
@@ -45,7 +46,7 @@ class BeingMovieBox extends Component {
                         </div>
                     ))
                 }
-                
+
                 {/* 渲染部分结束 */}
             </div>
         )

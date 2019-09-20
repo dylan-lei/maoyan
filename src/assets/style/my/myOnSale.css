@@ -1,0 +1,106 @@
+body {
+    background: #f3f3f3;
+    font-size: 14px;
+    color: #777;
+}
+
+/* 顶部样式 */
+.navbar {
+    height: 50px;
+    background: #e54847;
+    border-bottom: 1px solid #e54847;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.nav-warp-left {
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    position: absolute;
+}
+
+.icon-back {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.icon-back::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.nav-warp-left a.back {
+    height: 50px;
+    width: 55px;
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.nav-header {
+    font-size: 18px;
+    font-weight: 400px;
+    line-height: 50px;
+}
+/* 主题内容 */
+/* 文本框 */
+.z-coupon{
+    padding: 15px 15px 0 20px;
+    box-sizing: border-box;
+}
+.coupon .input-wrapper{
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    float: left;
+}
+.coupon .input-wrapper input {
+    display: inline-block;
+    padding: 5px 0 5px 5px;
+    width: 98%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.coupon a {
+    margin-left: 9px;
+    color: #f03d37;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 26px;
+}
+/* 优惠券 */
+.container.list-null {
+    height: 100%;
+}
+.no-data .wrapper {
+    background-image: url(http://s0.meituan.net/bs/file/?f=myfe/canary:static/deploy/dpmmweb/client/dpmmweb/component/mycoupon/img/order-empty-1.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 110px 110px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.no-data .wrapper .tip-text {
+    display: block;
+    padding-top: 120px;
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+    color: #999;
+}
