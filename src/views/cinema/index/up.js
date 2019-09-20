@@ -36,6 +36,7 @@ class Up extends React.Component{
         };
     }
     // componentDidUpdate() {
+    //    // const wrop = document.getElementsByClassName("#list-view-section-body")[0];
     //     if (this.state.useBodyScroll) {
     //         document.body.style.overflow = 'auto';
     //     } else {

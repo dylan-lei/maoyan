@@ -2,6 +2,10 @@
     font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
 
 }
+::-webkit-scrollbar{
+    width: 0 !important;
+    height: 0 !important;
+}
 /*header*/
 .headers{
     height: 50.5px;
