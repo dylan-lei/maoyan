@@ -7,8 +7,9 @@
 
 
 .am-list-view-scrollview{
-    overflow-y: auto !important;
+    /* overflow-y: auto !important; */
     -webkit-overflow-scrolling: touch !important;
+    overflow: visible !important;
 }
 
 body{

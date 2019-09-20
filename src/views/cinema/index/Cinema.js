@@ -32,7 +32,7 @@ class Cinemahome extends React.Component {
                         </div>
                     </div>
                 </section>
-                <section className={"line"}>
+                <section className={"l-line"}>
                     <ExactSelect></ExactSelect>
                 </section>
                 <Up></Up>

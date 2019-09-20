@@ -1,0 +1,115 @@
+body{
+    background: #f3f3f3;
+}
+/* 顶部“我的”样式 */
+.navbar{
+    height: 50px;
+    background: #e54847;
+    color: #fff;
+    text-align: center;
+}
+.nav-header{
+    font-size: 18px;
+    font-weight: 400px;
+    line-height: 50px;
+}
+/* 主题内容样式 */
+.my-center .header{
+    background: #f03d37;
+    height: 150px;
+    text-align: center;
+}
+.my-center .header img{
+    display: inline-block;
+    margin-top: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 3px solid #fff;
+}
+
+/* 我的订单 */
+.my-center .group{
+    margin-top: 10px;
+    background: #fff;
+}
+.my-center .group .orders{
+    padding: 0 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.my-center .group .title{
+    position: relative;
+    margin: 13px 0 0;
+    font-size: 15px;
+    line-height: 21px;
+    color: #333;
+    z-index: 9;
+    display: inline-block;
+    width: 80px;
+    background: #fff;
+}
+.my-center .group .title-line{
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    margin-left: 160px;
+    height: 1px;
+}
+.my-center .group .orders .z-list .movie{
+    background-image: url(http://s0.meituan.net/bs/file/?f=myfe/canary:static/deploy/dpmmweb/client/dpmmweb/component/mycenter/img/movie.png)
+}
+.my-center .group .orders .z-list .store {
+    background-image: url(http://s0.meituan.net/bs/file/?f=myfe/canary:static/deploy/dpmmweb/client/dpmmweb/component/mycenter/img/store.png)
+}
+.my-center .group .z-list.list-two .order-item{
+    width: 50%;
+}
+.my-center .group .z-list .order-item {
+    float: left;
+    height: 97px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 42px auto;
+    margin-top: 18px;
+}
+.my-center .group .z-list .order-item a p {
+    position: relative;
+    top: 53px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 21px;
+    height: 21px;
+    margin: 0;
+    color: #333;
+}
+/* 在线观影 优惠券 折扣卡 */
+.my-center .group .item{
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+    margin-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.my-center .group .item a{
+    display: block;
+    color: #333;
+}
+.my-center .group .item span{
+    text-align: left;
+}
+.my-center .group .item::after{
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    display: inline-block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    transform: rotate(135deg);
+}
