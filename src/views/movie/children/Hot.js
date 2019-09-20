@@ -1,22 +1,29 @@
-import React, { Component } from 'react'
+import React,{ Component } from 'react'
 import{
     connect
 }from 'react-redux'
 import {
     bindActionCreators
 }from 'redux'
-import "../../../assets/style/Movie/nowhot.css"
+import '../../../assets/style/movie/nowhot.css'
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
+import {scrollBootom} from '../../../tools/index'
+import { ActivityIndicator } from 'antd-mobile';
 class BeingMovieBox extends Component {
+    constructor(props){
+        super(props)
+        this.index=0
+    }
     render() {
         const {nowMovieList} = this.props
+        console.log(nowMovieList)
          const {history} = this.props
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
                 {
-                    nowMovieList.map(v=>(
-                        <div key={v.id} onClick={()=>{history.push({pathname:'/details',state:{detailsId:v.id}})}}>
+                    nowMovieList.map((v,i)=>(
+                        <div key={i} onClick={()=>{history.push({pathname:'/details',state:{detailsId:v.id}})}}>
                             <div className="main_block">
                                 <div className="avatar_left">
                                     <img src={v.img.replace(/w.h/,'')} alt='' />
@@ -46,16 +53,28 @@ class BeingMovieBox extends Component {
                         </div>
                     ))
                 }
-                
+                <div style={{
+                        width: "20px",
+                        margin: "0 auto",
+                        textAlign:"center"
+                        }}>
+                    < ActivityIndicator animating / >
+                </div>
                 {/* 渲染部分结束 */}
             </div>
         )
     }
     componentDidMount() {
+        console.log(this)
         this.props.getNowMovieList()
+        scrollBootom(()=>{
+            this.props.getNowMovieList(this.index++)
+        })
     }
+
 }
 function mapStateToProps(state) {
+    // console.log(state.moves.movesnow.nowMovieList)
     return{
         nowMovieList:state.moves.movesnow.nowMovieList
     }

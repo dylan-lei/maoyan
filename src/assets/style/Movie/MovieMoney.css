@@ -1,0 +1,116 @@
+.movie-navbar-actor{
+    position: relative;
+    top: 0;
+    z-index: 10;
+    background-color: #e54847 !important;
+    display: -webkit-box;
+    padding: 6px;
+    height: 38px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.nav-actor{
+    width: 100%;
+    display: -webkit-box;
+}
+.navbar-logo-actor{
+    width: 2rem;
+    background-size: 37%;
+    user-select: none;
+}
+.navbar-title-actor{
+    -webkit-box-flex: 1;
+    color: #FFF;
+    font-size: 18px;
+    text-align: center;
+    line-height: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    left: -1rem;
+    user-select: none;
+}
+.navbar-back-actor{
+    cursor: pointer; 
+}
+.navbar-back-actor:after{
+    content: '';
+    top: 16px;
+    left: 12px;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    border: 2px solid #FFF;
+    border-width: 0 0 2px 2px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+.movie-header-actor{
+    padding: 0;
+    background: #f8f8f8;
+    border-bottom: none;
+    color: #555;
+}
+.movie-box{
+    color: #fff;
+    padding: .3rem;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+.movie-background-actor{
+    background-image: url(http://p0.meituan.net/177.249/moviemachine/b7362f5….jpg);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+    filter: blur(.6rem);
+    -webkit-filter: blur(.6rem);
+    background-size: cover;
+    background-image: gray;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    line-height: 1;
+    color: #fff;
+}
+.movie-filter-actor{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    background-color: #40454d;
+    opacity: .55;
+    line-height: 1;
+    color: #fff;   
+}
+.movie-container-actor{
+    z-index: 1;
+    position: relative;
+    line-height: 1;
+}
+.movie-container-actor:before{
+    content: " ";
+    display: table;
+}
+.movie-cover-actor{
+    float: left;
+    width: 2.14rem;
+    height: 3rem;
+    filter: blur(0);
+    font-style: initial;
+    -webkit-filter: blur(0);
+    border: solid 1px #f0f2f3;
+    position: relative;
+    background: #c1c1c1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAwFBMV…mytghhgpB+Cgix7I1gjStOqq8c5jhkmLqiJ0McuoXq6j92ZWbxiZAstgAAAABJRU5ErkJggg==) no-repeat center center;
+
+}
