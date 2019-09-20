@@ -43,8 +43,11 @@ class Cinemahome extends React.Component {
 
     componentDidMount() {
         this.props.getCinemaList();
+        //修改站标
+        const str ="http://s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/icon/faviconmy.ico";
         if(this.props.location.pathname==="/nav/cinema"){
-            document.title="影院"
+            document.title="影院";
+            document.querySelector(".titl-logo").href=str;
         }
     }
 }

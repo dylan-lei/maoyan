@@ -58,8 +58,11 @@ class BeingMovieBox extends Component {
 
     componentDidMount() {
         this.props.getNowMovieList()
+        //修改站标
+        const str ="http://s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/icon/faviconmy.ico";
         if (this.props.location.pathname === "/nav/movie/hot") {
             document.title = "猫眼电影"
+            document.querySelector(".titl-logo").href=str;
         }
     }
 }
