@@ -7,10 +7,11 @@ import {
     bindActionCreators
 }from 'redux'
 import MovieDetail from '../../../../store/actionCreate/movie/MovieDetail'
+import Week from '../../../../views/common/week'
 class MovieDetails extends Component{
     render(){
         console.log(this.props)
-        const {movieDetail} = this.props.movieDetail
+        const {movieDetail} = this.props.movieDetail;
         // console.log((movieDetail.img+"").replace(/w.h/,''))
         return(
             <div>
@@ -26,9 +27,8 @@ class MovieDetails extends Component{
                 <div className="Movie-detail">
                     <div className="Movie-filter"></div>
                     <div className="Movie-poster-bg" style={{
-                        backgroundImage: "url( //p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"
+                        backgroundImage: "url(//p0.meituan.net/71.100/movie/845dce25ba800e91ac591b683a0c3ba92450317.jpg)"
                     }}></div>
-                    <div className="Movie-poster-bg" style={{backgroundImage:"url(//p0.meituan.net/71.100/moviemachine/b7362f555340906684944957dfc8d5421530646.jpg)"}}></div>
                     <div className="Movie-detail-context">
                         <div className="Movie-detail-context-poster">
                             <img src ={(movieDetail.img+"").replace(/w.h/,'')} alt=""/>
@@ -36,7 +36,7 @@ class MovieDetails extends Component{
                         <div className="Movie-detail-context-content">
                                 <div className="Movie-detail-context-content-title">{movieDetail.nm}</div>
                                 <div className="Movie-title-en-name">{movieDetail.enm}</div>
-                                <div className="Movie-score">{movieDetail.sc}<span className="Movie-score-snum">(15.4人评论)</span></div>
+                                <div className="Movie-score">{movieDetail.sc}<span className="Movie-score-snum">({this.tranNumber((movieDetail.snum/1),2)}人评论)</span></div>
                                 <div className="Movie-detail-type">
                                     <span>{movieDetail.cat}</span>
                                 </div>
@@ -50,16 +50,32 @@ class MovieDetails extends Component{
                 </div>
                 <div className="Movie-showDays">
                     <ul className="Movie-timeline">
-                        <li data-day="2019-09-16" className="Movie-showDay-chosen">今天09月16号</li>
-                        <li data-day="2019-09-16" className="Movie-showDay-chosen">今天09月16号</li>
-                        <li data-day="2019-09-16" className="Movie-showDay-chosen">今天09月16号</li>
-                        <li data-day="2019-09-16" className="Movie-showDay-chosen">今天09月16号</li>
-                        <li data-day="2019-09-16" className="Movie-showDay-chosen">今天09月16号</li>
+                        <Week></Week>
                     </ul>
                 </div>
+               
             </div>  
             
         )
+    }
+    tranNumber(num,point) {
+        let numStr = num.toString()
+        // 十万以内直接返回 
+        if (numStr.length < 6) {
+            return numStr;
+        }
+        //大于8位数是亿
+        else if (numStr.length > 8) {
+            let decimal = numStr.substring(numStr.length - 8, numStr.length - 8 + point);
+            return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿';
+        }
+        //大于6位数是十万 (以10W分割 10W以下全部显示)
+        else if (numStr.length > 5) {
+            console.log(point,111111)
+            // let decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + point)
+            let decimal =numStr.substring(2,numStr.length-3)
+            return parseFloat(parseInt(num / 10000) + '.' + decimal) + '万';
+        }
     }
     componentDidMount(){
         this.props.getDetails()

@@ -33,7 +33,7 @@ class MyDiscount extends React.Component {
         );
     }
     componentDidMount() {
-        if (this.props.location.pathname === "/login") {
+        if (this.props.location.pathname === "/mydiscount") {
             document.title = "我的折扣卡"
         }
     }

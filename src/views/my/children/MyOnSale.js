@@ -38,7 +38,7 @@ class MyOnSale extends React.Component {
   }
   componentDidMount() {
     this.autoFocusInst.focus();
-    if (this.props.location.pathname === "/login") {
+    if (this.props.location.pathname === "/myonsale") {
        document.title = "我的优惠券"
      }
   }

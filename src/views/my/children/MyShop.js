@@ -30,7 +30,7 @@ class MyShop extends React.Component{
         );
     }
     componentDidMount() {
-        if (this.props.location.pathname === "/login") {
+        if (this.props.location.pathname === "/myshop") {
             document.title = "我的周边商品"
         }
     }

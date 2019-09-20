@@ -9,6 +9,9 @@ export default function (state = movieSeek, {type, payload}) {
     if (type === CHANGE_SEARCHRECORD_LIST) {
         let searchRecordList = localStorage.searchRecordList ? JSON.parse(localStorage.searchRecordList) : [];
         if (payload.length >= 2) {
+            if(searchRecordList.length>6){
+                searchRecordList.pop()
+            }
             searchRecordList.unshift(payload);
         } else {
             searchRecordList.splice(payload/1,1);
