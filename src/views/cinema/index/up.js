@@ -13,7 +13,7 @@ import actionCreate from '../../../store/actionCreate/cinema';
 
 const NUM_ROWS = 20;
 let pageIndex = 0;
-//拼接数据，得到一个新数组
+
 function genData(pIndex = 0) {
     const dataArr = [];
     for (let i = 0; i < NUM_ROWS; i++) {
@@ -35,13 +35,13 @@ class Up extends React.Component{
             useBodyScroll: false
         };
     }
-    componentDidUpdate() {
-        if (this.state.useBodyScroll) {
-            document.body.style.overflow = 'auto';
-        } else {
-            document.body.style.overflow = 'hidden';
-        }
-    }
+    // componentDidUpdate() {
+    //     if (this.state.useBodyScroll) {
+    //         document.body.style.overflow = 'auto';
+    //     } else {
+    //         document.body.style.overflow = 'hidden';
+    //     }
+    // }
 
     componentDidMount() {
         this.props.getCinemaList();
@@ -54,7 +54,7 @@ class Up extends React.Component{
                 refreshing: false,
                 isLoading: false,
             });
-        }, 1000);
+        }, 400);
     }
     onEndReached = (event) => {
         this.props.getCinemaList()
@@ -73,13 +73,13 @@ class Up extends React.Component{
             });
         }, 1000);
     };
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.dataSource !== this.props.dataSource) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
-        });
-      }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //   if (nextProps.dataSource !== this.props.dataSource) {
+    //     this.setState({
+    //       dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
+    //     });
+    //   }
+    // }
     render(){
         const data=this.props.cinemaList || []
         let index = data.length - 1;
@@ -150,10 +150,6 @@ class Up extends React.Component{
                     height: this.state.height,
                     margin: '5px 0',
                 }}
-                // pullToRefresh={<PullToRefresh
-                //     refreshing={this.state.refreshing}
-                //     onRefresh={this.onRefresh}
-                // />}
                 onEndReached={this.onEndReached}
                 pageSize={5}
             />

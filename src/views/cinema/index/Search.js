@@ -1,5 +1,4 @@
 import React from "react"
-import Try from "./try"
 class CinemaSearch extends React.Component{
     render(){
         console.log(this.props)
@@ -16,7 +15,6 @@ class CinemaSearch extends React.Component{
                     </div>
                     <h1 className="nav-header">猫眼电影</h1>
                 </header>
-                <Try></Try>
             </div>
         )
     }
