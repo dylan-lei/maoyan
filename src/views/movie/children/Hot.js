@@ -5,7 +5,7 @@ import{
 import {
     bindActionCreators
 }from 'redux'
-import "../../../assets/style/Movie/nowhot.css"
+import "../../../assets/style/movie/nowhot.css"
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
     render() {

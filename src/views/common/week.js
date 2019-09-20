@@ -1,5 +1,5 @@
 import React,{Component}from 'react'
-// import '../../assets/style/Movie/MovieDetails.css'
+// import '../../assets/style/Movie/movieDetails.css'
 import weeks from '../../views/common/tools' //导入周的方法
 // import Swiper from '../../../node_modules/swiper/js/swiper'
 // import '../../../node_modules/swiper/css/swiper.css'
