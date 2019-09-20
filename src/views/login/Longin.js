@@ -134,6 +134,11 @@ class Longin extends React.Component {
             </div>
         );
     }
+    componentDidMount() {
+        if (this.props.location.pathname === "/login") {
+            document.title = "猫眼电影"
+        }
+    }
 
 }
 

@@ -43,7 +43,10 @@ class Cinemahome extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getCinemaList()
+        this.props.getCinemaList();
+        if(this.props.location.pathname==="/nav/cinema"){
+            document.title="影院"
+        }
     }
 }
 function mapStateToProps(state) {
