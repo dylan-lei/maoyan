@@ -29,6 +29,11 @@ class MyShop extends React.Component{
             </div>
         );
     }
+    componentDidMount() {
+        if (this.props.location.pathname === "/myshop") {
+            document.title = "我的周边商品"
+        }
+    }
 }
 
 export default MyShop;

@@ -9,10 +9,11 @@ export const changeReleaseExpectedList = (payload) => {
         payload
     }
 }
-export const changeComingList = (payload) => {
+export const changeComingList = (payload, index) => {
     return {
         type: CHANGE_COMING_LIST,
-        payload
+        payload,
+        index
     }
 }
 export default {
@@ -22,10 +23,20 @@ export default {
             dispatch(changeReleaseExpectedList(data.coming));
         }
     },
-    gitReleaseList() {
+    gitReleaseList(index) {
         return async (dispatch) => {
-            const { data } = await axios.get('comingList');
-            dispatch(changeComingList(data.coming))
+            if (this.releaseList.length <= 10) {
+                let { data } = await axios.get('comingList');
+                dispatch(changeComingList(data.coming))
+            } else {
+                if (index) {
+                    let data = await axios.get('moreComingList/' + index);
+                    if(data.status === 2 && index)
+                        dispatch(changeComingList(data.coming, index));
+                    else
+                        alert('已加载全部数据');
+                }
+            }
         }
     }
 }
