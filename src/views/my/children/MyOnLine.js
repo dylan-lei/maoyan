@@ -29,6 +29,11 @@ class MyOnLine extends React.Component{
             </div>
         );
     }
+    componentDidMount() {
+        if (this.props.location.pathname === "/myonline") {
+            document.title = "猫眼电影"
+        }
+    }
 }
 
 export default MyOnLine;

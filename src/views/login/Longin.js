@@ -134,6 +134,13 @@ class Longin extends React.Component {
             </div>
         );
     }
+    componentDidMount() {
+        const str ="https://p0.meituan.net/travelcube/ba8ffd9e91ba069f1d6cd352cd5b9e93803.png";
+        if (this.props.location.pathname === "/login") {
+            document.title = "猫眼电影";
+            document.querySelector(".titl-logo").href=str;
+        }
+    }
 
 }
 

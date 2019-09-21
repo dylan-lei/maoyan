@@ -1,6 +1,9 @@
 *{
     font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
-
+}
+.am-list-body::before{
+    content: '' !important;
+    background-color: #fff !important;
 }
 .am-list-view-scrollview{
     margin: 0 !important;
