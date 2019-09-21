@@ -57,9 +57,9 @@ export default class MovieMon extends Component {
                 </section>
                 <section className='section-seperate-two'>
                     <a className='btn-block-btn-pay' href="##">特惠购票</a>
-                    <div className='intro-duan'>
+                    <div className='intro-duan'> 
                         <div className='text-expander-content-duan'>
-                            <p>1949年，党中央领导人进驻北京香山，在国共和谈破裂的千钧一发之际，全力筹划建立新中国。</p>
+                            <p>1949年，党中 央领导人进驻北京香山，在国共和谈破裂的千钧一发之际，全力筹划建立新中国。</p>
                         </div>
                     </div>
                     <div className='text-expander-duan'></div>

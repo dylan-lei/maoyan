@@ -7,6 +7,8 @@ import MovieMoney from '../views/movie/children/duan/MovieMoney'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
+import Sign from '../views/login/Sign'
+
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
 import MyShop from '../views/my/children/MyShop'
@@ -18,7 +20,7 @@ import MyDiscount from '../views/my/children/MyDiscount'
 //底部导航栏的子路由（二级路由）
 import My from "../views/my/My"
 import Movie from "../views/movie/Movie"
-import Cinema from "../views/cinema/index/Cinema"
+import Cinema from "../views/cinema/index/Cinemahome"
 
 
 //底部导航栏电影模块的子路由（三级路由）
@@ -96,7 +98,13 @@ export default [
     {
         path:"/login",
         component:Login,
-        title:"登录注册",
+        title:"登录",
+        exact:false
+    },
+    {
+        path:"/sign",
+        component:Sign,
+        title:"注册",
         exact:false
     },
     {
