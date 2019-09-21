@@ -40,7 +40,6 @@ class ExactSelect extends React.Component {
                 }
             }
         });
-        console.log(label);
     }
     handleClick = (e) => {
         e.preventDefault(); // Fix event propagation on Android

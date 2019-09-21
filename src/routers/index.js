@@ -6,6 +6,8 @@ import Details from '../views/movie/children/duan/MovieDetails'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
+import Sign from '../views/login/Sign'
+
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
 import MyShop from '../views/my/children/MyShop'
@@ -89,7 +91,13 @@ export default [
     {
         path:"/login",
         component:Login,
-        title:"登录注册",
+        title:"登录",
+        exact:false
+    },
+    {
+        path:"/sign",
+        component:Sign,
+        title:"注册",
         exact:false
     },
     {

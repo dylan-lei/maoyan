@@ -1,12 +1,111 @@
-.login{
+/*注册*/
+input.p-mt[type=checkbox] {
+    width: 22.5px;
+    height: 22.5px;
+    margin-right: 3px;
+    border: 1px solid #d6d6d6;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 22.5px;
+    outline: 0;
+}
+.am-toast-notice-content .am-toast-text {
+    background-color: rgba(58, 58, 58, 0.5) !important;
+}
+#p-label {
+    width: auto !important;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333333;
+
+}
+
+
+.btn-wrapper-pl {
+    line-height: 32px;
+    text-align: justify;
+    word-break: break-all;
+    margin-bottom: 7px;
+    padding-left: 10px;
+}
+
+.btn-wrapper-pl a {
+    color: #df2d2d;
+    text-decoration: none;
+    outline: 0;
+}
+
+.dd-padding-p {
+    padding: 14px 10px;
+    margin: 0;
+    border-bottom: 1px solid #d6d6d6;
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: 400;
+    position: relative;
+
+}
+
+.input-weak-p {
+    border: 0;
+    height: 30px;
+    margin: -7px 0;
+    text-indent: 5px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0;
+    width: 100%;
+    display: block;
+
+}
+
+.stepsExample {
+    border-bottom: 1px solid #d6d6d6 !important;
+}
+
+.sub-title {
+    color: #888;
+    font-size: 14px;
+    padding: 30px 0 18px 0;
+}
+
+.am-steps-item-title {
+    font-size: 14px !important;
+    color: #000;
+}
+
+/*登录*/
+.login {
     height: 100%;
 }
+
+.btn-disabled-p {
+    background-color: #dcdcdc;
+    color: #999;
+    border: 0;
+    display: inline-block;
+    margin-left: 14px;
+    text-align: center;
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 3px;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
 .am-tabs-default-bar-tab-active {
     color: black !important;
 }
+
 .am-tabs-default-bar-underline {
-    border: 2px  #FFC300 solid;
+    border: 2px #FFC300 solid;
 }
+
 /*顶部导航*/
 .p-navbar {
     width: 100%;
@@ -164,13 +263,15 @@
 .p-input dd:last-child {
     border: none;
 }
+
 /*手机验证登录*/
 .btn-weak {
-    border: 1px solid #df2d2d ;
-    padding: 0 15px ;
-    background: 0 ;
-    color: #df2d2d ;
+    border: 1px solid #df2d2d;
+    padding: 0 15px;
+    background: 0;
+    color: #df2d2d;
 }
+
 .p-btn {
     display: inline-block;
     margin-left: 14px;
@@ -188,9 +289,11 @@
     background: 0;
     color: #df2d2d;
 }
-.mobile-input{
+
+.mobile-input {
     width: 65% !important;
 }
+
 /*登录*/
 .btn-wrapper {
     margin: 14px 10px;
@@ -239,9 +342,11 @@
     padding: 0 10px 20px;
     font-size: 14px;
 }
+
 .login-footer .copyright {
     text-align: center;
 }
-.login-footer .copyright a{
+
+.login-footer .copyright a {
     color: #df2d2d;
 }

@@ -82,12 +82,14 @@ class My extends React.Component{
             </div>
         );
     }
-    UNSAFE_componentWillMount(){
-        if(!window.localStorage.longin){
-            this.props.history.push({pathname:"/login"});
-        }
-
-
+    componentDidMount(){
+        this.axios.post("verifytoenk")
+            .then(({status})=>{
+            console.log(status);
+                if(status!==2){
+                    this.props.history.push({pathname:"/login"});
+                }
+            })
     }
 
 }
