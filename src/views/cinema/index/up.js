@@ -33,11 +33,8 @@ class Up extends React.Component{
         this.props.getCinemaList()
 
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));
-        // console.log(data);
-        console.log(this.props.cinemaList,66666666666)
+        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
         this.state.cinemas = [...this.state.cinemas,...data.cinemas]
-        console.log(this.state.cinemas,333333)
 
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
@@ -69,10 +66,8 @@ class Up extends React.Component{
 
     };
     render(){
-        console.log(this.props,7777777777)
         const data=this.props.cinemaList || []
         const row = (rowData, sectionID, rowID) => {
-            console.log(rowData)
             const v =rowData;// data[rowID];
             return (
                 <div key={rowID}
