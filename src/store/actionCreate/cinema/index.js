@@ -13,7 +13,6 @@ export default {
         return async (dispatch) => {
             const data = await axios.get("cinemaList?offset=" + (this.offset || 0))
             dispatch(changeCinemaList(data.cinemas))
-            console.log(data, 44444444444444)
 
 
         }
