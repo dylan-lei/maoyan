@@ -7,9 +7,6 @@ export default class MostExpected extends React.Component {
   constructor() {
     super();
     this.index = 0;
-    this.state = {
-      loading: false
-    }
   }
   render() {
     const releaseList = this.props.releaseList;
@@ -17,15 +14,9 @@ export default class MostExpected extends React.Component {
       <div className="coming-list">
         {
           releaseList.map((v, i) => {
-            // let t = i < 1 ? i + 2 : i - 1;
-            // let bol = v.comingTitle === releaseList[t].comingTitle ? true : false;
             return (
               <div key={i}>
-                <p className="group-date" style={
-                  {
-                  // display: bol ? "none" : 'block'
-                  }
-                }>{v.comingTitle}</p>
+                <p className="group-date">{v.comingTitle}</p>
                 <div className="item">
                   <div className="main-block">
                     <div className="avatar">

@@ -32,9 +32,10 @@ export default {
                 if (index) {
                     let data = await axios.get('moreComingList/' + index);
                     if(data.status === 2 && index)
-                        dispatch(changeComingList(data.coming, index));
-                    else
-                        alert('已加载全部数据');
+                        dispatch(changeComingList(data.coming));
+                    else {
+                        dispatch(changeComingList(false))
+                    }
                 }
             }
         }

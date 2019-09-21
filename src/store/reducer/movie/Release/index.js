@@ -9,7 +9,11 @@ export default function (state = initComing, { type, payload}) {
         state.releaseExpectedList = payload;
     }
     if (type === CHANGE_COMING_LIST) {
-        state.releaseList = [ ...state.releaseList, ...payload ];
+        if (!payload) {
+            state.isLoad = true;
+        } else {
+            state.releaseList = [ ...state.releaseList, ...payload ];
+        }
     }
     return state;
 }

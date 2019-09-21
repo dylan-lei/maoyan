@@ -1,6 +1,17 @@
 ﻿import React from "react";
 let Swiper = window.Swiper;
-export default class MostExpected extends React.Component {
+class MostExpected extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      wishst: '0'
+    }
+  }
+  changeWishst() {
+    this.setState({
+      wishst: '1'
+    })
+  }
   render() {
     const releaseExpectedList = this.props.releaseExpectedList;
     return (
@@ -26,7 +37,11 @@ export default class MostExpected extends React.Component {
                             src={v.img.replace(/w.h/,'')}
                             alt=""
                           />
-                          <div className="toggle-wish">
+                          <div className="toggle-wish" data-wishst={this.state.wishst} onClick={
+                            () => {
+                              this.changeWishst()
+                            }
+                          }>
                             <span></span>
                           </div>
                         </div>
@@ -51,3 +66,5 @@ export default class MostExpected extends React.Component {
     });
   }
 }
+
+export default MostExpected;
