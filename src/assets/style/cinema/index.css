@@ -7,6 +7,7 @@
 }
 .am-list-view-scrollview{
     margin: 0 !important;
+    background: #fff;
 }
 ::-webkit-scrollbar {
      width: 0px;

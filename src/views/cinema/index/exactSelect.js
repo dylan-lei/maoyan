@@ -26,22 +26,22 @@ class ExactSelect extends React.Component {
             show: false,
         };
     }
-    onChange = (value) => {
-        let label = '';
-        data.forEach((dataItem) => {
-            if (dataItem.value === value[0]) {
-                label = dataItem.label;
-                if (dataItem.children && value[1]) {
-                    dataItem.children.forEach((cItem) => {
-                        if (cItem.value === value[1]) {
-                            label += ` ${cItem.label}`;
-                        }
-                    });
-                }
-            }
-        });
-        console.log(label);
-    }
+    // onChange = (value) => {
+    //     let label = '';
+    //     data.forEach((dataItem) => {
+    //         if (dataItem.value === value[0]) {
+    //             label = dataItem.label;
+    //             if (dataItem.children && value[1]) {
+    //                 dataItem.children.forEach((cItem) => {
+    //                     if (cItem.value === value[1]) {
+    //                         label += ` ${cItem.label}`;
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //     });
+    //     console.log(label);
+    // }
     handleClick = (e) => {
         e.preventDefault(); // Fix event propagation on Android
         this.setState({
@@ -49,11 +49,9 @@ class ExactSelect extends React.Component {
         });
         // mock for async data loading
         if (!this.state.initData) {
-            setTimeout(() => {
                 this.setState({
                     initData: data,
                 });
-            }, 500);
         }
     }
 
@@ -69,7 +67,7 @@ class ExactSelect extends React.Component {
             <Menu
                 className="single-foo-menu"
                 data={initData}
-                value={['1']}
+                value={['2']}
                 level={1}
                 onChange={this.onChange}
                 height={document.documentElement.clientHeight * 0.6}
