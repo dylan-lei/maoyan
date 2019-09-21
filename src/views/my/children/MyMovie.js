@@ -26,6 +26,11 @@ class MyMovie extends React.Component{
             </div>
         );
     }
+    componentDidMount() {
+        if (this.props.location.pathname === "/mymovie") {
+            document.title = "我的电影订单"
+        }
+    }
 }
 
 export default MyMovie;

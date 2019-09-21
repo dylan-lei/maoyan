@@ -1,0 +1,2257 @@
+框架：vue的作者尤雨溪。mvvm
+    两大特点：虚拟DOM、双向绑定
+    vue(view)：渐进式Javascript框架
+        vue 会帮助你实现view渲染
+        * 将你的心思放在数据上
+        官网：https://cn.vuejs.ofg/v2/guide/
+
+        npm:node package manage
+    ******************************************************
+        开发版本：包含完整的警告和调试模式
+        生产版本：删除了警告，33.30KB min+gzip
+    ******************************************************
+        1、引入
+            <script src="vue.js"></script>
+        2、创建一个vue实例
+            new Vue({
+                el:"", // 挂载元素，不允许body html
+                data：{} // 存放的数据状态
+            })
+    ******************************************
+    指令：directive
+        是vue对元素属性的扩展。以v-开头。（指令要写到元素的属性当中）
+        v-model:可以将你的你的元素与你的数据绑定
+            修饰符：该属性的属性
+                number：将所绑定的元素的值设置为number
+                trim：去除空格
+                lazy：当逝去焦点时，才会与你的数据产生响应
+        v-if:值是一个布尔。用于是否渲染
+        v-else-if：值是一个布尔，结合v-if使用
+        v-else:要与v-if 偶然v-else-if结合使用,当他们条件不满足时，会渲染
+
+        v-clock：防止页面闪烁
+
+        v-bind:将你的数据与你的元素属性进行绑定
+            简写方式：":"
+            <img v-bind:src="path">
+            <img :src="path">
+        v-show: 值为true时显示，为false时隐藏 更改css中的display实现显示隐藏
+        v-for：
+            "n in num":遍历数字
+            "s in str":遍历字符串
+            "item in obj":遍历对象
+            "(a,b) in obj":遍历键和值
+            "item in arr":遍历数组
+            "(value,index) in arr":遍历数组输出值和下标
+        事件：
+            v-on:绑定事件，简写形式：@    eg：@click
+            方法后边的括号 要不要加，可以加
+            v-on:click="changeIsShow"
+
+            v-once:只是用于初始值，里面的数据不会进行双向绑定(使用一次后，与data断开联系)
+            v-pre:在该指令的区域内，不会与你得vue实例产生交集。(vue在解析带有pre指令是会跳过该区域)
+
+        添加内容
+            v-html:输出的是HTML，可以被浏览器所识别编译
+            v-text:输出的是纯文本格式
+
+    回顾
+        1.引入
+        2.创建实例
+            new Vue({
+                el:"", // 挂载元素
+                data:{
+                    // 状态
+                },
+                methods:{
+                    // 方法
+                }
+            })
+        3.指令
+            对你属性的扩展，v_
+    *******************************************
+    class的使用
+        <div class="one">分组</div>
+        <div :class="one">分组</div>
+        <div :class="'one'">分组</div>
+
+        <div :class="one">分组</div>        
+
+    style:
+    
+    事件：
+        事件的名字都是小写
+        1.可以直接写你的函数名
+        2.可以直接你的js语句(js语句与你原生的JS不是完全互通的)
+            * 1.回传值
+                @click="fn(1)"
+              2.当你不加括号时，默认接收的是事件对象
+              3.当你加括号时，也想传递事件对象的话，需要使用$event
+                @click = "fn(1,$event)"
+    
+        4.事件修饰符
+            .stop 用于阻止事件冒泡
+            .prevent 取消默认事件
+        
+        
+        作业：
+            1.尝试采用vue取消a标签的默认事件
+            2.表单 input type="submit" 的默认事件
+            3.购物车减少功能
+            4.扩展：首字母大写过滤器
+
+    **********过滤器************
+    过滤器：可以将你指定的数据进行逻辑处理
+        1.全局过滤器
+            Vue.filter("two",function(){})
+        2.局部过滤器
+
+        filters:{
+            // 定义一个局部过滤器(注册过滤器)
+            currency(){
+
+            }
+        }
+        2.使用
+            1.{{}}
+            2.属性当中
+
+    模板：
+        template
+            1.template 有且只能有一个根元素
+            2.将你要挂载的元素进行提换操作
+            3.模板当中可以使用指令，data，methods等等都可以使用
+            当你实例化VUE实例时,它会看是否有模板，如果有会将你挂在的元素替换。如果没有就使用你挂载的元素作为模板
+        template有三种用法
+            1.直接赋值
+                template: `<div>1</div>`
+            2.通过script标签定义
+                <script tyep="x/template" id="tp">
+                    <div>2</div>
+                </script>
+                template:"#tp"
+            3.使用内置组件template
+                <template id="my">
+                    <div>3</div>
+                </temlate>
+                template:"#my"
+    
+    ******************************************************
+    组件：对标签元素的一个扩展
+     * components:{}
+        1.局部组件
+        2.全局组件
+      组件的命名规则：
+        如果组件名字当中包含大学字母需要将其改为小写并以-分割。
+        通过属性给组件传递的数据，在自减内是不允许直接修改的。
+      组件使用:
+        将组件的名称作为标签名
+        组件内的data数据不能与接收的属性名相同
+      组件传值：
+        向下传值通过属性：
+            1.数据的传递是单向的
+            2.如果你要修改数据的话，可以通过父级向组件传递一个而寒暑，通过该函数对你的数据进行修改
+            接收：不要与data状态重名
+
+            props:[],
+            props:{
+                type:String, // 数据类型
+                default: "", // 默认值
+            }
+
+        向上传值：
+            1.通过传递一个函数，子组件调用该函数传值
+            2.$emit 结合自定义事件
+                $emit $on
+                1.自定义事件：自己定义的事件，写在组件上
+                2.触发自定义事件：
+                    $emit :在子组件当中通过$emit；来触发，，是你vue实例下的一个方法
+                    // 第一个参数是时间的名称，后面的参数是你要传递的值
+                    this.$emit("eventName",1,1,2,3)
+                小结：$emit
+                    作用：
+                        1.可以触发自定义的事件
+                        2.可以与$on结合使用。
+                            只有当你的$emit与$on在同一对象下，才能使用 
+        同级之间传值：
+
+        全局组件：
+            Vue.component("one",{
+                template:``
+            })
+            第一个参数是你的组件的名字，第二个是组件的配置项
+
+        掌握：
+            1.向下如何传
+            2.子组件如何接收
+                通过props设置允许接收的属性名
+                
+    指令：是对标签属性的扩展
+
+    ES6模块化：
+        1.如何导出
+            export const userName="laoliu";
+            export const age=12;
+        2.如何导入
+            <script type="module">
+                import {age,userName} form "./js/mo1.js"
+            </script>
+        ************************************
+        1.如何导出
+            exprot const one = 1
+            exprot const two = 2
+            ...
+            export const five = 5
+        2.如何导入
+            <script type="module">
+                // 避免导出的数据与当前js的变量名冲突
+                import * as mo2 form "./js./mo2.js"
+                consoole.log(mo2.one);
+            </script>
+        *************************************
+        // 将导出的属性进行了别名
+        1.如何导出
+            exprot const userName = "laowangtou";
+        2.如何导入
+            <script type="module">
+                import * as mo2 form "./js./mo2.js";
+                const userName = "laolitou";
+                consoole.log(mo2.userName,userName);
+            </script>
+
+        *********************************
+        默认导出：default只能使用一个
+            1.如何导出
+                exprot default function(){
+                    console.log(111);
+                }
+                exprot default {
+                    a:1,
+                    b:2
+                }
+            2.如何导入
+                <script type="module">
+                    import mo4 from "./js/mo4.js";
+                </script>
+        *********************************
+        // 混合导出
+        1.如何导出
+            exprot const userName = "laoliu"
+            exprot default {
+                age:15
+            }
+        2.如何导入
+            <script type="module">
+                improt mo5,{userName} from "./js/mo5.js"
+                console.log(mo5.age,userName)
+            </script>
+        
+        ***************************************
+        不管你的模块被引入多少次，改模块只执行一次，并且每次返回的内容都是相同的
+
+    new Vue({
+        el:"", // 挂载的元素
+        data:{}, // 数据
+        template:{}, // 模板
+        methods:{}, // 方法
+        filters:{}, // 过滤
+        computed:{}, // 计算属性
+        components:{}, // 组件
+        watch:{}, // 侦听（后边加deep：true的为深度侦听，没有则是普通真侦听）
+        directives:{}, // 自定义局部指令
+        beforeCreate(){}, // 创建前
+        created(){}, // 创建后
+        beforeMount(){}, // 挂载前
+        mounted(), // 挂载后
+        beforeUpdate(){}, // 更新前
+        updated(){}, // 更新后
+        beforeDestroy(){}, // 销毁前
+        destroyed(){}, // 销毁后
+        render(){}, // 相当于字符串模板
+        beforeRouteEnter(){},
+        beforeRouteLeave(){},
+        beforeRouteUpdate(){},
+    })
+
+    ref  $refs
+        1.ref是你元素的一个属性，然后通过$refs可以获得该属性所在的DOM元素
+            $refs是一个对象，$refs包含当前实例当中所有属性中拥有ref的元素
+            如果多个ref的值相同，则以后一个为准
+        2.使用$refs获取到的元素和使用document.querySelector获取到的元素相等
+        3.ref与v-for循环结合使用的时候，this.$refs获取到的元素的一个数组
+        4.ref与组件结合使用时,this.$refs获取到的是组件的实例
+
+    侦听跟计算属性相比，计算属性比较常用
+    侦听：
+        普通侦听：
+            当你的某个数据发生变化是，会执行相应的方法
+            watch:{
+                // 增加一个名为num的侦听，当你的数据发生改变时，就会执行该函数
+                // newValue :是修改后的值 oldValue :是修改前的值
+                
+                num(newValue,oldValue){
+                    console.log(123);
+                }
+            }
+        深度侦听：
+            可以在数据发生变化时，做一些别的事
+            watch:{
+                // 如果数据的类型是对象，当该值引用地址不发生变化时。是侦听不到的，需要用深度侦听
+                handler(newValue,oldValue){
+                    // 侦听到的newValue,oldValue值是相同的
+                    console.log(22222,newValue,oldValue);
+                },
+                deep:true
+            }
+        外部侦听：
+            普通侦听：
+                const vm = new Vue();
+                vm.$watch("num",function(newValue,oldValue){
+                    console.log(111,newValue,oldValue)
+                })
+            深度侦听：增加一个参数(对象) teep:true
+                vm.$watch("num",function(newValue,oldValue){
+                    console.log(111,newValue,oldValue)
+                },{
+                    deep:true
+                })
+
+    插槽: 可以在你使用组件时，在组建中插入相对应的类
+        1.匿名插槽
+            <slot></slot>:可以认为是一个占位符，将需要插入的内容 放入到占位符中
+        2.具名插槽
+            要给你自定义的内容增加一个slot属性，然后放到与属性值相同的slot当中
+            // 将改div放置到name值为one的插槽当中
+            <div slot="one"></div>
+            // 具有名字的插槽
+            <slot name="one"></slot>:
+        3.插槽作用域
+            slot-scope:可以的带slot的所有属性（将slot的属性(除了name属性外)统一放到对象data）
+            <slot :num="num"></slot>
+    
+    sync修饰符：同时向你的组件传值，并且可以快速修改父级的值（语法糖）
+        // 向下传递一个叫做isShow的属性
+        // 子组件可以通过$emit("updata:is-show",v),直接修改父元素的数据
+        <one v-show="isShow" :is-show.sync="isShow"></one>
+        // 相当于向下传递了一个值，并且创建了一个名字updata的事件
+        相当于: <one :num="num" @updata:num="(v)=>num=v"></one>
+
+
+    自定义指令
+        自定义指令使用的时候需要在左侧加上v-
+        1.全局
+            Vue.directive("haha",function(el){
+                el.style.color = "red";
+            })
+        2.局部
+            new Vue({
+                el:"#myApp",
+                directives:{
+                    // 属性名就是你的指令名，使用时在指令左侧增加 v-
+                    // 第一个参数是你指令所在的DOM元素
+                    haha(el){
+                        // 定义一个指令名为haha的指令
+                        // 使用时为：v-haha
+                    },
+                    color(el,_color){
+                        el.style.color = _color;
+                    }
+                }
+            })
+
+    生命周期
+        vue实例从创建到销毁的过程，在这个过程当中所暴露出来的函数，成为钩子函数
+        
+        1.挂载阶段
+            beforeCreate:创建前  
+            created：创建后  跟新数据
+            beforeMount：挂载前  处理同步
+            mounted：挂载后   处理异步
+        2.运行阶段
+            beforeUpdate：运行前  view跟新前
+            updated：运行后  view跟新后
+            this.$nextTick(()=>{}) 当你的数据与视图全部跟新完毕后，会执行该回调函数
+        3.销毁阶段
+            beforeDestroy：销毁前
+            destroyed：销毁后
+
+    vue实例当中的常见的属性与方法
+        属性：
+            通过$options获得自定义的属性或方法
+            const vm = new Vue({
+                el:"#myDiv",
+                happly:{}
+            })
+            console.log(vm.$options.happly);
+            通过$el 获得所绑定的元素
+        方法：
+            $mount 流程：先查看有没有指定你的el，如果有就直接挂载，没有就会看有没有指定挂载
+            1.
+                vm.$mount("#myApp"); // 设置挂载的元素
+
+            2.连缀写法
+                new Vue().$mount("#myApp") // 挂载到id为myApp的元素阿航变
+            按需要加载：
+                <input type="button" @click="fn()"> 
+
+    理论
+        为什么在实例当中可以直接使用data与methods的属性？
+            data属性代理给了你的vue实例
+
+        Object.defineProperty()
+        // 将你对象的属性进行拦截，对象的拦截器
+        // vur当中的双向绑定及时通过它来实现的。
+            第一个参数是你要拦截的对象，第二个参数是你要设置的属性，第三个参数是聊熟（设置）对象
+            Object.defineProperty(obj,"userName",{})
+        // 读写器 getter setter
+        Object.defineProperty(obj,"userName",{
+            get(){ // 返回的值，即是读的值
+                // 当你读取的时候就是执行的get
+                return 1
+            },
+            set(){
+                // 当你修改的时候执行的就是set
+            }
+        })
+
+        作业：
+            1.v-clock
+            2.将你的自定义指令放到外部来引用。（es6）
+
+    销毁Vue实例的方法
+        1.vm.$destroy()
+        2.v-if
+        3.components 动态组件
+
+    // 生成的新元素替换掉挂载的元素
+        new Vue({
+            reader(carterElement){ // 可以实现一种渲染
+                return carterElement("h1","lalala");
+            }
+        })
+
+    Vue脚手架：vue-cli
+        是一个快速搭建单页面应用的系统（工具）。
+        webpack：打包工具。  自动化构建工具gulp
+        ************************************************
+        安装：
+            cnpm install -g @vue/cli
+            查看版本：
+                vue -V
+            *********************************
+            SPA:single page application
+            创建应用：
+                1.vue create myapp(需要创建的项目名称) 名字不允许大写
+                    default（babel，eslint） 默认安装
+                    Manually select features :手动安装
+                2.选择安装项：
+                    可以按空格决定是否选择该项
+                    (*) Babel
+                    ( ) TypaScript
+                    ( ) Progressive Web App (PWA) Support
+                   >(*) Rourer
+                    ( ) Vuex
+                    ( ) Linter / Formatter
+                    ( ) Unit Testing
+                    ( ) E2E Testing
+                3.Use history mode for reuter?(Requires proper server setup for index fallback in production)(Y/N)
+                    是否选择history路由模式。y
+                4. Save this as a preset for future projects?
+                    是否要将你创建项目的步骤进行保存
+                5.安装（等待）
+                6.cd myapp
+                7.cnpm run serve
+            *******************************************
+        需要记住的：
+            1.创建项目
+            2.项目运行
+                1.进入该项目
+                2.在该项目的根目录
+                    npm run serve 或 cnpm run serve
+                3.项目结构：
+                    node_modules:脚手架所依赖的模块
+                    public:当页面应用。页面模板。
+                        index.html:项目当中为的页面。
+                            当你的浏览器不支持script标签是，所要显示的内容。
+                            <noscript>
+                                <strong>We're sorry but myapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+                            </noscript>
+                    src:开发环境。 production 生产环境  development 开发环境
+                        assets：存放静态资源 -》 图片、样式
+                        components：存放的是组件。 以vue作为扩展名的都是组件
+                            页面是由若干组件构成。
+                        views：页面。（页面也是组件）
+                        App.vue：主组件（由template、script、style这三部分构成）
+                        main.js：应用的入口文件
+                4.组件是由三部分构成
+                    style：样式  包含scoped属性的话，表示该样式只在该组件中显示
+                    template：模板 结构
+                    script：js 逻辑
+                5.如何创建组件文件
+                6.如何引入创建的组件
+                    1.main.js
+                        import One from "@/components/One"
+                        import Two from "@/components/Two"
+                        import Three from "@/components/Three"
+
+                        Vue.component("One",One);
+                        Vue.component("Two",Two);
+                        Vue.component("Three",Three);
+                    2.
+                        1.在components文件夹内床架一个名字叫index.js文件
+                            import One from "@/compoennts/One";
+                            import Two from "@/compoennts/Two";
+                            import Three from "@/compoennts/Three";
+                            export default {
+                                One,
+                                Two,
+                                Three
+                            }
+                            将所需要的组件全部引入这个文件，然后全部导出
+                        2.main.js
+                            1、引入index.js   index.js可以省略。
+                                import components from "@/components"
+                            2、创建全局组件
+                                for(let key in components){
+                                    Vue.component(key,components[key])
+                                }
+                    3.
+                        1、components-->index.js
+                            import One from "@/components/One";
+                            import Two from "@/components/Two";
+                            import Three from "@/components/Three";
+                            export default {
+                                // 接收的参数就是你的Vue构造函数。
+                                install(Vue){
+
+                                    console.log(Vue===Fn)
+                                    Vue.component("One",One);
+                                    Vue.component("Two",Two);
+                                    Vue.component("Three",Three);
+                                    // console.log(Vue);
+                                }
+                            }
+                        2、main.js
+                            import components from "@/components";
+                            // 会调用 components 下的install 方法
+                            Vue.use(components);
+        配置服务
+            在项目的文件夹下创建一个名字为vue.confige.js文件，然后写入以下内容
+            module.exports = {
+                devServer:{
+                    open:true, // 自动在浏览器当中打开页面
+                    port:3001, // 设置端口号
+                    host:"127.0.0.1" // 设置host
+                }
+            }
+        1.创建组件，组件之间传值
+            方法1.main.js
+                Vue。prototype.$bus = new Vue();
+            方法2：
+                1.创建一个bus文件夹
+                2.在文件夹内创建一个index.js
+                    import Vue from "vue";
+                    export default new Vue();
+                3.在main.js
+                    import bus form "vue"
+                    Vue.prototype.$bus = new Vue()
+            方法3. 插件 Vue.use
+                1.创建一个bus文件夹
+                2.在文件夹内创建一个index.js
+                    export default {
+                        install(Vue){
+                            Vue.prototype.$bus = new Vue();
+                        }
+                    }
+                3.在main.js
+                import bus form "@/bus";
+                Vue.use(use);
+
+            Vue.use():是指定安装的内容，你传入的参数要是一个对象，会执行该对象下的install方法，并传入Vue构造函数
+
+            vue-resource
+                1.下载
+                    cnpm install vue-resource -S
+                2.使用
+                    import vueResource from "vure-resource";
+                    Vue.use(vueResource);
+            引入样式：
+                1.直接卸载style当中
+                2.通过import引入
+                    import "@/assetes/style/weibo.css"
+            ************************************
+            作业
+                1.通过脚手架完成微博
+                2.同城帮首页数据的渲染
+                    轮播图是一个扩展
+                    swiper插件。
+            **********************************
+        Vuex:预习
+        router：路由
+
+        WebSocket:
+            可以实现服务器端和浏览器端的互相通信
+            可以实现服务器端主动给前端发送信息
+
+            1.聊天室
+                1.登录
+                2.发送消息
+                3.接收消息
+                4.统计在线人数
+                5.可以得到通知：
+                    1.有新的成员加入我的聊天室
+                    2.哪些成员推出了我的聊天室
+            ************************************
+            思路：
+                1.创建一个基于socket的服务。
+                    1.下载
+                        cnpm install express sockte.io
+                    2.搭建服务：
+                        const express = require("express");
+                        const app = express();
+                        const http = require("http"); // 内致模块
+                        const httpServer = http.createServer(app);
+                        const path = require("path");
+                        // webSocket是一个方法，接收服务
+                        const webSocket = require("socket.io");
+                        const io = webSocket(httpServer); // 让你的服务允许接收socket信息
+                        // 链接socket 如果链接成功输出11
+                        io.on("connection", (tocket) => {
+                            console.log("链接成功");
+                        })
+                        // 设置html文件夹为静态资源
+                        app.use(express.static(path.resolve(__dirname, "../html")));
+                        httpServer.listen(80, () => {
+                            console.log("success");
+                        });
+                2.尝试一下前后端通过socket通讯
+                    查看index.html server.js
+                    发送：
+                        io.emit
+                    接收
+                    ws.on
+                3.完善咱们的聊天室
+
+        Vuex:
+            主要是为了解决兄弟组件之间的传值
+            对数据进行集中式管理的工具
+
+            是一个实现vue集中式管理的工具。
+            集中式：根据功能，将其集中化。
+            五大属性：
+                state：负责集中式管理你的数据状态
+                getters：负责你的数据计算。computed
+                mutations：负责同步更新你的数据状态。（更新数据的位移正途是通过mutations）不允许出现异步
+                actions：所有的异步操作。接口调用，如果要修改数据状态的话，需要在actions当中调用mutations
+                modules：模块化
+            
+            1.下载(如果有，可省率)
+                cnpm install vuex -S
+            2.引入vuex
+                import vuex from 'vuex'
+            3.安装vuex
+                Vue.use(vuex);
+            4.创建仓库：Store
+                const store =new vuex.Store({
+                    state:{},
+                    mutations:{},
+                    getters:{},
+                    actions:{},
+                    modules:{}
+                });
+            5.在你创建实例时，将store作为属性传递进去
+                new Vue({
+                    store,
+                    render(xxxx),
+                })
+
+            state设置：
+                state:{
+                    userName:'laoli'
+                }
+            state使用：
+                1.template：
+                    {{$store.state.userName}}
+                2.可以通过映射
+                    import {mapState} from 'vuex';
+                    computed:mapState(['userName']);
+                    template:
+                        {{userName}};
+
+            mutations：
+                *:是修改数据状态的唯一方式
+                *：通过$store.commit()来调用mutations的方法是唯一的方式
+                *：接收两个参数，第一个参数是state，第二个参数是传入的值
+                *：建议属性名字大写
+                mutations：{
+                    CHANGE_USER_NAME(state,userName){
+                        state.userName = userName;
+                    }
+                }
+                调用：
+                    调用mutations下的CHANGE_USER_NAME,并传入参数值laoli
+                    this.$store.commit('CHANGE_USER_NAME','laoli');
+
+                    通过this.$store.commit("mutations名字",传递的参数);
+                    如果多个模块当中的mutations名字相同，均会执行
+                    
+                    不通过commit，但需要进行映射（mapMutations）
+                        1.import {mapMutations} from 'vuex';
+                        2.methods:mapMutations(['CHANGE_USER_NAME'])
+                        3.template:
+                            @click='CHANGE_USER_NAME'
+            getters:
+                1.设置
+                    getters:{
+                        // state 是你的数据状态
+                        sum(state){
+                            return 12;
+                        },
+                        sum2(state){
+                            return 16;
+                        }
+                    }
+                2.使用
+                    1.template:
+                        {{$store.getters.sum}}
+                    2.引入映射
+                        import {mapGetters} from 'vuex'
+                        computed:mapGetters(['sum','sum2']);
+
+                        template:
+                            {{sum}} | {{sum2}}
+            actions:
+                1.设置
+                    *最多接收两个参数，第一个参数是一个对象：commit,getters,state,dispatch
+                    zhangXueYou100({commit,getters,state,dispatch},voteNum){
+                        setTimeout(()=>{
+                            commit("CHANGE_ZHANGE_XUE_YOU",voteNum);
+                        },1000)
+                    }
+                2.使用
+                    1.@click='$store.dispatch('zhangXueYou',100)'
+                    2.映射
+                        1.import {mapActions} from 'vuex'
+                        2.methids:mapActions(['zhangXueYou100']);
+                        3.@click='zhangXueYou100(2)'
+                    通过this.$store.dispatch("actions的名字"，传递的参数);
+                    如果多个模块当中的actions名字相同，均会执行。
+            modules：模块
+                1.modules是一个对象
+                2.modules下的每一个属性即是一个模块
+                3.每个模块均可以包含，actions,state,fetters,modules 
+                4.模块当中的state
+                    modules：{
+                        one：{
+                            state:{
+                                str:"one"
+                            }
+                        }
+                    }
+                    调用时：this.$store.state.one.str
+            
+            axios的用法：
+                1.下载
+                    cnpm install axios -S
+                2.引入后，axios可以直接使用
+                    import axios form 'axios';
+                3.Vue.protorype.$axios = axios;
+
+        new Vue({
+            data:{}, // 数据
+            methods:{}, // 方法
+            computed:{}, // 计算属性
+            watch:{}, // 侦听
+            template:{}, // 模板
+            compoennts:{}, // 组件
+            filters:{}, // 过滤器
+
+        })
+        
+        回顾：
+            vuex：集中式管理工具
+                1.state
+                2.getters
+                3.mutations
+                4.actions
+                5.module
+
+        路由：路：路径(地址) 由：路径具体的方向
+            针对于单页面应用，所提供的的一个解决方案。根据地址传递的参数，来决定具体要使用的组件
+            当你发生页面的跳转，可以使用路由
+            1.下载(如果有可省略)
+                cnpm install vue-router -S
+            2.引入
+                import Router from 'vue-router'
+            3.安装
+                Vue.use(Router)
+            4.生成router对象
+                export default new Router({
+                    mode: 'history',
+                    base: process.env.BASE_URL,
+                    routes: [
+                        {
+                            path: '/',
+                            name: 'home',
+                            component: Home
+                        },
+                        {
+                            path: '/about',
+                            name: 'about',
+                            // route level code-splitting
+                            // this generates a separate chunk (about.[hash].js) for this route
+                            // which is lazy-loaded when the route is visited.
+                            component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+                        }
+                    ]
+                })
+
+            modu:路由的模式
+                history 在上线时，需要额外进行重定向的配置。
+                hash(带#)
+            base：公共的地址前缀，默认就是'/'
+                base:'/lala'
+            router:是一个数组，routers是一个路由器，每一个元素都针对一个路由
+
+            引入组件有两种方法
+                1.import One from '@/view/One';
+                    {
+                        path:'/two',
+                        component:Two
+                    }
+                2.
+                    {
+                        path:'/two',
+                        components:()=>import('@/components/Two')
+                    }
+            路由下引入子组件
+                1.在components下新建一个文件Child.vue
+                2.在路由组件当中使用时
+                    1.
+                        import Child from '@/view/Child'
+                        export default {
+                            components:{
+                                Child
+                            }
+                        }
+                    2.
+                        export default {
+                            name: "one",
+                            components:{
+                                Child:()=>import('@/components/Child')
+                            }
+                        }
+            
+            router-view:是一个内置的组件，将符合要求的路由所指向的组件进行渲染的地方
+            router-link：是一个内置组件，可以实现组件的切换
+                地址是不区分大虾写的，对大小写不敏感
+                如果地址相同，则显示第一个
+                属性：
+                    1.to:跳转到什么路由
+
+                404
+                    {
+                        path:'*',
+                        component:()=>import("@/views/Error")
+                    }
+            别名：可以通过'/','/home'来进行访问
+                {
+                    path: '/',
+                    name: 'home',
+                    alias:"/home", // 别名
+                    component: Home
+                }
+                提供了另一种访问该路由的方式
+            重定向:
+                {
+                    path:'lalala',
+                    redirect：'/two'
+                }
+                当你的地址为lalala是，重定向到path为'/two'的路由
+            
+            如何实现路由的跳转：
+                <router-link to="/">Home</router-link> |
+                <router-link to="/about">About</router-link>|
+                <!--<router-link to="/one">One</router-link>|-->
+                <!--<router-link :to="one">One1</router-link>|-->
+                <!--<router-link :to="{path:'/one'}">One2</router-link>|-->
+                <router-link :to="{name:'xixi'}">One3</router-link>|
+                <router-link to="/two">two</router-link>|
+
+            单页面多路由
+                设置：
+                    {
+                        path:"/three",
+                        // component:()=>import("@/views/Three")
+                        components:{
+                            one:()=>import("@/views/One"),
+                            two:()=>import("@/views/Two"),
+                            three:()=>import("@/views/Three"),
+                            default:()=>import("@/views/MyTwo")
+                        }
+                    }
+                使用(template)：
+                    one:<router-view name="one"/>
+                    <hr/>
+                    two:<router-view name="two"/>
+                    <hr/>
+                    three:<router-view name="three"/>
+                    <hr/>
+                    <router-view></router-view>
+                    <hr/>
+                    <router-view></router-view>
+
+            路由传值: $route
+                this.$route来得到当前路由的配置信息。
+                meat: 可以写自定义的东西
+                1.query
+                    1.如何传递
+                        <router-link to="/query?a=1&b=4">query</router-link>|-->
+                        <router-link :to="{name:'query',query:{a:3,b:7}}">query</router-link>|
+                        <router-link :to="{path:'/query',query:{a:1,b:3}}">query</router-link>|
+                    2.如何接收
+                        this.$route.query;// {a:xx,b:xxx}
+                    优点：刷新数据不会丢失，还可以传递对象
+                2.params
+                    1.如何传值
+                        不允许和path结合使用
+                        <router-link :to="{name:'params',params:{a:1,b:3}}">params</router-link>
+                    2.接收
+                        this.$route.params.// {a:1,b:3}
+                    缺点：刷新数据不存在
+                3.设置路由
+                    1.配置路由
+                        {
+                            name:"setRouter",
+                            path:"/setRouter/:a/:b",
+                            component:()=>import("@/views/SetRouter")
+                        }
+                    2.传
+                        <router-link :to="{path:'/setRouter/1/2'}">setRouter</router-link>|
+                        <router-link :to="{path:'/setRouter/1/2'}">setRouter</router-link>|
+                    3.接收
+                        this.$route.params
+
+            路由编程式导航
+                通过js语句来控制路由的跳转
+                $router 路由器
+                this.$router.push('/')
+                    push里边的内容与你得router-link组件的to属性一样。
+                this.$router.go(-1)
+                        -1:代表后退
+                        1:代表前进
+                this.$router.push("/");
+                this.$router.push({name:"query",query:{a:5,b:8}});
+                this.$router.push({name:"params",params:{a:5,b:8}});
+                this.$router.go(-1):后退
+                this.$router.go(1):前进
+            作业：
+                1.当我跳转路由的时候，当前路由组件是否会销毁。
+
+            实现一个服务代理
+                1.服务器之间调用是没有跨域问题的
+                2.所以我可以自己创建一个服务器，用我自己的服务器去访问拉钩。
+                3.将自己创建的服务器允许跨域
+
+            通过服务器访问接口
+                1.下载一个模块
+                    cnpm install request -S
+                2.引入
+                    const request = require("request");
+                3.使用
+                    app.get('url',(req,res)=>{
+                        request('url',(err,response,body)=>{
+                            if(!err && response.statusCode === 200){
+                                res.json({JSON.parse(body)});
+                            }else{
+                                res.json({
+                                    ok:-1,
+                                    msg:"链接失败"
+                                })
+                            }
+                        })
+                    })
+
+                设置允许跨域
+                    app.all("*", function (req, res, next) {
+                        res.header("Access-Control-Allow-Origin", "*"); // 设置你的数据源
+                        res.header("Access-Control-Allow-Headers", "content-type"); // 限制请求头
+                        res.header("Access-Control-Allow-Methods", "PUT,DELETE,GET,POST"); // 是否允许PUT,delete
+                        next();
+                    })
+        
+        1.路由
+            1.如何设置路由
+            2.如何传参
+                附加：
+                    内置组件
+                        router-link
+                            propos:to
+                                exact:布尔值true代表是精确匹配，若果未写该属性默认不是精确匹配
+                        router-view
+                            propos:name
+            路由样式设置
+                1.默认延时样式
+                    未选中：a标签增加样式
+                    选中：
+                        // 选中后，精确匹配
+                        router-link-exact-active{
+                            color:red;
+                        }
+                        //非精确匹配(如果给router-link标签中加上exact属性，效果同上)
+                        router-link-active{
+                            color:red;
+                        }
+                2.
+                    <router-link active-class="is-active" :to=""></router-link>
+                3.在路由设置当中写入
+                    linkActiveClass:'is-active'
+
+            路由懒加载
+            路由的子路由(二级路由)
+                子路由：路由下的路由，在当前路由下定义的路由成为该路由的子路由或二级路由
+                {
+                    path:'/goods/one',
+                    children:[
+                        {
+                            path:'/',
+                            name:'shangyi',
+                            component:()=>import('@/views/One')
+                        }
+                    ]
+                }
+            路由的守卫（钩子）
+                // 组件，路由守卫（路由拦截）
+                beforeRouteEnter(to,from,next){
+                    // to:指的是要去哪
+                    // from：从哪儿来
+                    // next：是一个方法，用于决定是否允许继续执行
+                            next(true/false);
+                            next('/')
+                            next({name:'/two'})
+                }
+                beforeRouteLeave(to,from,next){
+                    // to:离开后去哪
+                    // from：从哪儿离开
+                    // next：允许离开
+                }
+                // 当你在当前路由进行传值时触发
+                beforeRouteUpdate(to,from,next){
+                    // to：要去哪
+                    next()
+                }
+
+            路由：https://router.vuejs.org/zh/
+                1.全局守卫
+                    全局的前置守卫：针对所有的路由
+                        router.beforeEach(to,from,next)=>{
+                            if(to.meta.isAuthorization){
+                                if(1===1){
+                                    next();
+                                }else{
+                                    console.log('未登录');
+                                    next('/')
+                                }
+                            }else{
+                                next();
+                            }
+                        }
+                    全局的解析守卫：
+                        router.beforeResolve(to,from,next){
+                            // 在上一个守卫之后执行，如果上一个没有通过，则不执行
+                        }
+                    全局的后置守卫：
+                        router.afterEach((to,from)=>{
+                            // 
+                        })
+
+                2.组件内的守卫
+                    // 进入之前
+                    beforeRouteEnter(to,from,next){
+                        // this是undefined
+                        next(vm=>{console.log(vm.num)})
+                    }
+                    // 离开之前
+                    beforeRouteLeave(to,from,next){}
+                    // 访问当前路由时,传递的参数更新时
+                    beforeRouteUpdate(to,from,next){}
+                3.路由配置守卫,不属于钩子
+                    beforeEnter(to,from,next){}
+                    相当于boforeRouterEnter
+                    直接写路由配置里边
+            设置权限使用meta属性
+                meta:{
+                    isHide:true
+                }
+
+        ElementUi:PC端用的比较多
+        1.安装
+            cnpm install element-ui -S
+        2.引入
+            import elementUI from 'element-ui'
+            import 'element-ui/lib/theme-chalk/index.css'
+        3.安装
+            Vue.use(elementUI)
+
+        1.阿里云
+            1.购买服务器
+            2.
+
+    new Vue({
+        el:"", 挂载的元素
+        data:{}, 数据状态
+        methods:{}, 方法
+        template:"", 模板
+        filters:{}, 过滤器
+        watch:{}, 监听器
+        computed:{}, 计算属性
+        components:{}, 组件
+        reader:{}, 
+        directives:{}, 指令
+
+        beforeCreate:{}, 创建前
+        created:{}, 创建后
+        beforeMount:{}, 挂载前
+        mounted:{}, 挂载后
+        beforeUpdate:{}, 跟新前
+        updated:{}, 跟新后
+        beforeDestroy:{}, 卸载前
+        destroyed:{}, 卸载后
+
+        beforeRouteEnter(){}, 进入之前
+        beforeRouteUpdate(){}, 数据跟新之前
+        beforeRouteLeave(){}, 离开之前
+        // beforeEnter(){} 这个是在组件设置里边写的
+        // 全局组件:
+            // route.beforeEach(()=>{})
+            // route.beforeLeave(()=>{})
+            // route.afterEach(()=>{})
+    })
+
+    1.node
+    2.nginx
+        Nginx (engine x)是一个高性能的HTTP和反向代理web服务器
+        其将资源代码以类BSD许可证的形式发布，因它的稳定性、丰富的功能集、示例配置问价和低级资源的消耗而闻名
+        是一个服务器的环境
+
+        2011年6月1日，nginx 1.0.4发布。
+        Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。
+        特点：
+            内存少，并发能力强、事实上nginx的并发能力确实在同类型的网页服务器中的表现较好
+            中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。
+
+        正向代理：代理的是客户端
+        反向代理：代理的是服务器
+
+        下载地址：http://nginx.org/en/download.html
+        下载完以后是一个压缩包：
+            1、将其解压缩
+            2、进入到con->nginx.conf
+                #代理注释
+            3、配置
+                server {
+                    // 设置商品号
+                    listen       80;
+                    // 设置host
+                    server_name  127.0.0.1;
+                    error_page  404              /404.html;
+                    location / {
+                        // 站点目录
+                        root   html;
+                        // 打开的默认文件
+                        index  index.html index.htm;
+                    }
+                }
+            4、命令
+                1、start nginx:运行nginx服务（在q解压包的根目录运行）
+                    1、运行http://127.0.0.1   查看是否可以打开页面。看到的页面，即是通过nginx服务提供的
+                    2、任务管理器-》详情-》nginx.exe   :是否在运行
+                    3、不要重复执行该命令！不要重复执行该命令！不要重复执行该命令！
+                2、nginx -s reload 重启
+                    nginx -s stop:强制停止
+                    nginx -s quite：当你的连接结束之后再退出。
+        *:vue-router下的mode设置为history,在生产环境当中需要对地址进行重定向。
+        ******************************************
+        1、登陆
+            前端：
+            1、账号密码验证成功后发送POST请求
+            2、接收
+                失败：提示失败
+                成功：
+                    保存token,adminName.
+            接口：
+            1、接收数据
+            2、对你的密码进行MD5加密。盐料
+            3、数据库进行匹配，成功以后增加一条登陆日志，然后进行返回登陆的结果。
+                1、成功
+                    返回的信息当中包含一个token,还有一个adminName.
+                2、失败
+            **************axios拦截器******************
+            请求拦截
+            // 请求拦截,可以将请求的配置进行二次处理。
+            axios.interceptors.request.use(config=>{
+                // config 是axios的配置信息.
+                console.log(config);
+                config.url = "/ele"+config.url;
+                return config;
+            })
+            响应拦截
+            // 响应拦截
+            axios.interceptors.response.use(({data})=>{
+                // 返回的值即是axios得到的值
+                return data;
+            })
+            ***************************************
+            *vue.config.js当中的内容发生变化需要重启服务。
+            module.exports = {
+                devServer:{
+                    open:true,
+                    host:"127.0.0.1",
+                    port:8081,
+                    // 反向代理。
+                    proxy:{
+                        // htttp://127.0.0.1:8081/ele/lala
+                        // 当访问的地址以/ele开头意味着，你要使用该代理
+                        "^/ele":{
+                            // 代理的服务器地址
+                            target:"http://127.0.0.1",
+                            // 是否开启代理
+                            changeOrigin:true,// http://127.0.0.1/lala
+                            // 地址重写
+                            pathRewrite:{
+                                "^/ele":""
+                            }
+                        }
+                    }
+                }
+            }
+            ******************md5加密********************************
+            1、下载md5
+                cnpm install md5 -S
+            2、引入
+                const md5 = require("md5")
+            3、使用
+                md5(加密的内容);
+                
+            盐料：密码在加密的时候加上
+                const key = '/^@_@^/';
+                const str = '123456';
+                md5(str + key);
+            *******************token********************************************
+            token:令牌。
+                流程：
+                    1、在你登陆时服务器端生成
+                        服务器生成时会荷载你的管理员信息以及过期时间。
+                    2、前端得到token后对其进行缓存
+                    3、缓存以后在使用私密接口时，需要传递token
+                        后端接收到token后会对其进行解析。
+                            1、是否是服务器端生成的。
+                            2、查看是否过期。
+            制作token:
+                1、下载  jwt-->json web token
+                    cnpm install jwt-simple -S
+                2、引入
+                    const jwt = require("jwt-simple");
+                3、使用
+                    1、生成token
+                        jwt.encode(json数据，密钥)
+                    2、解析token
+                        jwt.decode(token,密钥)
+        2、退出
+
+框架：react
+    class
+        class Father{
+            constructor(userName){
+                this.userName = userName;
+            }
+        }
+        class Child extends Father{
+
+        }
+        const daWa = new Child('大娃'); 
+        console.log(daWa.userName) // 大娃 
+        super(); // 调用父级的constructor
+
+    // 静态方法，静态属性
+        class Box{
+            static run(){
+                console.log('121132');
+            }
+        }
+
+    JSX是一种JavaScript的语法扩展，运用于React架构中，其格式比较像是模版语言，
+    但事实上完全是在JavaScript内部实现的。元素是构成React应用的最小单位，
+    JSX就是用来声明React当中的元素，React使用JSX来描述用户界面。
+    jsx:javascript xml.是对javascript的一个扩展。 xml
+        const a = 1;
+        const b = "2";
+        const c = <div>89</div>
+    vuex jsx xml
+    ***************************
+        1、引入
+            <!--react的核心库-->
+            <script src="lib/react.development.js"></script>
+            <!--负责对你应用层实现解析渲染，依赖你的react.development.js-->
+            <script src="lib/react-dom.development.js"></script>
+            <!--对你指定的内容进行转换，支持JSX-->
+            <script src="lib/babel.min.js"></script>
+        2、使用
+            <script type="text/babel">
+                // 第一个参数是你要呈现的内容，第二个参数是指定呈现的位置。
+                ReactDOM.render(<h1>你好，世界</h1>,document.querySelector("#myApp"))
+            </script>
+    ***********************************
+        元素变量：值为元素的变量称为元素变量
+        注释：
+            单行： {
+                    // lala
+                    }
+                    {/*lala*/}
+            多行：
+                {
+                    /*
+                    <div>
+                    xixi
+                    </div>
+                    */
+
+                }
+    ***************************
+        className使用你的样式：
+            <script type="text/babel">
+                ReactDOM.render((
+                    <div className="one">
+                        我确定你就是那只匹着羊皮的狼
+                    </div>
+                ),document.querySelector("#myApp"))
+            </script>
+    *******************************
+        指定属性值时（属性值是一个变量，不要在{}外加上双引号）
+            let a = "one"
+            let b = "two";
+            ReactDOM.render((
+                <div className={b}>
+                    我确定你就是那只匹着羊皮的狼
+                </div>
+            ),document.querySelector("#myApp"))
+    **********************************
+        style:
+        <script type="text/babel">
+            let obj = {
+                background:"yellow",
+                color:"red"
+            }
+            ReactDOM.render((
+                <div>
+                    <p style={{color:"blue"}}>你很好，我知道</p>
+                    <p style={{color:"red"}}>你来或不来，我都在这里，你走或不走，我也不等你</p>
+                    <p style={obj}>你来或不来，我都在这里，你走或不走，我也不等你</p>
+                </div>
+            ),document.querySelector("#myApp"))
+        </script>
+    ***********************************
+        // jsx 会将你的数组直接展开
+        <script type="text/babel">
+            // jsx 会将你的数组直接展开
+            let a = [1,2,3,4,5,6]
+            ReactDOM.render(<div>{a}</div>,document.querySelector("#myApp"))
+            // ReactDOM.render(<h1>你好，世界{a}</h1>,document.querySelector("#myApp"))
+        </script>
+    ***************************************
+        //只有有一个根元素。
+        // 遇到小写的标签会被视为普通标签，如果遇到首字母大写的标签会被视为组件。如果遇到{}，会被认为要输出，或要解析表达式。
+
+        // ReactDOM.render(<Div>adsfasdf</Div>,document.querySelector("#myApp"))
+
+        // no
+        // let arr = [1,2,3,4];
+        // ReactDOM.render({arr},document.querySelector("#myApp"))
+
+        // yes:
+        // let arr = [1,2,3,4];
+        // ReactDOM.render(arr,document.querySelector("#myApp"))
+
+        // yes:
+        // ReactDOM.render("123123123",document.querySelector("#myApp"))
+
+        //yes:
+        // ReactDOM.render(<div>asdfasdf</div>,document.querySelector("#myApp"))
+
+        //no:
+        // ReactDOM.render(<h1>你好，世界</h1><div>asdfasdf</div>,document.querySelector("#myApp"))
+
+    组件:
+        状态组件
+        非状态组件(无状态组件)
+      状态，属性，事件   
+        react中的事件必须使用驼峰命名法（onClick=fn）
+        事件的值要是一个函数（不要加括号）
+        事件：
+            事件要使用驼峰命名法
+            事件绑定的是一个函数
+                函数的第一个参数为事件对象
+        组件：对HTML标签的扩展，在react中组件要求首字母大写
+        非状态组件：
+            定义：通过函数来定义，该函数必须要有返回值，返回的内容即是组件的内容(函数名即是组件名)
+                EG:
+                    function One(){
+                        return (
+                            <div>我是一个非状态组件</div>
+                        )
+                    }
+                函数必须要有返回值，如果不想要返回数据 return null
+                语法：建议返回值用括号包裹
+                    有且只能有一个根元素
+            使用：将你的函数作为标签来使用
+            传值：
+                组件的属性，即是放在定义组件函数接收的参数对象当中
+                子组件接收的属性是不允许直接被修改的。
+        状态组件：  
+            通过class定义的组件称为状态组件，React.Component
+            class的名字即是组件名
+                EG: 
+                    class My extends React.Component{
+                        construvtor(props){
+                            super(props)
+                            console.log(this.props);
+                        }
+                        // 呈现，它必须要有一个返回值，返回的内容就是组件的内容
+                        render(){
+                            return (
+                                <div>我是一个状态组件</div>
+                                <div>this.props.userName</div>
+                            )
+                        }
+                    }
+            定义: 
+                class Wrap extends React.Component{
+                    constructor(){
+                        super();
+                        this.state = {
+                            // 定义了一个状态userName,值为xixi
+                            userName:"xixi";
+                        }
+                    }
+                    changeUserName(){
+                        this.state.userName = "wawa";// 更改状态，但不会更新视图
+
+                        // 更改状态，并更新视图
+                        this.setState({
+                            userName:"lala"
+                        })
+                    }
+                    render(){
+                        return (
+                            <div>{this.state.userName}</div>
+                        )
+                    }
+                }
+            传值:
+                通过属性传值
+                传递的属性，其实是放到你的父级React。Component 的props对象下
+                传递属性: <My userName="nihao" ></My>
+                接收：this.props.userName
+
+                // 异步执行
+                // 更改状态，并且跟新视图
+                this.setState({
+                    num :this.state.num+1
+                },()=>{
+                    // 当你的数据跟新时执行
+                    console.log(this.state.num)
+                })
+            关于事件this绑定问题（undefined）
+                1.直接使用bind（示例18）：当前函数的使用频率不高
+                    onClick={this.changeNum.bid(this)}
+                2.直接写函数（示例19）：该函数没有重用，并且逻辑代码少
+                3.在构造器当中使用bind（示例20):当前组件函数较少，但使用频率比较高
+                4.直接将你的函数定义为箭头函数，可以重用，不用bind.但是传值麻烦
+    钩子：  
+        挂载前:
+            componentWillMount(){
+                同步操作，可以在挂载前修改数据
+            }
+        挂载后:
+            componentFidMount(){
+
+            }
+
+    1.受控组件：
+        由react进行限制的表单元素成为受控组件。
+        1.需要将value与state进行绑定
+        2.onChange修改state，从而改变value
+        场景：当需要数据与视图进行同步时。
+    2.非受控组件
+        直接通过DOM操作的组件称为非受控组件
+        1.不需要与你的state进行绑定
+        2.设置ref  获取：通过this.refs.refName
+            render(){
+                return (
+                    <div>
+                        <input type="text" defaultValue={this.state.userName} ref="userName"/>
+                        <input type="button" value="提交" onClick={()=>{
+                            console.log(this.refs.userName === document.querySelector("input[type=text]"))
+                        }}/>
+                    </div>
+                )
+            }
+        场景：当你想获得某个元素是，并不需要与数据同步时
+
+        ref也可以与组件绑定
+        ref两种写法，一种是字符串。另外一种是通过箭头函数
+        获取：this.refs.refName.state.num
+
+    defaultValue:设置初始值，不会与你的状态发生绑定。
+    defaultChecked:设置初始值（单选与多选）
+
+    生命周期：
+        1.mounting挂载阶段
+            1.constructor
+            2.componentWillMount
+            3.render
+            4.componentDidMount
+        2.updating更新阶段
+            updating-props
+                componentWillReciveProps(nextProps){
+                    // 接收到最新属性，原属性还未更改
+                    // nextProps:得到的最新的属性
+                }
+                shouldComponentUpdate(){
+                    // 判断是否要更新你的属性
+                    reutrn false/true;
+                }
+                componentWillUpdate(nextProps){
+                    // 属性更新之前
+                    // nextProps是你要更新的属性
+                }
+                componentDidUpdate(preProps){
+                    // 属性更新之后
+                    // prePeops: 更新前的数据
+                    // preProps
+                }
+            1.componentWillReceiveProps(nextProps):接收到新属性时（未更新）触发的钩子，nextProps准备要更新的属性
+            2.shouldComponentUpdate(nextProps.nextState):判断是否更新你的数据（属性，状态），必须要提供一个布尔值，true为更新，false为不更新
+            3.componentWillUpdate(nextProps,nextState):更新数据之前next是要更新的内容
+            4.render()
+            5.componentDidUpdate(nextProps,nextState):更新数据之后pre是更新完成之前的内容
+
+            在更新状态时不需要走第一条
+        3.unmounting卸载阶段
+            componentWillUnmount(){}
+
+    脚手架：cli
+        1.安装：
+            cnpm install create-react-app -g
+        2.查看是否安装成功
+            create-react-app -V
+        3.创建项目
+            create-react-app one
+        ****************************************
+        1.创建组件
+            1、
+                import React from "react";
+                class App extends React.Component{
+                    render(){
+                        return (
+                            <div>我是刚被创建出来的一个组件</div>
+                        )
+                    }
+                }
+                export default App;
+
+            2、
+                import React from 'react';
+                export default class App extends React.Component{
+                    render(){
+                        return (
+                            <div>第二种创建方式</div>
+                        )
+                    }
+                }
+
+            3、
+                import React,{Component} from "react";
+                export default class App extends Component{
+                    render(){
+                        return (
+                            <div>第三种创建方式</div>
+                        )
+                    }
+                }
+
+            4、
+                import React,{Component} from "react";
+                class App extends Component{
+                    render(){
+                        return (
+                            <div>第四种创建方式</div>
+                        )
+                    }
+                }
+                export default App;
+        路由：
+            1.下载
+                cnpm install react-router-dom -S
+            2.引入
+                as ：别名(定义一个别名)
+                imppot {
+                    BrowserRouter as Router, // 路由器 相当于vue中的 mode:history
+                    // HashRouter as Router, // 相当于vue中的 mode:hash
+                    Route, // 路由，需要放在Router里边
+                    NavLink, // 路由的跳转
+                    Link, // 跟a标签类似点击链接,切换组件
+                    Switch, // 在路径相同的情况下,只匹配第一个,这个可以避免重复匹配
+                    Redirect, // 重定向
+                    withRouter, // 通过该高阶函数，可以获得当前路由信息
+                } from "react-router-dom"
+            3.使用
+                exact:精确匹配
+                *Route与NavLink组件必须要放在Router组件内
+                    <Router>
+                        <NavLink to={"/"}>首页</NavLink>
+                        <NavLink to={"/news"}>新闻</NavLink>
+                        <NavLink to={"/my"}>我的</NavLink>
+                        <Route path={"/"} exact = {true} component={Home}></Route>
+                        <Route path={"/news"} component={News}></Route>
+                        <Route path={"/my"} component={My}></Route>
+                    </Router>
+
+            activeStyle={{color:"red"}}：选中颜色
+            activeClassName={"Active-link"}:选中样式
+
+            路由选中的样式：
+                activeStyle:
+                    <Router>
+                        <NavLink className={"App-link"} activeStyle={{color:"red"}} exact to={"/"}>首页</NavLink>
+                        <Route path={"/"} exact = {true} component={Home}></Route>
+                    </Router>
+                activeClassName:
+                    <Router>
+                        <NavLink className={"App-link"} activeClassName={"Active-link"} exact to={"/"}>首页</NavLink>
+                        <Route path={"/"} exact = {true} component={Home}></Route>
+                    </Router>
+
+            NavLink:
+                to:指定的是跳转的路由地址
+                exact：值是一个布尔值，用于是否为精确匹配
+                activeStyle：选中的style样式
+                activeClass：选中的样式
+            Router:
+                path:地址。当你的赋值与改属性相同时，会使用路由下的组件
+                component：指定组件
+                exact：是否精确匹配
+            BrowserRouter:
+                basename:为路由增加前缀
+                forceRefresh:是一个布尔，用于强制刷新，当你每跳转一次路由即要与你的服务器进行请求。
+            1.可以直接给组件赋予一个箭头函数，
+                <Router>
+                    <nav>
+                        <NavLink to={"/my"} exact activeStyle={{color:"red"}}>我的</NavLink>
+                    </nav>
+                    <Route path={"/my"} component={()=><div>my</div>}></Route>
+                </Router>
+            2.link：没有activeStyle与activeClass属性的
+                当只是单冲的发生跳转，不作为导航使用该组件
+                <Router>
+                    <nav>
+                        <Link to={"/"} exact activeStyle={{color:"red"}}>首页</Link>
+                        <Link to={"/search"}  activeStyle={{color:"red"}}>搜索</Link>
+                        <Link to={"/my"}  activeStyle={{color:"red"}}>我的</Link>
+                    </nav>
+                    <Route path={"/"} exact component={Home}></Route>
+                    <Route path={"/search"} component={Search}></Route>
+                    <Route path={"/my"} component={()=><div>my</div>}></Route>
+                </Router>
+            3.basename:为路由增加前缀
+                forceRefresh:是一个布尔，用于强制刷新，当你每跳转一次路由即要与你的服务器进行请求。
+                <Router basename={"m"} forceRefresh={true}>
+                    <nav>
+                        <NavLink to={"/"} exact activeStyle={{color:"red"}}>首页</NavLink>
+                    </nav>
+                    <Route path={"/"} exact component={Home}></Route>
+                </Router>
+            4.Switch
+                将该组件包裹的route进行筛选，自上向下，只要否和路由地址第一个Router
+                404：  
+                    1.将path省略
+                    2.将path设为*
+                <Router>
+                    <nav>
+                        <NavLink to={"/"} exact activeStyle={{color:"red"}}>首页</NavLink>
+                        <NavLink to={"/my"}  activeStyle={{color:"red"}}>我的</NavLink>
+                    </nav>
+                    <Switch>
+                        <Route path={"/"} exact component={Home}></Route>
+                        <Route path={"/my"} component={()=><div>my</div>}></Route>
+                        <Route path={"*"} component={()=><div>404</div>}></Route>
+                    </Switch>
+                </Router>
+            5.Redirect：
+                重定向 from：当地制为from  to：跳转到改地址
+                <Redirect from={"/xixi"} to={"/my"}></Redirect>
+                <Router>
+                    <nav>
+                        <NavLink to={"/my"}  activeStyle={{color:"red"}}>我的</NavLink>
+                    </nav>
+                    <Switch>
+                        <Route path={"/my"} component={()=><div>my</div>}></Route>
+                        <Redirect from={"/xixi"} to={"/my"}></Redirect>
+                    </Switch>
+            6.to:值有两种 1.字符串 2.对象
+                to={{pathname:"/search"}}
+                <Router>
+                    <nav>
+                        <NavLink to={"/search"}  activeStyle={{color:"red"}}>搜索</NavLink>
+                        <NavLink to={{ pathname:"/my" }}  activeStyle={{color:"red"}}>我的</NavLink>
+                    </nav>
+                    <Switch>
+                        <Route path={"/search"} component={Search}></Route>
+                        <Route path={"/my"} component={()=><div>my</div>}></Route>
+                    </Switch>
+                </Router>
+                </Router>
+            传值有三种方法：
+                1.设置path
+                    传值
+                        to={"/one/1/2"}
+                        path={"/one/:a/:b"}
+                        <Router>
+                            <nav>
+                                <NavLink to={"/ONE/1/2"}  activeStyle={{color:"red"}}>ONE</NavLink>
+                            </nav>
+                            <Switch>
+                                <Route path={"/one/:a/:b"} component={One}></Route>
+                            </Switch>
+                        </Router>
+                    接收:
+                        this.props.match.params
+                    优点：刷新数据还在
+                    缺点：不能够直接传递对象
+                2.query
+                    在你的navLink属性to的值设为一个对象，将你要传递的参数作为该对象的属性
+                    传递：
+                        to={{
+                            pathname:"/two",
+                            query:{
+                                a:1,
+                                b:2
+                            }
+                        }}
+                        <Router>
+                            <nav>
+                                <NavLink to={{
+                                    pathname:"/two",
+                                    xixi:"haha",
+                                    query:{
+                                        a:1,
+                                        b:2
+                                    }
+                                }}  activeStyle={{color:"red"}}>Two</NavLink>
+                            </nav>
+                            <Switch>
+                                <Route path={"/two"} component={Two}></Route>
+                            </Switch>
+                        </Router>
+                    接收：
+                        this.props.location.query
+                        this.props.location.xixi
+                    优点：可以传递对象
+                    缺点：刷新数据丢失
+                3.state
+                    传值：
+                        to={{
+                            pathname:"/",
+                            state:{
+                                a:1,
+                                s:2
+                            }
+                        }}
+                        <Router>
+                            <nav>
+                                <NavLink to={{
+                                    pathname:"/three",
+                                    state:{
+                                        c:1,
+                                        d:2
+                                    }
+                                }}>Three</NavLink>
+                            </nav>
+                            <Switch>
+                                <Route path={"/three"} component={Three}></Route>
+                            </Switch>
+                        </Router>
+                    接收：
+                        this.props.location.state
+                    优点：可以传递对象，刷新数据还在
+                    缺点：重新打开标签，数据不在
+
+            跳转页面：编程式导航
+                this.props.history.push('/');
+                this.props.history.push({
+                    pathname:'/two',
+                })
+                this.props.history.go(-1):返回
+            二级路由：
+
+            路由当中的子组件当中的this.props是没有路由信息的
+                若要子组件当中使用路由信息
+                1.信息向下传递
+                    <JoinCar {...this.props}></JoinCar>
+                2.通过高阶组价：将一个组件作为参数传递到函数内，该函数返回一个新的组件，函数称为高阶组件。
+            react当中使用图片
+                本站点：
+                    1.通过import引入图片
+                        import noPng from "../assets/images/yes.png";
+                        <img src={noPng}/>
+                    2.通过require引入
+                        <img src={require('../assets/images/yes.png')}/>
+                非本站点：
+                    3.引入非本站点的图片
+                        <img src="url"/>
+
+    redux:
+        集中式对你的数据状态进行改变
+        wepy:小程序框架  里边也可以使用redux
+        1.仓库：store --> 是通过createStore来创建的。
+            项目当中的store是唯一的，只允许有一个仓库
+            数据状态一般都有初始值
+            例如：const store = createStore(reducer) ：创建仓库
+                reducer接收两个参数，第一个参数是你要操作的状态，第二个是你如何操作
+                function redurcer(state,action){
+                    console.log(state,action)
+                }
+            优化 store 只能有一个reducer是允许有多个的，每一个reducer就是你的一个模块
+        2.老板：dispacth --> 操作状态的唯一方法。
+        3.工人：reducer --> 执行dispatch，是一个函数，函数内只能是同步操作
+            注意：
+                1.在reducer当中对状态要进行深复制
+                2.当你操作完以后，需要使用最新的状态需要通过store.getState();
+            1.在创建仓库时执行：state是undefined
+            2.dispatch时执行：state是你最后操作的状态
+        4.命令：action --> dispatch(action) 同步action 异步action
+            同步action
+                是一个对象，中间必须有个type属性
+                store.dispatch({
+                    type:"CHANGE_AGE",
+                    payload:{ // 荷载的数据
+                        age:89
+                    }
+                })
+        5.货物：state --> 存储你的数据
+    
+        关系：
+            1.仓库和货物的关系：在仓库当中获得货物
+                store.getState()；
+            2.更改状态
+                dispatch(action)
+                在reducer当中执行命令，从而对状态进行操作
+        
+        1.下载
+            cnpm install redux -S
+        2.引入
+            import {
+                createStore,
+                combineReducers // 负责将多个reducer进行合并
+                } from 'redux'
+
+            const rootReducer = combineReducers(redu){
+                // 属性是模块名，值是reducer函数
+                one:reducer,
+                two:reducerTwo
+            }
+
+            1.创建仓库：
+                const store = createStore(reducer);
+            2.设置初始化状态
+                const initState = {};
+                function reducer(state=initState,action){}
+            3.操作状态
+                store.dispatch({});
+            4.获得状态
+                const state = store.getState();
+            5.action
+                是一个对象，通过dispatch来触发action
+                {
+                    type:"" // 必须
+                    payload:{} // 传递的数据
+                }
+                
+        小结：
+            redux.
+            ********************
+            import {
+                createStore,// 创建仓库
+                combineReducers, // 合并reducer
+                bindActionCreators, // 
+            } from "redux"
+            state:状态
+            reducer:是一个函数，模块化.所有的状态操作都在这里，只能写同步
+                两个参数：通过action来操作state.
+                    state:最后一次更新的状态。
+                    action:接收的命令
+            action:具体的命令
+            dispatch:发送命令
+            store:creaateStore(reducer);
+            ***************************************************
+            actionCreator:生成action
+            actionType:action的类型
+            reducer:提供reducer
+            state:状态初始值
+            index.js:提供store
+
+    react-redux：基于redux，方便你在ract当中以更加友好的方式使用redux
+        1.下载
+            cnpm install react-redux -S
+        2.引入
+            import store from './sotre';
+            import {
+                Provider, // 提供者,是一个组件  store <Provider store={store}></Provider>
+                connect, // 第二个高阶组件，负责将你自定义的组件与Provider产生关联的一个桥梁。
+            } from 'react-redux'
+
+        connect:
+            // state:store.getStgate   props:要与你仓库状态进行合并的属性。
+            export default connect((state,props)=>{
+                // console.log(props)
+                // console.log(state);// store.getState()
+                // 返回的值会与你的props进行合并。 将你的store状态与你的props
+                return {
+                    newsList:state.news.newsList
+                }
+            },(dispatch)=>{
+                // 返回的值会与你的props进行合并。 将你的操作与你的props进行合并。
+                return {
+                    c:3,
+                    d:4,
+                    async getNews(){
+                        const {data} = await axios.get("http://127.0.0.1/news");
+                        dispatch(changeNewsList(data.newsList));
+                    }
+                }
+            })(App);
+
+            action是通过dispatch来触发的，不管是同步还是异步
+                同步action：对象
+                异步action：函数
+            
+            redux-thunk：可以使用异步action（函数）
+                1.下载
+                    cnpm install redux-thunk -S
+                2.引入
+                    import thunk from 'redux-thunk';
+                3.使用
+                    import {
+                        createStore,
+                        applyMiddleware
+                    } from 'redux';
+                    // 第一个参数是reducer，第二个参数通过applyMiddleware指定中间件
+                    createStore(reducer,applyMiddleware(think))
+        
+    1.插槽
+        this.props.children(插槽)   是一个数组
+            可以在组件当中插入内容
+            接收是使用this.prope.children接收
+            <MyChildren>
+                <h1>12</h1>
+                <h2>12</h2>
+            </MyChildren>
+            // 接收时使用this.props.children
+            import React,{Component} from "react";
+            class MyChildren extends Component{
+                render(){
+                    return (
+                        <div>
+                            myChildren
+                            {this.props.children[0]}
+                            xixixixix
+                            {this.props.children[1]}
+                        </div>
+                    )
+                }
+            }
+            export default  MyChildren;
+    2.Fragment（片段）
+        是一个组件
+        在组建当中省略父级
+            1.通过一个无意义标签<></>将你的内容进行包裹
+            2.使用Fragment组件将你的内容进行包裹
+                import React,{Fragment} from 'react'
+    3.pbusub-js
+    4.路由的守卫（没有专门的路由守卫）
+        
+    5.react-redux redux
+    6.代理服务器
+        由谁代理（当前的2服务器），代理的服务是谁（代理的服务器）
+        1.在src目录下创建一个文件名为 setupProxy.js文件 可以代理多个服务
+            1.下载
+                cnpm install http-proxy-middleware -S
+            2.src创建setupProxy.js
+            3.setProxy.js
+                const proxy = require("http-proxy-middleware");
+                module.exports = function (app) {
+                    app.use("/haha",proxy({
+                            target:"http://127.0.0.1",
+                            changeOrigin:true,
+                            pathRewrite:{
+                                "^/haha":""
+                            }
+                    }))
+                    // proxy是一个函数，第一个参数是 前缀
+                    app.use(proxy("/xixi",{
+                        target:"https://m.lagou.com",
+                        changeOrigin:true,
+                        pathRewrite:{
+                            "^/xixi":""
+                        }
+                    }))
+                }
+        2.在package.json文件当中进行设置 只能代理一个服务，而且没有太多的灵活度
+            package.json:
+                "proxy":"https://m.lagou.com" // 代理的地址
+            axios请求：
+                axios.get('/listmore.json?pageNo=1&pageSize=10') // 代理服务的文件路劲
+    
+
+GitHub
+    1.解析项目
+        1.将你的项目尽心解析。（了解你的项目共有多少个页面（模块），能完成的页面有哪些）
+        2.有一个人负责创建项目。然后将架构搭建起来。  文件夹
+        3.将项目当中遇到的问题总结起来。如何解决
+        4.布局。静态页面。
+    2.git
+        git是一个版本管理工具。作者：Linus
+            工作区：项目当中的文件，可以看得到的
+            暂存区（缓存区）：要想提交到仓库，首先要将你操作的文件放到暂存区
+            版本仓库：存放的是你的各个版本
+        
+        1.安装git
+        2.查看版本号
+            git --version
+        3.设置个人信息
+            git config --global user.name 'zhangsan'
+            git config --global user.email 'zhangsan'
+        4.查看
+            git config user.name
+            git config user.email
+
+        本地的仓库
+            1.创建本地仓库
+                git init
+                创建完成之后会有一个隐藏文件夹，里边放的是版本
+            2.命令
+                git status:查看当前暂存区的状态
+                    绿色的字说明在暂存区，但是没有提交到仓库
+                    红色的字说明未在暂存区，也没有提交到仓库
+                git diff a.txt
+                    白字：未修改
+                    红字：删除
+                    绿字：增加
+                git reset HEAD a.txt --> 当你将文件a.txt添加到暂存区，后续要将其在暂存区当中清理，如果省略指定文件名，是将暂存区中所有的文件清理出来。
+            2.操作
+                1.增加
+                    git add index.html --> 将指定的inde.html文件放到暂存区
+                    git add a.txt b.txt -->提交指定的多个文件
+                    git add * :提交多个文件
+                    git commit -m "说明" --> 写清楚
+                2.修改
+                    git add *;
+                    git commit -m "说明"
+                    工作场景：修改代码或新增加一个代码。想恢复上一个版本
+                        git checkout 指定文件名  --> 在最新版本当中，摘取指定文件
+                3.删除
+                    1.物理删除
+                        点击右键，删除
+                        git checkout 文件名
+                    2.rm
+                        git rm 文件
+                        git commit -m "描述"
+                4.如何切换版本
+                    git reset --hard HEAD^ --> 返回上一个版本
+                    git reflog --> 查看版本
+                    git reset --hard 4位版本号 --> 返回指定的版本
+                5.分支：创建，合并，切换
+                    git branch:查看分支
+                    git branch --all --> 查看所有分支
+                    git branch abc --> 创建一个名字叫abc的分支
+                    git checkout abc ：切换到指定的分支
+                    git checkout -b xixix :创建一个名字为xixix的分支并切换过去
+                        相当于 git branch xixix   git checkout xixix 
+                    git branch -d xixix :删除xixix分支，注意：不能删除当前所在的分支
+                    合并：dev分支合并到主分支内（master）
+                        进入到主分支（master）
+                        git merge dev
+                分支冲突解决：
+                    手动解决。
+                    将文件进行提交，提交到仓库当中
+        远程的仓库
+            1.注册github.com
+            2.吃用静态服务器
+                1.点击右上角的+  --> 'Create a new repository'
+                2.名字tydtea.github.io
+                3.在仓库内新建一个文件index.html
+                4.你就可以通过 tydtea.github.io 访问到你的静态页面
+                绑定域名：
+                    1.在仓库内新建一个名字为CNAME的文件，在文件内写上你的域名
+                    zhangpeiyue.com
+                    2.域名解析
+                        选择解析类别：CNAME
+                        记录值：tydtea.github.io
+                
+            设置SSH
+                1.生成
+                    ssh-keygen -t rsa -C '3258193996@qq.com'
+                2.将生成的SSH放到你的GITHUB当中
+                    1.生成以后打开  
+                    2.复制改文件的内容
+                    3.设置当中 --> ssh***
+            解决上传冲突
+                1.git pull
+                2.手动更改代码
+                3.git push
+            远程仓库的流程
+                1.创建一个远程仓库 --> 点击右上角的+ --> Create a new repository
+                2.克隆远程仓库
+                    git clone xxx
+                    进入到你的项目文件夹
+                3.创建你的项目
+                4.git add
+                    git commit -m '新建了一个文件'
+                    git push -u origin master;第一次是，后续你可以直接写git  push 将本地仓库与远程仓库同步
+                5.创建一个dev分支
+                    git checkout -b dev
+                6.其他成员
+                    git clone -b dev
+                    新加入一些文件，删除，修改
+                    git add *
+                    git commit -m "xxx"
+                    git push -u origin dev
+
+                合并
+                    1.先进入到你要合并的dev分支
+                        git checkout dev
+                        git pull
+                    2.进入master
+                        git checkout master
+                    3.合并
+                        git merge dev
+
+1.发布与订阅
+    可以解决组件之间较为复杂的传值
+    1.下载
+        cnpm install pubsub-js -S
+    2.引入
+        import pubsub from "pubsub-js"
+    
+    发布：publish
+    订阅：subscribe
+
+    pubsub.publish(msgName,param);// 异步发布消息，第一个参数是消息的名称，第二个传递的参数
+    pubsub.publishSync(msgName,param);// 同步发布消息，第一个参数是消息的名称，第二个传递的参数
+
+    // 接收消息，第一个参数是消息的名字，第二个参数是一个函数。用于接收发布的内容。
+    pubsub.subscribe(msgName,(typeName,age)=>{})
+    pubsub.subscribeOnce(msgName,(typeName,age)=>{}):只接收一次
+    pubsub.unsubscribe(msgName);// 取消指定的订阅者
+    clearAllSubscriptions();//取消所有的。
+
+2.高阶组件
+    是一个函数，该函数接收一个组件，并要返回一个新的组件
+    1.属性代理
+    2.反向继承
+
+webpack：打包机
+    官网：http://www.webpackjs.com
+    作用:
+        1.转换：less,sass,ts,es6
+        2.优化：打包压缩
+        3.项目的工程化：开发者只需要关注开发环境中的代码
+
+    1.安装
+        cnpm install webpack -g
+        cnpm install webpack-cli -g
+    2.查看版本
+        webpack -V
+
+    0配置：
+        webpack：会将src文件下的index.js打包到dist文件夹下的main.js内，模式为peoduetion
+        webpack --mode development
+
+    开发模式：development
+    生产模式：production
+
+    package.json
+        webpack --mode development
+        项目根目录创建一个package.json文件
+        {
+            "scripts":{
+                "build":"webpack --mode development"
+            }
+        }
+        打包：cnpm run build
+    *******************demo2***************************************
+    需求
+        1、只将one.js打包到dist->main.js
+            webpack src/one.js --mode development
+        2、将one.js打包到指定的位置(out->haha.js)
+            webpack src/one.js --output out/haha.js --mode development
+        3、要将index.js与one.js一起打包到dist->main.js
+            webpack src/one.js  src/index.js --mode development
+        4、要将index.js与one.js打包到指定位置(out/xixi.js)
+            webpack src/one.js  src/index.js  --output out/xixi.js  --mode development
+    ******************demo3:配置文件*********************************************
+    1、在当前项目当中创建一个名字为webpack.config.js的文件。
+    module.exports = {
+        mode:模式 development production
+        entry:入口配置
+        output:出口配置
+        plugins:插件设置
+        module:loader，转化
+        devServer:开发服务器的配置。
+    }
+    运行：webpack
+    *****************
+    // 将src/one.js打包到dist/main.js
+    module.exports = {
+        mode:"production",
+        entry:"./src/one.js",// 入口文件配置
+    }
+    ******************
+    // 将src/one.js打包到dist/bundle.js
+    module.exports = {
+        mode:"production",
+        entry:"./src/one.js",// 入口文件配置
+        output:{// 出口
+            filename:"bundle.js"// 指定打包的文件名。（默认的所在的文件夹是dist文件夹）
+        }
+    }
+    ****************************
+    // 将多个文件打包成一个文件。
+    module.exports = {
+        mode:"development",
+        entry:["./src/one.js","./src/index.js"],// 入口
+        output:{
+            path:__dirname+"/out",// 更改出口地址
+            filename:"bundle.js"// 更改出口文件名
+        }
+    }
+    ***********************************
+    // 将多个文件打包成多个文件
+    module.exports = {
+        mode:"development",
+        entry:{
+            one:"./src/one.js",
+            index:"./src/index.js"
+        },// 入口
+        output:{
+            path:__dirname+"/out",// 更改出口地址
+            filename:"[name].bundle.js"// 更改出口文件名 name是入口对象的属性名
+        }
+    }
+    *********************************
+    // 更改默认的配置文件（vue.config.js）
+    webpack --config vue.config.js
+
+扩展：
+    ECharts
+    https://www.echartsjs.com/zh/index.html

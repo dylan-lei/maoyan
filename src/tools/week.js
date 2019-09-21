@@ -1,12 +1,12 @@
 import React,{Component}from 'react'
 import weeks from './tools' //导入周的方法
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import axios from 'axios'
+import { Tabs } from 'antd-mobile';
 export default class Week extends Component{
     renderContent = tab =>
     (<div>123123</div>);
 
   render() {
-    const weekArr = weeks.getWeek(13)
     const datetime = new Date().toLocaleDateString().replace(/\/+/g,"-") //转换2019-1-1方式
     const old_time = new Date(datetime.replace(/-/g, "/")); //
     const tabs = []
@@ -16,15 +16,18 @@ export default class Week extends Component{
     // console.log(tabs)
     return (
       <div>
-        <Tabs ref={'a'} onTabClick={(index,number)=>{
+        <Tabs onTabClick={async (index,number)=>{
             let Mytime = (index.title).substr(2,6) //获取标题 
-            console.log(Mytime)
             let yearTime = ("2019-"+(Mytime.replace(/\D/g,"-")))
                 yearTime = yearTime.substr(0,yearTime.length-1) //改成2019-09-20,用来获取数据
+                const data =await axios.post('forceUpdate',{
+                  movieId: 359377,//热映的电影id
+                  day: yearTime//日期
+                })
+                console.log(data)
         }} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
           {this.renderContent}
         </Tabs>
-       
       </div>
     );
   }

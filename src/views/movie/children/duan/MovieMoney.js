@@ -8,7 +8,7 @@ export default class MovieMon extends Component {
                 <div className="movie-navbar-actor">
                     <nav className="nav-actor">
                         <div className="navbar-logo-actor">
-                            <a href="##" className="navbar-back-actor"></a>
+                            <a href="##" className="navbar-back-actor">&nbsp;</a>
                         </div>
                         <div className="navbar-title-actor">名侦探柯南：绀青之拳</div>
                     </nav>
@@ -56,7 +56,7 @@ export default class MovieMon extends Component {
                     </div>
                 </section>
                 <section className='section-seperate-two'>
-                    <a className='btn-block-btn-pay'>特惠购票</a>
+                    <a className='btn-block-btn-pay' href="##">特惠购票</a>
                     <div className='intro-duan'>
                         <div className='text-expander-content-duan'>
                             <p>1949年，党中央领导人进驻北京香山，在国共和谈破裂的千钧一发之际，全力筹划建立新中国。</p>

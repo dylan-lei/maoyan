@@ -12,6 +12,7 @@ class MovieDetails extends Component{
     render(){
         // console.log(this.props)
         const {movieDetail} = this.props.movieDetail;
+        // console.log(movieDetail.id)
         // console.log((movieDetail.img+"").replace(/w.h/,''))
         return(
             <div>
@@ -48,12 +49,7 @@ class MovieDetails extends Component{
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAYAAAAfD8YZAAAAAXNSR0IArs4c6QAAAS5JREFUOBGVkktuwkAMhpOoJ+hhSouE2HbDgiVCNCAOVtQHnINHhbgMJ6g6/f9gR848kmDJeOzxZ3scskzEOfcKXUMLjXXZByYQhJlqMvz3PM//1E9Z7fJoEp5wXvWZoILRZQtg7xVYdhXQzuR2XoEB/NYCOSkVdKI/g441BnuBbmI7aMAE7ilgxyaboYOD4RMO9EWiTwhgJksBLtEvUNolRmGvwJG+yDNsXSB4s2aplR3M4Y80BnuGfiQ7m0Q2qP6JJvaLc/VpTKx5lPe9IfpibviMb+4lOXYXyGLRsRPgSTsSpASdW8Av+YQ3Er+NzgIuELdvZMcAZIUaBsgpCA55IZIEeV+NLSC32hskXCTAH9xFRyWkUsgSrhqAJfjpL8fch0dMMIGWMkmYEIn8Az5Wgp5LHlhmAAAAAElFTkSuQmCC" alt=""/>
                     </div>
                 </div>
-                {/* <div className="Movie-showDays">
-                    <ul className="Movie-timeline">
-                       
-                    </ul>
-                </div> */}
-                <Week></Week>
+                <Week movieId ="movieId:movieDetail.id"></Week>
             </div>  
             
         )

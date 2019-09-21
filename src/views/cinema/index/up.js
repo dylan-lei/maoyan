@@ -1,7 +1,6 @@
 import React from "react"
-import axios from "axios"
 import ReactDOM from 'react-dom'
-import { PullToRefresh, ListView, Button } from 'antd-mobile';
+import {  ListView } from 'antd-mobile';
 import "../../../assets/style/cinema/index.css"
 import {
     connect
@@ -9,18 +8,11 @@ import {
 import {
     bindActionCreators
 }from "redux"
-import actionCreate from '../../../store/actionCreate/cinema';
-
+import actionCreate, {changeCinemaList} from '../../../store/actionCreate/cinema';
+import axios from "axios"
 const NUM_ROWS = 20;
 let pageIndex = 0;
-//拼接数据，得到一个新数组
-function genData(pIndex = 0) {
-    const dataArr = [];
-    for (let i = 0; i < NUM_ROWS; i++) {
-        dataArr.push(`row - ${(pIndex * NUM_ROWS) + i}`);
-    }
-    return dataArr;
-}
+
 class Up extends React.Component{
     constructor(props) {
         super(props);
@@ -28,66 +20,60 @@ class Up extends React.Component{
             rowHasChanged: (row1, row2) => row1 !== row2,
         });
         this.state = {
+            cinemas:[],
+            offset:-20,
             dataSource,
-            refreshing: true,
+            refreshing: false,
             isLoading: true,
             height: document.documentElement.clientHeight,
-            useBodyScroll: false
+            useBodyScroll: false,
         };
     }
-    // componentDidUpdate() {
-    //     if (this.state.useBodyScroll) {
-    //         document.body.style.overflow = 'auto';
-    //     } else {
-    //         document.body.style.overflow = 'hidden';
-    //     }
-    // }
-
-    componentDidMount() {
-        this.props.getCinemaList();
-        const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        setTimeout(() => {
-            this.rData = genData();
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(genData()),
-                height: hei,
-                refreshing: false,
-                isLoading: false,
-            });
-        }, 1000);
-    }
-    onEndReached = (event) => {
+    async componentDidMount() {
         this.props.getCinemaList()
-        // load new data
-        // hasMore: from backend data, indicates whether it is the last page, here is false
-        if (this.state.isLoading && !this.state.hasMore) {
-            return;
-        }
-        console.log('reach end', event);
-        this.setState({ isLoading: true });
-        setTimeout(() => {
-            this.rData = [...this.rData, ...genData(++pageIndex)];
+
+        const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
+        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));
+        // console.log(data);
+        console.log(this.props.cinemaList,66666666666)
+        this.state.cinemas = [...this.state.cinemas,...data.cinemas]
+        console.log(this.state.cinemas,333333)
+
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
+            height: hei,
+            refreshing: false,
+            isLoading: false,
+        });
+    }
+    onEndReached = async (event) => {
+        // if(this.state.offset < 253){
+        // this.props.getCinemaList.call(this)
+        if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > 50) {
+            console.log(333333333333,this.lv)
             this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(this.rData),
+                refreshing:false
+            })
+        }else{
+            this.state.offset += 20;
+            const data = await axios.get("cinemaList?offset="+(this.state.offset ||0))
+            this.state.cinemas = [...this.state.cinemas,...data.cinemas]
+            this.setState({ isLoading: true });
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
                 isLoading: false,
             });
-        }, 1000);
+        }
+
+        // }
+
     };
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.dataSource !== this.props.dataSource) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
-        });
-      }
-    }
     render(){
+        console.log(this.props,7777777777)
         const data=this.props.cinemaList || []
-        let index = data.length - 1;
         const row = (rowData, sectionID, rowID) => {
-            if (index < 0) {
-                index = data.length - 1;
-            }
-            const v = data[rowID];
+            console.log(rowData)
+            const v =rowData;// data[rowID];
             return (
                 <div key={rowID}
                      style={{
@@ -96,7 +82,7 @@ class Up extends React.Component{
                      }}
                      className={"cinema-list"}
                 >
-                    <div className={"item line"} key={v.id}>
+                    <div className={"item line"} >
                         <div className={"title"}>
                             <span>{v.nm}</span>
                             <span className={"price-block"}>
@@ -142,18 +128,15 @@ class Up extends React.Component{
                 ref={el => this.lv = el}
                 dataSource={this.state.dataSource}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? 'Loading...' : 'Loaded'}
+                    {this.state.isLoading ? '正在加载...' : ''}
                 </div>)}
+                refreshing={this.state.refreshing}
                 renderRow={row}
                 useBodyScroll={this.state.useBodyScroll}
                 style={this.state.useBodyScroll ? {} : {
                     height: this.state.height,
                     margin: '5px 0',
                 }}
-                // pullToRefresh={<PullToRefresh
-                //     refreshing={this.state.refreshing}
-                //     onRefresh={this.onRefresh}
-                // />}
                 onEndReached={this.onEndReached}
                 pageSize={5}
             />

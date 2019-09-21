@@ -1,18 +1,4 @@
-body {
-    background: #f3f3f3;
-    font-size: 14px;
-    color: #777;
-}
 /* 顶部样式 */
-.navbar {
-    height: 50px;
-    background: #e54847;
-    border-bottom: 1px solid #e54847;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-family: Helvetica,Arial,sans-serif;
-}
 .nav-warp-left{
     height: 50px;
     line-height: 50px;
@@ -53,13 +39,13 @@ body {
 .order-content{
     overflow: hidden;
 }
-.no-data{
+/* .no-data{
     position: absolute;
     left: 0;
     right: 0;
     top: 50px;
     bottom: 0;
-}
+} */
 .no-data .wrapper{
     background-image: url(http://s0.meituan.net/bs/file/?f=myfe/canary:static/deploy/dpmmweb/client/dpmmweb/component/myorder/img/order-empty-1.png);
     background-repeat: no-repeat;
