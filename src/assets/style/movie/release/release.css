@@ -34,6 +34,14 @@
 .list-wrap .most-expected-list::-webkit-scrollbar {
     display: none;
 }
+.swiper-wrapper{
+    transform: translate3d(0px, 0px, 0px);
+}
+.swiper-slide{
+    display: flex;
+    justify-content: space-around;
+    /* transition: all .2s; */
+}
 .list-wrap .expected-item {
     display: inline-block;
     width: 90px;
