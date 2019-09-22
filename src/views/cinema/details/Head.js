@@ -2,6 +2,8 @@ import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
 import Goods from "./Goods"
+import VipTips from "./VipTips"
+// import MovieInfo from "./MovieInfo"
 import {
     connect
 }from "react-redux"
@@ -14,7 +16,6 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
-        console.log(this.props)
         return(
           <div>
               <header className="navbar">
@@ -39,6 +40,9 @@ class Head extends React.Component{
 
                     <Cinema></Cinema>
                     <Goods></Goods>
+                    {/*<VipTips></VipTips>*/}
+
+
           </div>
 
         )

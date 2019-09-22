@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import '../../../assets/style/cinema/details/style.css'
 import {
     connect
@@ -11,8 +10,6 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Goods extends React.Component{
     render(){
         const dealList = this.props.goods.dealList || [] ;
-        console.log(this.props);
-        console.log(dealList)
         return(
             <div>
                 <div className="tuan-wrap">
@@ -79,7 +76,6 @@ class Goods extends React.Component{
 }
 
 function mapStateProps(state){
-    console.log(state,99999);
     return{
         goods:state.cinema.cinemaDetails.dealList,
     }

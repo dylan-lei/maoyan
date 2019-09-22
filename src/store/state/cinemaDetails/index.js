@@ -1,5 +1,6 @@
 export default{
     cinemaData:[],
-    showData:[],
+    showData:[{nm:'',img:'',shows:[{dateShow:''}],vipInfo:[{tag:''}]}],
     dealList:{},
+
 }

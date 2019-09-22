@@ -1,5 +1,7 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
+import MovieInfo from "./MovieInfo"
+import MovieList from "./MovieList"
 import {
     connect
 }from "react-redux"
@@ -11,66 +13,53 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
     render(){
         const {ShowData} = this.props;
         return(
-         <div>
+            <div>
+                <div className="cinema-nav swiper-container swiper-container-horizontal" >
+                    <div className="post-bg"></div>
+                    <div className="post-bg-filter"></div>
+                    <div className="swiper-wrapper" style={{transform: "translate3d(137.5px, 0px, 0px)",transitionDuration: "0ms"}}>
+                        {
+                                ShowData.map((v,i)=>{
+                                    let show= true
+                                    for(let m=0;m<ShowData.length;m++) {
+                                        if (v.nm === ShowData[0].nm) {
+                                            show = true;
+                                            if (i === 0 && m === 0) {
+                                                show = !show;
+                                                break;
+                                            } else {
+                                                show = false;
+                                                break;
+                                            }
+                                        }
+                                    }
 
+                                    return(
+                                        <div key={i}>
+                                            <div className="swiper-slide" key={v.id}>
+                                                <div className="post" >
+                                                    <img src={v.img.replace(/w.h/, "")} alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
 
-            <div className="cinema-nav swiper-container swiper-container-horizontal" >
-               <div className="post-bg"></div>
-               <div className="post-bg-filter"></div>
-               <div className="swiper-wrapper">
-                   {
-                       ShowData.map(v=>(
-                           <div key={v.id}>
-
-                           <div className="swiper-slide swiper-slide-prev"  >
-                           <div className="post">
-                               <img src={v.img.replace(/w.h/,"")} alt=""/>
-                           </div>
-
-                               <div className="movie-info">
-                                   <div className="movie-title line-ellipsis">
-                                       <span className="title">{v.nm}</span>
-                                       <span className="grade">
-                                <span>
-                                    {v.sc}
-                                <span className="small">分</span>
-                                </span>
-                          </span>
-                                   </div>
-                                   <div className="movie-desc">{v.desc}</div>
-                               </div>
-                           </div>
-
-                                </div>
-
-
-
-
-
-
-
-
-                       ))
-                   }
-
-           </div>
-
+                    </div>
+                </div>
+                <MovieInfo {...this.props} index={0}></MovieInfo>
+                <MovieList {...this.props} index={0}></MovieList>
             </div>
 
 
-
-
-
-
-
-
-         </div>
 
 
         )
     }
     componentDidMount() {
         this.props.getCinemaData();
+
     }
 }
 

@@ -12,7 +12,7 @@
     overflow: visible !important;
 }
 
-body{
+html,body{
     background:#fff;
 
 }
@@ -79,6 +79,7 @@ body{
     color:#777;
     font-size:14px;
     height:44px;
+    background:#fff;
 
 }
 .name .title{
@@ -119,7 +120,9 @@ body{
 
 
 
-
+a, div {
+    -webkit-tap-highlight-color: transparent;
+}
 .cinema-nav {
     padding: 20px 15px 0 5px;
     -webkit-transform: translateZ(0);
@@ -168,7 +171,6 @@ body{
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
-    transform: translate3d(57.5px, 0px, 0px); transition-duration: 0ms;
     box-sizing: content-box;
 
 }
@@ -177,6 +179,9 @@ body{
 }
 .cinema-nav .swiper-slide:first-child {
     margin-left: 10px;
+}
+.cinema-block .cinema-nav .swiper-slide+.swiper-slide {
+    margin-left: 15px;
 }
 .cinema-nav .swiper-slide {
     width: 65px;
@@ -211,6 +216,7 @@ img{
 .movie-info {
     padding: 11px 15px;
     text-align: center;
+    background:#fff;
 }
 .movie-info .movie-title {
     height: 24px;
@@ -272,6 +278,7 @@ img{
 
 .nav-wrap {
     position: relative;
+    background:#fff;
 }
 
 .nav-block .nav-bar {
@@ -519,9 +526,13 @@ img{
     text-align: center;
 }
 
+.tuan-wrap{
+    background:#fff;
+}
 .tuan-wrap .tuan-list {
     position: relative;
     margin: 0 0 0 15px;
+
 }
 .tuan-wrap .tuan-list .tuan-title {
     line-height: 45px;

@@ -1,5 +1,5 @@
 import React,{Component}from 'react'
-// import '../../assets/style/Movie/MovieDetails.css'
+// import '../../assets/style/movie/movieDetails.css'
 import weeks from '../../views/common/tools' //导入周的方法
 // import Swiper from '../../../node_modules/swiper/js/swiper'
 // import '../../../node_modules/swiper/css/swiper.css'
@@ -12,7 +12,7 @@ export default class Week extends Component{
     componentDidMount(){
         // new Swiper('.swiper-containe', {
         //     history: true
-           
+
         // });
     }
     render(){
@@ -58,7 +58,7 @@ export default class Week extends Component{
         if(myweekday < 10){
             myweekday = "0" + myweekday;
         }
-        return (mymonth + "月" + myweekday+"日");   
+        return (mymonth + "月" + myweekday+"日");
     }
 
 }
