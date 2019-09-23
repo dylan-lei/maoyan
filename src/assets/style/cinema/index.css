@@ -51,6 +51,8 @@
     font-size: 14px;
     color: #777;
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    position: relative;
+    z-index: 99;
 }
 .topbar .city{
     padding-left: 15px;
@@ -99,7 +101,36 @@
     background: #fff;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
 }
+.single-foo-menu {
+    position: absolute;
+    z-index: 90 !important;
+    width: 100%;
+}
 
+.single-menu-active .single-top-nav-bar{
+    z-index: 90;
+}
+.am-list-line{
+    border-bottom: 1px solid #e5e5e5;
+}
+.single-top-nav-bar {
+    position: relative;
+    background-color: #fff;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+.am-navbar-title {
+    color: #FFF!important;
+}
+.menu-mask {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 89;
+}
 
 
 
@@ -198,9 +229,7 @@
     font-size: .6rem;
     color: #589daf;
     border: 1px solid #589daf;
-}
-.cinema-list .item .label-block>div+div{
-    margin-left: 5px;
+    margin-right: 5px;
 }
 .cinema-list .item .label-block .snack,.cinema-list .item .label-block .vipTag{
     color: #f90;

@@ -58,4 +58,4 @@ function mapStateProps(state){
 function mapDispatchProps(dispatch){
     return bindActionCreators(actionCreate,dispatch)
 }
-export default connect(mapStateProps,mapDispatchProps)(Cinema)
+export default  connect(mapStateProps,mapDispatchProps)(Cinema)

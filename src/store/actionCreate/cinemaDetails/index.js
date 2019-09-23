@@ -16,8 +16,10 @@ export const changeShowData=(payload)=>{
 export default {
     getCinemaData() {
         return async (dispatch) => {
-            const {data} = await axios.get("cinemaDetail/?cinemaId=" + 107)
-
+            const {cinemaId} = this.location.state
+            console.log(cinemaId)
+            const {data} = await axios.get("cinemaDetail/?cinemaId=" + cinemaId)
+            // console.log(data)
             dispatch(changeCinemaData(data.cinemaData))
             dispatch(changeShowData(data.showData.movies))
         }

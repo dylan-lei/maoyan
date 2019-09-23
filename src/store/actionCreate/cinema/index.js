@@ -12,7 +12,9 @@ export default {
     getCinemaList() {
         return async (dispatch) => {
             const data = await axios.get("cinemaList?offset=" + (this.offset || 0))
-            dispatch(changeCinemaList(data.cinemas))
+            const cinemaList = data.cinemas;
+            const total = data.paging.total;
+            dispatch(changeCinemaList({cinemaList,total}))
             console.log(data, 44444444444444)
 
 

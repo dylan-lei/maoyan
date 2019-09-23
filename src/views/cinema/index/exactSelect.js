@@ -1,5 +1,6 @@
 import "../../../assets/style/cinema/index.css"
 import React from "react"
+import "../../../assets/style/cinema/index.css"
 
 import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
 
@@ -49,9 +50,11 @@ class ExactSelect extends React.Component {
         });
         // mock for async data loading
         if (!this.state.initData) {
+            // setTimeout(() => {
                 this.setState({
                     initData: data,
                 });
+            // }, 500);
         }
     }
 
@@ -67,7 +70,7 @@ class ExactSelect extends React.Component {
             <Menu
                 className="single-foo-menu"
                 data={initData}
-                value={['2']}
+                value={['1']}
                 level={1}
                 onChange={this.onChange}
                 height={document.documentElement.clientHeight * 0.6}
@@ -79,11 +82,10 @@ class ExactSelect extends React.Component {
             </div>
         );
         return (
-            <div  style={{background:"#fff"}} className={ show ? 'single-menu-active' : ''}>
+            <div className={show ? 'single-menu-active' : ''}>
                 <div>
                     <NavBar
-                        leftContent="品牌"
-                        mode="light"
+                        leftContent="Menu"
                         onLeftClick={this.handleClick}
                         className="single-top-nav-bar"
                     >
@@ -92,7 +94,8 @@ class ExactSelect extends React.Component {
                 {show ? initData ? menuEl : loadingEl : null}
                 {show ? <div className="menu-mask" onClick={this.onMaskClick} /> : null}
             </div>
-        );}
+        );
+    }
 }
 
 export default ExactSelect
