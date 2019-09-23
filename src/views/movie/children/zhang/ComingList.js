@@ -1,31 +1,22 @@
 import React from "react";
+import {
+  scrollBootom
+} from '../../../../tools/index'
+
 export default class MostExpected extends React.Component {
+  constructor() {
+    super();
+    this.index = 0;
+  }
   render() {
     const releaseList = this.props.releaseList;
     return (
       <div className="coming-list">
         {
           releaseList.map((v, i) => {
-            let bol = true;
-            for (let n = 0; n < releaseList.length; n++){
-              if (v.comingTitle === releaseList[n].comingTitle) {
-                bol = true;
-                if (i === 0 && n === 0) {
-                  bol = !bol;
-                  break;
-                }
-              } else {
-                bol = false;
-                break;
-              }
-            }
             return (
-              <div key={v.id}>
-                <p className="group-date" style={
-                  {
-                  display: bol ? "none" : 'block'
-                  }
-                }>{v.comingTitle}</p>
+              <div key={i}>
+                <p className="group-date">{v.comingTitle}</p>
                 <div className="item">
                   <div className="main-block">
                     <div className="avatar">
@@ -71,5 +62,11 @@ export default class MostExpected extends React.Component {
   }
   componentDidMount() {
     this.props.gitReleaseList();
+    scrollBootom(() => {
+      this.props.gitReleaseList(this.index++);
+    })
+  }
+  componentWillUnmount() {
+    scrollBootom();
   }
 }

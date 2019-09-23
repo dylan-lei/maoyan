@@ -4,20 +4,27 @@ import {
 } from 'react-redux'
 import {
     bindActionCreators
-} from 'redux'
+}from 'redux'
+import '../../../assets/style/movie/nowhot.css'
+import {scrollBootom} from '../../../tools/index'
+import { ActivityIndicator } from 'antd-mobile';
 import "../../../assets/style/movie/nowhot.css"
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
-
 class BeingMovieBox extends Component {
+    constructor(props){
+        super(props) 
+        this.index=0
+    }
     render() {
         const {nowMovieList} = this.props
         const {history} = this.props
+        // console.log(this.props.nowMovieList.length)
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
                 {
-                    nowMovieList.map(v => (
-                        <div key={v.id} onClick={() => {
+                    nowMovieList.map((v,i) => (
+                        <div key={i } onClick={() => {
                             history.push({pathname: '/details', state: {detailsId: v.id}})
                         }}>
                             <div className="main_block">
@@ -50,14 +57,31 @@ class BeingMovieBox extends Component {
                         </div>
                     ))
                 }
-
+                <div style={{
+                        width: "20px",
+                        margin: "0 auto",
+                        textAlign:"center",
+                        display:this.props.nowMovieList.length<61?"block":"none"
+                        }}>
+                    < ActivityIndicator animating />
+                </div>
                 {/* 渲染部分结束 */}
+                <div style={{
+                    display:this.props.nowMovieList.length>=61?"block":"none",
+                    color:"red",
+                    textAlign:"center"
+                }}>
+                    亲您拉的太深啦！
+                </div>
             </div>
         )
     }
 
     componentDidMount() {
         this.props.getNowMovieList()
+        scrollBootom(()=>{
+            this.props.getNowMovieList(this.index++)
+        })
         //修改站标
         const str ="http://s0.meituan.net/bs/?f=myfe/canary:/static/deploy/images/icon/faviconmy.ico";
         if (this.props.location.pathname === "/nav/movie/hot") {
@@ -65,6 +89,7 @@ class BeingMovieBox extends Component {
             document.querySelector(".titl-logo").href=str;
         }
     }
+
 }
 
 function mapStateToProps(state) {

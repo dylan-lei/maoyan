@@ -15,7 +15,6 @@ export default {
             const cinemaList = data.cinemas;
             const total = data.paging.total;
             dispatch(changeCinemaList({cinemaList,total}))
-            console.log(data, 44444444444444)
 
 
         }

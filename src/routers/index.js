@@ -3,9 +3,11 @@ import BootomNav from "../views/BootomNav"
 import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
+import MovieMoney from '../views/movie/children/duan/MovieMoney'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
+import Sign from '../views/login/Sign'
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
 import MyShop from '../views/my/children/MyShop'
@@ -26,6 +28,12 @@ import About from "../views/movie/children/About"
 
 export default [
     //一级路由，页面跳转
+    {
+        path: "/moviemoney",
+        component: MovieMoney,
+        title: "我的->电影",
+        exact: false
+    },
     {
         path: "/mymovie",
         component: MyMovie,
@@ -89,7 +97,13 @@ export default [
     {
         path:"/login",
         component:Login,
-        title:"登录注册",
+        title:"登录",
+        exact:false
+    },
+    {
+        path:"/sign",
+        component:Sign,
+        title:"注册",
         exact:false
     },
     {

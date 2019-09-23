@@ -134,7 +134,6 @@ class MovieSeek extends React.Component {
                     </div>
 
                 </div>
->>>>>>> f035f08636bd186a2bf8d4a850d6db48dd45e8e6
             </div>
         )
     }

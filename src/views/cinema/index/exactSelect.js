@@ -27,6 +27,23 @@ class ExactSelect extends React.Component {
             show: false,
         };
     }
+
+    onChange = (value) => {
+        let label = '';
+        data.forEach((dataItem) => {
+            if (dataItem.value === value[0]) {
+                label = dataItem.label;
+                if (dataItem.children && value[1]) {
+                    dataItem.children.forEach((cItem) => {
+                        if (cItem.value === value[1]) {
+                            label += ` ${cItem.label}`;
+                        }
+                    });
+                }
+            }
+        });
+    }
+
     // onChange = (value) => {
     //     let label = '';
     //     data.forEach((dataItem) => {

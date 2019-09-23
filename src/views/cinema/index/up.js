@@ -11,10 +11,10 @@ import {
 import {
     bindActionCreators
 }from "redux"
-import actionCreate, {changeCinemaList} from '../../../store/actionCreate/cinema';
+import actionCreate from '../../../store/actionCreate/cinema';
 import axios from "axios"
-const NUM_ROWS = 20;
-let pageIndex = 0;
+//const NUM_ROWS = 20;
+//let pageIndex = 0;
 
 class Up extends React.Component{
     constructor(props) {
@@ -36,8 +36,7 @@ class Up extends React.Component{
 
         // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));
-        // console.log(data);
+        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
         this.state.cinemas = [...this.state.cinemas,...data.cinemas]
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
@@ -105,7 +104,7 @@ class Up extends React.Component{
 
     };
     render(){
-        const data=this.props.cinemaList || []
+        //const data=this.props.cinemaList || []
         const row = (rowData, sectionID, rowID) => {
             const v =rowData;// data[rowID];
             return (
