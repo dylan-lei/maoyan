@@ -1,0 +1,285 @@
+.movie-navbar-actor{
+    position: relative;
+    top: 0;
+    z-index: 10;
+    background-color: #e54847 !important;
+    display: -webkit-box;
+    padding: 6px;
+    height: 38px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.nav-actor{
+    width: 100%;
+    display: -webkit-box;
+}
+.navbar-logo-actor{
+    width: 2rem;
+    background-size: 37%;
+    user-select: none;
+}
+.navbar-title-actor{
+    -webkit-box-flex: 1;
+    color: #FFF;
+    font-size: 18px;
+    text-align: center;
+    line-height: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    left: -1rem;
+    user-select: none;
+}
+.navbar-back-actor{
+    cursor: pointer; 
+}
+.navbar-back-actor:after{
+    content: '';
+    top: 16px;
+    left: 12px;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    border: 2px solid #FFF;
+    border-width: 0 0 2px 2px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+.movie-header-actor{
+    padding: 0;
+    background: #f8f8f8;
+    border-bottom: none;
+    color: #555;
+}
+.movie-box{
+    color: #fff;
+    padding: .3rem;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+.movie-background-actor{
+    /* background-image: url(http://p0.meituan.net/177.249/moviemachine/b7362f5….jpg); */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+    filter: blur(.6rem);
+    -webkit-filter: blur(.6rem);
+    background-size: cover;
+    background-image: gray;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    line-height: 1;
+    color: #fff;
+}
+.movie-filter-actor{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    background-color: #40454d;
+    opacity: .55;
+    line-height: 1;
+    color: #fff;   
+}
+.movie-container-actor{
+    z-index: 1;
+    position: relative;
+    line-height: 1;
+}
+.movie-container-actor:before{
+    content: " ";
+    display: table;
+}
+.movie-background-duan{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+    filter: blur(.6rem);
+    -webkit-filter: blur(.6rem);
+    background-size: cover;
+    background-image: gray;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    color: #fff;
+    line-height: 1;
+}
+.movie-cover-actor{
+    float: left;
+    width: 2.14rem;
+    height: 3rem;
+    filter: blur(0);
+    font-style: initial;
+    -webkit-filter: blur(0);
+    border: solid 1px #f0f2f3;
+    position: relative;
+    /* background: #c1c1c1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAwFBMV…mytghhgpB+Cgix7I1gjStOqq8c5jhkmLqiJ0McuoXq6j92ZWbxiZAstgAAAABJRU5ErkJggg==) no-repeat center center; */
+
+}
+.movie-content-duan{
+    z-index: 2;
+    padding-left: 2.45rem;
+    height: 3rem;
+    color: #fff;
+    line-height: 1;
+}
+.movie-name-duan{
+    color: #fff;
+    font-size: .34rem;
+    line-height: 1.2;
+    margin-top: .06rem;
+    margin-bottom: .08rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.movie-ename-duan{
+    font-size: .22rem;
+    opacity: .8;
+    height: .22rem;
+    margin-bottom: .12rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1;
+    color: #fff;
+}
+.movie-score-duan{
+    color: #ff9900;
+    font-size: .32rem;
+    margin-bottom: .12rem; 
+    line-height: 1;
+}
+.released-score-duan{
+    font-size: .32rem;
+    line-height: 1;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    padding-top: .02rem;
+    color: #ffc600;
+}
+.rating-duan{
+    font-size: .36rem;
+    display: inline-block;
+    line-height: 1;
+    color: #ffc600;
+}
+.noneBg-duan-one{
+    margin-left: 0px;
+    background: none;
+    width: .36rem;
+    height: .36rem;
+    border: 0;
+    display: inline-block;
+    font-size: .36rem;
+    line-height: 1px;
+    color: #ffc600;
+    vertical-align: text-top;
+}
+.noneBg-duan{
+    margin-left: .06rem;
+    background: none;
+    width: .36rem;
+    height: .36rem;
+    border: 0;
+    display: inline-block;
+    font-size: .36rem;
+    line-height: 1px;
+    color: #ffc600;
+    vertical-align: text-top;
+}
+.rating-span{
+    margin-left: .16rem;
+    font-size: .36rem;
+    vertical-align: top;
+    color: #ffc600;
+    font-family: 'Arial, Helvetica, sans-serif'
+}
+.score-num{
+    color: #fff;
+    opacity: .7;
+    font-size: .18rem;
+    margin-top: .08rem;
+    margin-bottom: .16rem;
+    line-height: 1;
+}
+.movie-category-duan{
+    font-size: .24rem;
+    margin-bottom: .12rem;
+}
+.movie-cat-duan{
+    opacity: .7;
+    vertical-align: middle;
+    font-size: .24rem;
+}
+.movie-content-row-duan{
+    font-size: .24rem;
+    opacity: .7;
+    margin-bottom: .12rem;
+}
+.movie-ugc-duan{
+    position: relative;
+    z-index: 2;
+    margin-top: .2rem;
+    opacity: .7;
+    color: #fff;
+}
+.section-seperate-two{
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin: .2rem 0;
+    position: relative;
+    margin-top: 0 !important;
+    padding: .3rem .3rem 0 .3rem;
+    color: #555;
+    background: #fff;
+}
+.btn-block-btn-pay{
+    margin: 0 0 .2rem;
+    display: block;
+    padding: .2rem;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    line-height: 1;
+    background: #e54847;
+    color: #fff;
+    text-decoration: none;
+}
+.intro-duan{
+    cursor: pointer;
+    font-size: .3rem;
+    background-color: white;
+}
+.text-expander-content-duan{
+    margin: 0;
+    line-height: .4rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: .3rem;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    max-height: 1.16rem;
+}
+.text-expander-duan{
+    color: #aaa;
+    text-align: center;
+    height: .44rem;
+    cursor: pointer;
+    font-size: .3rem;
+}

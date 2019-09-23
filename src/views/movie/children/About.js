@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../assets/style/movie/release/release.css"
+import '../../../assets/style/movie/release/release.css'
 import MostExpected from "../children/zhang/MostExpected";
 import ComingList from '../children/zhang/ComingList';
 import { connect } from 'react-redux';

@@ -16,13 +16,14 @@ const cityUrl= "https://restapi.amap.com/v3/ip?output=JSON&ip=114.247.50.2&key=2
 
 //axios请求拦截
 axios.interceptors.request.use(config => {
+
     if (window.localStorage.token && config.url !==cityUrl) {
         config.headers = {
             authorization: localStorage.token
         }
     }
+    if(config.url.includes("https://")||config.url.includes("http://")){
 
-    if (config.url.includes("https://") || config.url.includes("http://")) {
         return config;
     } else {
         config.url = "http://47.94.99.226/" + config.url;

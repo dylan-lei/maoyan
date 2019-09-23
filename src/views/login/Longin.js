@@ -1,7 +1,6 @@
 import React from 'react';
 import {Tabs, Toast, WhiteSpace, Badge} from 'antd-mobile';
 import "../../assets/style/login/login.css"
-
 const tabs = [
     {title: <Badge text={''}>美团账号登录</Badge>},
     {title: <Badge text={''}>手机验证登录</Badge>}
