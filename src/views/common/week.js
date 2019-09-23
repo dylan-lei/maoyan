@@ -6,9 +6,6 @@ import weeks from '../../views/common/tools' //导入周的方法
 // import Swiper from 'swiper/dist/js/swiper.js'
 // import 'swiper/dist/css/swiper.min.css'
 export default class Week extends Component{
-    constructor(){
-        super()
-    }
     componentDidMount(){
         // new Swiper('.swiper-containe', {
         //     history: true
