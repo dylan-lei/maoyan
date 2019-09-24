@@ -8,7 +8,6 @@ import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
 import Sign from '../views/login/Sign'
-
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
 import MyShop from '../views/my/children/MyShop'

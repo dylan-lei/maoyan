@@ -5,11 +5,15 @@ import Goods from "./Goods"
 
 
 import {
+    withRouter
+}from "react-router-dom"
+import {
     connect
 }from "react-redux"
 import {
     bindActionCreators
 } from "redux"
+
 import actionCreate from "../../../store/actionCreate/cinemaDetails"
 
 
@@ -71,7 +75,7 @@ function mapStateProps(state){
 function mapDispatchProps(dispatch){
     return bindActionCreators(actionCreate,dispatch)
 }
-export default connect(mapStateProps,mapDispatchProps)(Head)
+export default withRouter(connect(mapStateProps,mapDispatchProps)(Head))
 
 
 

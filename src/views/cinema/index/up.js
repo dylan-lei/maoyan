@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom'
 import {  ListView } from 'antd-mobile';
 import "../../../assets/style/cinema/index.css"
 import {
+    withRouter
+}from "react-router-dom"
+import {
     connect
 } from "react-redux";
 import {
     bindActionCreators
 }from "redux"
-import actionCreate, {changeCinemaList} from '../../../store/actionCreate/cinema';
+import actionCreate from '../../../store/actionCreate/cinema';
 import axios from "axios"
-const NUM_ROWS = 20;
-let pageIndex = 0;
+//const NUM_ROWS = 20;
+//let pageIndex = 0;
 
 class Up extends React.Component{
     constructor(props) {
@@ -30,23 +33,39 @@ class Up extends React.Component{
         };
     }
     async componentDidMount() {
-        this.props.getCinemaList()
 
+        // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
         const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
         this.state.cinemas = [...this.state.cinemas,...data.cinemas]
-
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
+            dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
             height: hei,
             refreshing: false,
             isLoading: false,
         });
+
+
+
+        // const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
+        // this.props.getCinemaList()
+        // const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));
+        //  console.log(data);
+        // console.log(this.props.cinemaList,66666666666)
+        // this.state.cinemas = this.props.cinemaList
+        // console.log(this.state.cinemas,333333)
+        //
+        // this.setState({
+        //     dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
+        //     height: hei,
+        //     refreshing: false,
+        //     isLoading: false,
+        // });
     }
     onEndReached = async (event) => {
         // if(this.state.offset < 253){
         // this.props.getCinemaList.call(this)
-        if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > 50) {
+        if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > this.props.total) {
             console.log(333333333333,this.lv)
             this.setState({
                 refreshing:false
@@ -57,16 +76,35 @@ class Up extends React.Component{
             this.state.cinemas = [...this.state.cinemas,...data.cinemas]
             this.setState({ isLoading: true });
             this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
+                dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
                 isLoading: false,
             });
         }
+
+
+
+        // console.log(this.props.total,22222222)
+        // if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > this.props.total) {
+        //     console.log(333333333333,this.lv)
+        //     this.setState({
+        //         refreshing:false
+        //     })
+        // }else{
+        //     // this.state.offset += 20;
+        //     const data = this.props.getCinemaList()
+        //     this.state.cinemas = this.props.cinemaList
+        //     this.setState({ isLoading: true });
+        //     this.setState({
+        //         dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
+        //         isLoading: false,
+        //     });
+        // }
 
         // }
 
     };
     render(){
-        const data=this.props.cinemaList || []
+        //const data=this.props.cinemaList || []
         const row = (rowData, sectionID, rowID) => {
             const v =rowData;// data[rowID];
             return (
@@ -77,7 +115,9 @@ class Up extends React.Component{
                      }}
                      className={"cinema-list"}
                 >
-                    <div className={"item line"} >
+                    <div  className={"item line"} onClick={() => {
+                        this.props.history.push({pathname: '/zdetails', state: {cinemaId: v.id}})
+                    }} >
                         <div className={"title"}>
                             <span>{v.nm}</span>
                             <span className={"price-block"}>
@@ -144,11 +184,12 @@ class Up extends React.Component{
 function mapStateToProps(state) {
     return{
         cinemaList:state.cinema.cinemaIndex.cinemaList,
-        offset:state.cinema.cinemaIndex.offset
+        offset:state.cinema.cinemaIndex.offset,
+        total:state.cinema.cinemaIndex.total
     }
 }
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(actionCreate,dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Up)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Up))

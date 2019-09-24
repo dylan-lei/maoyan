@@ -33,6 +33,7 @@ export default {
         return async (dispatch) => {
             const {data} = await axios.get("cinemaDetail/?cinemaId=" + 107)
             console.log(data,888888)
+
             dispatch(changeCinemaData(data.cinemaData))
             dispatch(changeShowData(data.showData.movies))
             // console.log(data.showData)

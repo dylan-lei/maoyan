@@ -9,6 +9,7 @@ import {
 }from "redux"
 import actionCreate from '../../../store/actionCreate/cinema';
 import Up from "./up"
+import {Link} from "react-router-dom";
 class Cinemahome extends React.Component {
     render() {
         return (
@@ -21,7 +22,8 @@ class Cinemahome extends React.Component {
                 <section>
                     <div className={"topbar"}>
                         <div className={"city"}>
-                            <span>北京</span>
+                            <Link to={'/city'} className='white-bg-city-name'>北京</Link>
+                            <i className='city-entry-arrow'></i>
                         </div>
                         <div onClick={()=>{
                             this.props.history.push("/cinemasearch")
@@ -30,9 +32,9 @@ class Cinemahome extends React.Component {
                             <span>搜影院</span>
                         </div>
                     </div>
-                </section>
-                <section className={"l-line"}>
-                    <ExactSelect></ExactSelect>
+                    <div className={"line"}>
+                        <ExactSelect></ExactSelect>
+                    </div>
                 </section>
                 <Up></Up>
 
