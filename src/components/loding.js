@@ -14,6 +14,12 @@ export default function loading(MyCom) {
                 return super.render();
             }
         }
+        componentDidMount() {
+            setTimeout(() => {
+                this.setState({animating: false});
+            },250)
+
+        }
     }
     return Loading;
 }
