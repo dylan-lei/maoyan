@@ -17,7 +17,7 @@ class MovieDetails extends Component{
         return(
             <div>
                 <header className="Movie-navbar">
-                    <div className="Movie-nav-header-left" onClick={()=>{this.props.history.go(-1)}}>
+                    <div className="Movie-nav-header-left" onClick={()=>{this.props.history.push({pathname:"/"})}}>
                         <a href="##" className="Movie-nav-header-back">
                             <i className="iconfont mao-zuofanhui1"></i>
                         </a>
