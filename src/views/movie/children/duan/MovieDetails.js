@@ -49,14 +49,25 @@ class MovieDetails extends Component{
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAYAAAAfD8YZAAAAAXNSR0IArs4c6QAAAS5JREFUOBGVkktuwkAMhpOoJ+hhSouE2HbDgiVCNCAOVtQHnINHhbgMJ6g6/f9gR848kmDJeOzxZ3scskzEOfcKXUMLjXXZByYQhJlqMvz3PM//1E9Z7fJoEp5wXvWZoILRZQtg7xVYdhXQzuR2XoEB/NYCOSkVdKI/g441BnuBbmI7aMAE7ilgxyaboYOD4RMO9EWiTwhgJksBLtEvUNolRmGvwJG+yDNsXSB4s2aplR3M4Y80BnuGfiQ7m0Q2qP6JJvaLc/VpTKx5lPe9IfpibviMb+4lOXYXyGLRsRPgSTsSpASdW8Av+YQ3Er+NzgIuELdvZMcAZIUaBsgpCA55IZIEeV+NLSC32hskXCTAH9xFRyWkUsgSrhqAJfjpL8fch0dMMIGWMkmYEIn8Az5Wgp5LHlhmAAAAAElFTkSuQmCC" alt=""/>
                     </div>
                 </div>
-                <Week movieId ="movieId:movieDetail.id"></Week>
-            </div>  
-            
+
+                <div className="Movie-showDays">
+                    <ul className="Movie-timeline">
+                        <Week></Week>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+
+
+
         )
     }
     tranNumber(num,point) {
         let numStr = num.toString()
-        // 十万以内直接返回 
+        // 十万以内直接返回
         if (numStr.length < 6) {
             return numStr;
         }

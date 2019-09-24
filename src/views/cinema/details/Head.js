@@ -1,20 +1,25 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
-// import Goods from "./Goods"
+import Goods from "./Goods"
+
+
+import {
+    withRouter
+}from "react-router-dom"
 import {
     connect
 }from "react-redux"
 import {
     bindActionCreators
 } from "redux"
+
 import actionCreate from "../../../store/actionCreate/cinemaDetails"
 
 
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
-        console.log(this.props)
         return(
           <div>
               <header className="navbar">
@@ -38,7 +43,9 @@ class Head extends React.Component{
 
 
                     <Cinema></Cinema>
-                    {/*<Goods></Goods>*/}
+
+                    <Goods></Goods>
+
           </div>
 
         )
@@ -68,7 +75,7 @@ function mapStateProps(state){
 function mapDispatchProps(dispatch){
     return bindActionCreators(actionCreate,dispatch)
 }
-export default connect(mapStateProps,mapDispatchProps)(Head)
+export default withRouter(connect(mapStateProps,mapDispatchProps)(Head))
 
 
 
