@@ -1,6 +1,7 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import MovieInfo from "./MovieInfo"
+import MovieTime from "./MovieTime"
 import MovieList from "./MovieList"
 import {
     connect
@@ -9,6 +10,7 @@ import {
     bindActionCreators
 } from "redux"
 import actionCreate from "../../../store/actionCreate/cinemaDetails"
+import VipTips from "./VipTips";
  class Cinema extends React.Component{
     render(){
         const {ShowData} = this.props;
@@ -49,7 +51,10 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
                     </div>
                 </div>
                 <MovieInfo {...this.props} index={0}></MovieInfo>
+                <MovieTime {...this.props} index={0}></MovieTime>
+                <VipTips></VipTips>
                 <MovieList {...this.props} index={0}></MovieList>
+
             </div>
 
 

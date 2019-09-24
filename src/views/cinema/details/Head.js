@@ -2,8 +2,8 @@ import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
 import Goods from "./Goods"
-import VipTips from "./VipTips"
-// import MovieInfo from "./MovieInfo"
+
+
 import {
     connect
 }from "react-redux"
@@ -39,9 +39,8 @@ class Head extends React.Component{
 
 
                     <Cinema></Cinema>
-                    <Goods></Goods>
-                    {/*<VipTips></VipTips>*/}
 
+                    <Goods></Goods>
 
           </div>
 

@@ -48,6 +48,7 @@ class MovieSeek extends React.Component {
                     </div>
                     <h1 className="nav-header">猫眼电影</h1>
                 </header>
+
                 {/*搜索*/}
                 <div className="search-wrapper">
                     {/*搜索框*/}

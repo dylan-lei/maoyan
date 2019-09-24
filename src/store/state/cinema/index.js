@@ -1,4 +1,4 @@
 export default {
     cinemaList:[],
-    offset:0
+    offset:-20
 }

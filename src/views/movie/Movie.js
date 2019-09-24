@@ -38,6 +38,7 @@ class Movie extends React.Component {
             </div>
         );
     }
+
 }
 
 export default Movie;

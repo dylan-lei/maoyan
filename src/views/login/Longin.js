@@ -1,7 +1,6 @@
 import React from 'react';
-import {Tabs, WhiteSpace, Badge} from 'antd-mobile';
+import {Tabs, Toast, WhiteSpace, Badge} from 'antd-mobile';
 import "../../assets/style/login/login.css"
-
 const tabs = [
     {title: <Badge text={''}>美团账号登录</Badge>},
     {title: <Badge text={''}>手机验证登录</Badge>}
@@ -18,11 +17,13 @@ class Longin extends React.Component {
             num: 60,//倒计时
             disabled: false,//表单禁用状态
             timer: null,//定时器
+            regMobile: false,//手机号正则验证
+            reg:false//账号登录正则
         }
     }
 
     async getVerifyCode() {
-
+        console.log(this.refs.regMobile.value)
         if (true) {
             this.state.disabled = true;
             this.setState({
@@ -43,7 +44,6 @@ class Longin extends React.Component {
     }
 
     render() {
-        console.log(this.state.num)
         return (
             <div className="login">
                 {/*顶部标题、返回*/}
@@ -60,23 +60,28 @@ class Longin extends React.Component {
 
                 {/*登录*/}
                 <div>
-                    <Tabs tabs={tabs}>
+                    <Tabs tabs={tabs} initialPage={0}>
                         {/*美团账号登录*/}
                         <div id="normal-login-form">
                             <dl className="p-list p-list-in">
                                 <dd>
                                     <dl className="p-input ">
                                         <dd className=" kv-line-r ">
-                                            <input className="input-weak" type="text" placeholder="账户名/手机号/Email"/>
+                                            <input className="input-weak"
+                                                   ref={"account"}
+                                                   type="text"
+                                                   onInput={this.reg.bind(this)}
+                                                   placeholder="账户名/手机号/Email"/>
                                         </dd>
                                         <dd className="kv-line-r">
-                                            <input className="input-weak" type="password" placeholder="请输入您的密码"/>
+                                            <input className="input-weak" type="password" ref={"password"}
+                                                   placeholder="请输入您的密码"/>
                                         </dd>
                                     </dl>
                                 </dd>
                             </dl>
                             <div className="btn-wrapper">
-                                <button className="login-btn">登录</button>
+                                <button className="login-btn" onClick={this.login.bind(this)}>登录</button>
                             </div>
                         </div>
                         {/*手机登录验证*/}
@@ -86,11 +91,16 @@ class Longin extends React.Component {
                                     <dl className="p-input ">
                                         <dd className=" kv-line-r ">
                                             <input className="input-weak mobile-input" type="text"
-                                                   placeholder="账户名/手机号/Email"/>
-                                            <button disabled={this.state.disabled} className="p-btn btn-weak"
-                                                    onClick={() => {
-                                                        this.getVerifyCode()
-                                                    }}>{this.state.disabled ? (this.state.num + "s") : "获取验证码"}
+                                                   onInput={this.regMobile.bind(this)}
+                                                   ref={"regMobile"}
+                                                   placeholder="请输入手机号"/>
+                                            <button
+                                                disabled={this.state.regMobile && !this.state.disabled ? false : true}
+                                                className={`${(this.state.regMobile && !this.state.disabled ? "p-btn" : "btn-disabled-p")}`}
+                                                onClick={() => {
+                                                    this.getVerifyCode()
+                                                }}>
+                                                {this.state.disabled ? (this.state.num + "s") : "获取验证码"}
                                             </button>
                                         </dd>
                                         <dd className="kv-line-r">
@@ -118,7 +128,9 @@ class Longin extends React.Component {
                 {/*登录*/}
                 <ul className="subline">
                     <li>
-                        <a href="##" className="subline-text-color">立即注册</a>
+                        <a href="##" className="subline-text-color" onClick={() => {
+                            this.props.history.push("/sign");
+                        }}>立即注册</a>
                     </li>
                     <li className="pull-right">
                         <a href="##" className="subline-text-color">找回密码</a>
@@ -133,6 +145,68 @@ class Longin extends React.Component {
 
             </div>
         );
+    }
+
+    reg() {
+        if ((/^1[3456789]\d{9}$/.test(this.refs.account.value))) {
+            this.setState({
+                reg: true
+            });
+              console.log("ok")
+        } else {
+            this.setState({
+                reg: false
+            });
+            // console.log("手机号错误")
+        }
+    }
+
+    regMobile() {
+        if ((/^1[3456789]\d{9}$/.test(this.refs.regMobile.value))) {
+            this.setState({
+                regMobile: true
+            });
+             // console.log("ok")
+        } else {
+            this.setState({
+                regMobile: false
+            });
+            // console.log("手机号错误")
+        }
+
+    }
+
+    login() {
+        console.log(this.state.reg)
+        this.axios.post("userLogin", {
+            account:this.state.reg ? null : this.refs.account.value,
+            mobile: this.state.reg ? this.refs.account.value : null,
+            password: this.refs.password.value
+
+        })
+            .then(({status, token}) => {
+                if (status === 2) {
+                    Toast.success('登录成功 !!!', 2);
+                    window.localStorage.token = token;
+                    setTimeout(() => {
+                        this.props.history.push("/nav/my");
+                    }, 400);
+                } else if (status === 4) {
+                    Toast.offline('登录失败，请输入正确的账号或密码!!!', 2);
+                }
+            })
+    }
+
+    componentDidMount() {
+        const str = "https://p0.meituan.net/travelcube/ba8ffd9e91ba069f1d6cd352cd5b9e93803.png";
+        if (this.props.location.pathname === "/login") {
+            document.title = "猫眼电影";
+            document.querySelector(".titl-logo").href = str;
+        }
+    }
+
+    componentWillUnmount() {
+        window.clearInterval(this.state.timer);
     }
 
 }

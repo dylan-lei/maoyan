@@ -22,7 +22,7 @@ class MyDiscount extends React.Component {
                         <img src="http://s0.meituan.net/bs/?f=myfe/canary:/img/card.png" alt="" />
                         <div>暂无影院会员卡</div>
                         <div className="add-card-box">
-                            <a href="##" className="link btn">
+                            <a href="##" className="link z-btn">
                                 <i className="iconfont mao-guanbi-"></i>
                                 <span>查看本城市全部会员卡</span>
                             </a>
@@ -31,6 +31,11 @@ class MyDiscount extends React.Component {
                 </div>
             </div>
         );
+    }
+    componentDidMount() {
+        if (this.props.location.pathname === "/mydiscount") {
+            document.title = "我的折扣卡"
+        }
     }
 }
 
