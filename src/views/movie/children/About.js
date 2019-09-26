@@ -1,5 +1,6 @@
 import React from "react";
 import '../../../assets/style/movie/release/release.css'
+
 import MostExpected from "../children/zhang/MostExpected";
 import ComingList from '../children/zhang/ComingList';
 import { connect } from 'react-redux';
@@ -47,4 +48,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ReleaseList,dispatch)
 }
+
+
+
+
 export default connect(mapStateToProps,mapDispatchToProps) (Release);
+

@@ -12,7 +12,7 @@ import "../../../assets/style/movie/nowhot.css"
 import movieListCreate from '../../../store/actionCreate/movie/BeingMovie'
 class BeingMovieBox extends Component {
     constructor(props){
-        super(props) 
+        super(props)
         this.index=0
     }
     render() {
@@ -57,6 +57,7 @@ class BeingMovieBox extends Component {
                         </div>
                     ))
                 }
+
                 <div style={{
                         width: "20px",
                         margin: "0 auto",
@@ -65,6 +66,7 @@ class BeingMovieBox extends Component {
                         }}>
                     < ActivityIndicator animating />
                 </div>
+
                 {/* 渲染部分结束 */}
                 <div style={{
                     display:this.props.nowMovieList.length>=61?"block":"none",
@@ -102,4 +104,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(movieListCreate, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeingMovieBox)
+export default connect(mapStateToProps,mapDispatchToProps) (BeingMovieBox)
+
+
+
+

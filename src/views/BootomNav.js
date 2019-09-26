@@ -9,10 +9,6 @@ import "../assets/style/transition.css"
 class BootomNav extends React.Component {
     render() {
         const router = Routers[Routers.length - 1].children;
-        // const ANIMATION_MAP = {
-        //     PUSH: 'forward',
-        //     POP: 'back'
-        // }
         return (
             <>
             <Switch>
@@ -45,3 +41,7 @@ class BootomNav extends React.Component {
 }
 
 export default withRouter(BootomNav);
+
+
+
+

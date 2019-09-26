@@ -6,10 +6,20 @@ import weeks from '../../views/common/tools' //导入周的方法
 // import Swiper from 'swiper/dist/js/swiper.js'
 // import 'swiper/dist/css/swiper.min.css'
 export default class Week extends Component{
+<<<<<<< HEAD
+    constructor(){
+        super()
+    }
+    componentDidMount(){
+        // new Swiper('.swiper-containe', {
+        //     history: true
+
+=======
     componentDidMount(){
         // new Swiper('.swiper-containe', {
         //     history: true
            
+>>>>>>> 62446450dea33cce604e6591fd911d2ac0960db5
         // });
     }
     render(){
@@ -55,7 +65,14 @@ export default class Week extends Component{
         if(myweekday < 10){
             myweekday = "0" + myweekday;
         }
+<<<<<<< HEAD
+        return (mymonth + "月" + myweekday+"日");
+    }
+
+}
+=======
         return (mymonth + "月" + myweekday+"日");   
     }
 
 }
+>>>>>>> 62446450dea33cce604e6591fd911d2ac0960db5
