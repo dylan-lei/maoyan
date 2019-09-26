@@ -44,23 +44,6 @@ class Up extends React.Component{
             refreshing: false,
             isLoading: false,
         });
-
-
-
-        // const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        // this.props.getCinemaList()
-        // const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));
-        //  console.log(data);
-        // console.log(this.props.cinemaList,66666666666)
-        // this.state.cinemas = this.props.cinemaList
-        // console.log(this.state.cinemas,333333)
-        //
-        // this.setState({
-        //     dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
-        //     height: hei,
-        //     refreshing: false,
-        //     isLoading: false,
-        // });
     }
     onEndReached = async (event) => {
         // if(this.state.offset < 253){
@@ -80,27 +63,6 @@ class Up extends React.Component{
                 isLoading: false,
             });
         }
-
-
-
-        // console.log(this.props.total,22222222)
-        // if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > this.props.total) {
-        //     console.log(333333333333,this.lv)
-        //     this.setState({
-        //         refreshing:false
-        //     })
-        // }else{
-        //     // this.state.offset += 20;
-        //     const data = this.props.getCinemaList()
-        //     this.state.cinemas = this.props.cinemaList
-        //     this.setState({ isLoading: true });
-        //     this.setState({
-        //         dataSource: this.state.dataSource.cloneWithRows(this.props.cinemaList),
-        //         isLoading: false,
-        //     });
-        // }
-
-        // }
 
     };
     render(){
@@ -129,7 +91,7 @@ class Up extends React.Component{
                             <div className={"location-item"}>{v.addr}</div>
                             <div className={"distance"}>{v.distance}</div>
                         </div>
-                        <div className={"label-block"}>
+                        <div style={{display:v.tag.snack === 1 ? null :"none"}} className={"label-block"}>
                             <div style={{display:v.tag.allowRefund === 1 ? null:"none"}} className={"allowRefund"}>退</div>
                             <div style={{display:v.tag.endorse === 1 ? null:"none"}} className={"endorse"}>改签</div>
                             <div style={{display:v.tag.snack === 1 ? null:"none"}} className={"snack"}>小吃</div>

@@ -1,118 +1,133 @@
 import "../../../assets/style/cinema/index.css"
 import React from "react"
-import "../../../assets/style/cinema/index.css"
+import { Tabs } from 'antd-mobile';
 
-import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
+import {
+    connect
+} from "react-redux";
+import {
+    bindActionCreators
+}from "redux"
+import actionCreate from '../../../store/actionCreate/cinema';
 
-const data = [
-    {
-        value: '1',
-        label: 'Food',
-    }, {
-        value: '2',
-        label: 'Supermarket',
-    },
-    {
-        value: '3',
-        label: 'Extra',
-        isLeaf: true,
-    },
-];
+
 
 class ExactSelect extends React.Component {
-    constructor(...args) {
-        super(...args);
-        this.state = {
-            initData: '',
-            show: false,
-        };
-    }
-
-    onChange = (value) => {
-        let label = '';
-        data.forEach((dataItem) => {
-            if (dataItem.value === value[0]) {
-                label = dataItem.label;
-                if (dataItem.children && value[1]) {
-                    dataItem.children.forEach((cItem) => {
-                        if (cItem.value === value[1]) {
-                            label += ` ${cItem.label}`;
-                        }
-                    });
-                }
-            }
-        });
-    }
-
-    // onChange = (value) => {
-    //     let label = '';
-    //     data.forEach((dataItem) => {
-    //         if (dataItem.value === value[0]) {
-    //             label = dataItem.label;
-    //             if (dataItem.children && value[1]) {
-    //                 dataItem.children.forEach((cItem) => {
-    //                     if (cItem.value === value[1]) {
-    //                         label += ` ${cItem.label}`;
-    //                     }
-    //                 });
-    //             }
-    //         }
-    //     });
-    //     console.log(label);
-    // }
-    handleClick = (e) => {
-        e.preventDefault(); // Fix event propagation on Android
-        this.setState({
-            show: !this.state.show,
-        });
-        // mock for async data loading
-        if (!this.state.initData) {
-            // setTimeout(() => {
-                this.setState({
-                    initData: data,
-                });
-            // }, 500);
+    constructor(props){
+        super(props);
+        this.state={
+            isShow : false
         }
     }
-
-    onMaskClick = () => {
+    show(){
         this.setState({
-            show: false,
-        });
+            isShow:!this.state.isShow
+        })
+        console.log(this.state.isShow)
     }
-
     render() {
-        const { initData, show } = this.state;
-        const menuEl = (
-            <Menu
-                className="single-foo-menu"
-                data={initData}
-                value={['1']}
-                level={1}
-                onChange={this.onChange}
-                height={document.documentElement.clientHeight * 0.6}
-            />
-        );
-        const loadingEl = (
-            <div style={{ position: 'absolute', width: '100%', height: document.documentElement.clientHeight * 0.6, display: 'flex', justifyContent: 'center' }}>
-                <ActivityIndicator size="large" />
-            </div>
-        );
+        console.log(this.props,77777)
+        const brand = this.props.cityDetailList.brand.subItems;
+        const service = this.props.cityDetailList.service.subItems;
+        const hallType = this.props.cityDetailList.hallType.subItems;
+        console.log(2222222,hallType)
+        const tabs = [
+            { title: '商区' },
+            { title: '地铁' }
+        ];
+        const tab = [
+            {title:'全城'},
+            {title:'品牌'},
+            {title:'特色'}
+        ]
         return (
-            <div className={show ? 'single-menu-active' : ''}>
-                <div>
-                    <NavBar
-                        leftContent="Menu"
-                        onLeftClick={this.handleClick}
-                        className="single-top-nav-bar"
-                    >
-                    </NavBar>
+            <div className={"backcolor"}>
+                <div className={"wrap"}>
+                    <Tabs tabs={tab} onTabClick={this.show.bind(this)} animated={false} useOnPan={false}>
+                        <div style={{ backgroundColor: '#fff'}}>
+                            <Tabs tabs={tabs} initialPage={0} animated={false} useOnPan={false}>
+                                <div className={"llllllllllll"} style={{ display: 'flex', height: '402.5px', backgroundColor: '#fff'}}>
+                                        <div className={"district"}>
+
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                            <div className={"district-details"}>全部(253)</div>
+                                        </div>
+
+                                    <div className={"district-details-dev"}>
+                                        <div className={"district-details-dev-d"}>全部</div>
+                                    </div>
+                                </div>
+                                <div style={{ display: 'flex', height: '402.5px', backgroundColor: '#fff' }}>
+                                    <div>分工会尽快</div>
+                                    <div>dgjfgjfdh</div>
+                                </div>
+                            </Tabs>
+                        </div>
+                        <div style={{ display: 'flex',flexDirection: 'column',overflow: 'auto',  height: '345px', backgroundColor: '#fff' }}>
+                            {
+                                brand.map(v=>(
+                                    <div key={v.id} className={"lv-brand-child"}>
+                                        <span>{v.name}</span>
+                                        <span className={"lv-brand-child-02"}>{v.count}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div style={{ height: '343px',backgroundColor: '#fff'}}>
+                            <div className={"lv-feature-top"}>
+                                <div className={"lv-feature-top-build"} >
+                                    特色功能
+                                </div>
+                                <div className={"lv-feature-top-one"}>
+                                    {
+                                        service.map(v=>(
+                                            <div key={v.id} className={"lv-feature-top-button"}>{v.name}</div>
+                                        ))
+                                    }
+                                </div>
+                                <div className={"lv-feature-top-build"} >
+                                    特殊厅
+                                </div>
+                                <div className={"lv-feature-top-one"} style={{height:'192px'}}>
+                                    {
+                                        hallType.map(v=>(
+                                            <div key={v.id} className={"lv-feature-top-button"}>{v.name}</div>
+                                        ))
+                                    }
+
+
+                                </div>
+                            </div>
+                            <div className={"lv-feature-bottom"}>
+                                <div className={"lv-feature-bottom-left"}>重置</div>
+                                <div className={"lv-feature-bottom-right"}>确定</div>
+                            </div>
+                        </div>
+                    </Tabs>
                 </div>
-                {show ? initData ? menuEl : loadingEl : null}
-                {show ? <div className="menu-mask" onClick={this.onMaskClick} /> : null}
             </div>
-        );
+        )
+    }
+    componentDidMount() {
+        this.props.getCityDetailList()
     }
 }
 
-export default ExactSelect
+function mapStateToProps(state) {
+    return{
+        cityDetailList:state.cinema.cinemaIndex.cityDetailList
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actionCreate,dispatch)
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ExactSelect)

@@ -32,10 +32,9 @@ class Cinemahome extends React.Component {
                             <span>搜影院</span>
                         </div>
                     </div>
-                    <div className={"line"}>
-                        <ExactSelect></ExactSelect>
-                    </div>
+
                 </section>
+                <ExactSelect></ExactSelect>
                 <Up></Up>
 
             </div>
