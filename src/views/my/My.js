@@ -87,7 +87,7 @@ class My extends React.Component{
         this.axios.post("verifytoenk")
             .then(({status}) => {
                 if (status !== 2) {
-                    this.props.history.push({pathname: "/login"});
+                    // this.props.history.push({pathname: "/login"});
                 }
             })
 

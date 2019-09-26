@@ -8,10 +8,8 @@ import {
 import {
     bindActionCreators
 }from "redux"
-import actionCreate, {changeCinemaList} from '../../../store/actionCreate/cinema';
+import actionCreate from '../../../store/actionCreate/cinema';
 import axios from "axios"
-const NUM_ROWS = 20;
-let pageIndex = 0;
 
 class Up extends React.Component{
     constructor(props) {

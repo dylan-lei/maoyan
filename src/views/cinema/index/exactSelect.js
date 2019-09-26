@@ -99,7 +99,7 @@ class ExactSelect extends React.Component {
             <div  style={{background:"#fff"}} className={ show ? 'single-menu-active' : ''}>
                 <div>
                     <NavBar
-                        leftContent="品牌"
+                        leftContent="哝牌"
                         mode="light"
                         onLeftClick={this.handleClick}
                         className="single-top-nav-bar"

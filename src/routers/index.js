@@ -7,6 +7,8 @@ import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
 import Sign from '../views/login/Sign'
+import Preview from '../views/movie/children/zhang/Preview'
+import MovieMoney from '../views/movie/children/zhang/MovieMoney'
 
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
@@ -28,6 +30,18 @@ import About from "../views/movie/children/About"
 
 export default [
     //一级路由，页面跳转
+    {
+        path: "/nav/movie/about/moviemoney",
+        component: MovieMoney,
+        title: "即将上映 -> 详情页",
+        exact: false
+    },
+    {
+        path: "/nav/movie/about/preview",
+        component: Preview,
+        title: "即将上映 -> 详情页 -> 预览",
+        exact: false
+    },
     {
         path: "/mymovie",
         component: MyMovie,
