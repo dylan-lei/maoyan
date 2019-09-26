@@ -3,12 +3,13 @@ import BootomNav from "../views/BootomNav"
 import Login from "../views/login/Longin"
 import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
+import MovieMoney from '../views/movie/children/duan/MovieMoney'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
 import Sign from '../views/login/Sign'
 import Preview from '../views/movie/children/zhang/Preview'
-import MovieMoney from '../views/movie/children/zhang/MovieMoney'
+import ZMovieMoney from '../views/movie/children/zhang/MovieMoney'
 
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
@@ -32,7 +33,7 @@ export default [
     //一级路由，页面跳转
     {
         path: "/nav/movie/about/moviemoney",
-        component: MovieMoney,
+        component: ZMovieMoney,
         title: "即将上映 -> 详情页",
         exact: false
     },

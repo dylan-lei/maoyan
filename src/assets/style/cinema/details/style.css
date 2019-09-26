@@ -12,7 +12,7 @@
     /*overflow: visible !important;*/
 }
 
-body{
+html,body{
     background:#fff;
 
 }
@@ -26,6 +26,7 @@ body{
     text-align: center;
     position: relative;
     font-family: Helvetica,Arial,sans-serif;
+
 }
 .nav-warp-left{
     height: 50px;
@@ -59,7 +60,7 @@ body{
 }
 .nav-header {
     font-size: 18px;
-    font-weight: 400px;
+    font-weight:400;
     line-height: 50px;
 }
 
@@ -78,8 +79,10 @@ body{
     color:#777;
     font-size:14px;
     height:44px;
+    background:#fff;
+
 }
-.title{
+.name .title{
     font-size:17px;
     line-height:24px;
     font-weight:700;
@@ -87,6 +90,7 @@ body{
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+
 }
 .info{
     font-size:13px;
@@ -116,12 +120,14 @@ body{
 
 
 
-
+a, div {
+    -webkit-tap-highlight-color: transparent;
+}
 .cinema-nav {
     padding: 20px 15px 0 5px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-
+    height: 115px !important;
 
 }
 .swiper-container {
@@ -165,7 +171,6 @@ body{
     transition-property: -webkit-transform;
     transition-property: transform;
     transition-property: transform,-webkit-transform;
-    transform: translate3d(57.5px, 0px, 0px); transition-duration: 0ms;
     box-sizing: content-box;
 
 }
@@ -174,6 +179,9 @@ body{
 }
 .cinema-nav .swiper-slide:first-child {
     margin-left: 10px;
+}
+.cinema-block .cinema-nav .swiper-slide+.swiper-slide {
+    margin-left: 15px;
 }
 .cinema-nav .swiper-slide {
     width: 65px;
@@ -208,6 +216,7 @@ img{
 .movie-info {
     padding: 11px 15px;
     text-align: center;
+    background:#fff;
 }
 .movie-info .movie-title {
     height: 24px;
@@ -262,13 +271,14 @@ img{
     height:10px;
     background:#f0f0f0;
 }
-.cinema-list .list-wrap {
+#list-wrap {
     background-color: #fff;
 }
 
 
 .nav-wrap {
     position: relative;
+    background:#fff;
 }
 
 .nav-block .nav-bar {
@@ -392,18 +402,22 @@ img{
     transform: rotate(135deg);
 }
 
-
+.seat-list{
+    background:#fff !important;
+}
 .seat-inner-wrap{
     position:relative;
     min-height:40px;
+    background:#fff;
 }
 .item-outer{
     padding:17px 0;
     margin-left:13px;
+    background:#fff;
     /*border-bottom:1px solid #f5f5f5;*/
 }
 .seat-list .list-wrap .item{
-    padding-right:13px;
+    padding-right:12.5px;
 }
 .box-flex{
     display:flex;
@@ -478,11 +492,11 @@ img{
     border-radius:2px;
     font-size:12px;
 }
-.vipPrice .icon, .vipPrice .num {
+.vipPrice .icons, .vipPrice .num {
     display: inline-block;
     padding: 0 2px;
 }
-.vipPrice .icon {
+.vipPrice .icons {
     color: #fff;
     background-color: #f90;
 }
@@ -516,9 +530,13 @@ img{
     text-align: center;
 }
 
+.tuan-wrap{
+    background:#fff;
+}
 .tuan-wrap .tuan-list {
     position: relative;
     margin: 0 0 0 15px;
+
 }
 .tuan-wrap .tuan-list .tuan-title {
     line-height: 45px;

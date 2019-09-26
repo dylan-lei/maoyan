@@ -67,6 +67,6 @@ export default class MostExpected extends React.Component {
     })
   }
   componentWillUnmount() {
-    scrollBootom(null);
+    scrollBootom();
   }
 }

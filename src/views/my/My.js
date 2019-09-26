@@ -1,7 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import '../../assets/style/my/my.css';
+import loding from "../../components/loding"
 class My extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            animating:true
+        }
+    }
     render(){
         return (
             <div>
@@ -83,17 +90,6 @@ class My extends React.Component{
         );
     }
 
-    componentDidMount() {
-        this.axios.post("verifytoenk")
-            .then(({status}) => {
-                if (status !== 2) {
-                    // this.props.history.push({pathname: "/login"});
-                }
-            })
-
-    }
-
-
 }
 
-export default withRouter(My);
+export default withRouter(loding(My));

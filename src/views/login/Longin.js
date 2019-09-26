@@ -1,7 +1,6 @@
 import React from 'react';
 import {Tabs, Toast, WhiteSpace, Badge} from 'antd-mobile';
 import "../../assets/style/login/login.css"
-
 const tabs = [
     {title: <Badge text={''}>美团账号登录</Badge>},
     {title: <Badge text={''}>手机验证登录</Badge>}
@@ -178,7 +177,6 @@ class Longin extends React.Component {
     }
 
     login() {
-        console.log(this.state.reg)
         this.axios.post("userLogin", {
             account:this.state.reg ? null : this.refs.account.value,
             mobile: this.state.reg ? this.refs.account.value : null,
@@ -188,6 +186,7 @@ class Longin extends React.Component {
             .then(({status, token}) => {
                 if (status === 2) {
                     Toast.success('登录成功 !!!', 2);
+                    console.log(status)
                     window.localStorage.token = token;
                     setTimeout(() => {
                         this.props.history.push("/nav/my");

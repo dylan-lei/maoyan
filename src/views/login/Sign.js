@@ -202,8 +202,7 @@ class Sign extends React.Component {
                     });
                 }
                 break;
-            default:
-                ;
+            default:return
         }
 
     }
