@@ -1,5 +1,6 @@
 import {CHANGE_MOVIE_DETAIL} from '../../../actionType/movie/MovieDetail'
 import axios from 'axios'
+import PubSub  from 'pubsub-js'
 export const ChangeMovieDetail = (payload)=>{
     return{
         type:CHANGE_MOVIE_DETAIL,
@@ -12,7 +13,9 @@ export default {
             const {detailsId} = this.location.state //这里this指向props
             const data =await axios.get('detailmovie/'+detailsId)
             dispatch(ChangeMovieDetail(data.detailMovie))
-            // console.log(data)
+            // const lala=data.detailMovie
+            // PubSub.publish('movieDetails',data.detailMovie);
+            // console.log(data.detailMovie)
             // console.log(detailsId)
         }
     }

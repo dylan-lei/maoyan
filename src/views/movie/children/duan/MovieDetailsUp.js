@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from 'react-dom'
 import {  ListView } from 'antd-mobile';
-import "../../../assets/style/cinema/index.css"
+import "../../../../assets/style/cinema/index.css"
 import {
     withRouter
 }from "react-router-dom"
@@ -11,7 +11,7 @@ import {
 import {
     bindActionCreators
 }from "redux"
-import actionCreate from '../../../store/actionCreate/cinema';
+import actionCreate from '../../../../store/actionCreate/cinema/index';
 import axios from "axios"
 
 class Up extends React.Component{
@@ -31,7 +31,6 @@ class Up extends React.Component{
         };
     }
     async componentDidMount() {
-
         // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
         const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
@@ -62,7 +61,7 @@ class Up extends React.Component{
 
     };
     render(){
-        //const data=this.props.cinemaList || []
+        const data=this.props.cinemaList || []
         const row = (rowData, sectionID, rowID) => {
             const v =rowData;// data[rowID];
             return (
