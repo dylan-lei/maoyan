@@ -28,7 +28,7 @@ export default class MovieMon extends Component {
         const {mbox} = movieDetailList.mbox
         const {relatedFilm} = movieDetailList
         const {hotComments,total} = movieDetailList.comments
-        // console.log(comments,mbox)
+        console.log(mbox,111111)
         console.log(movieDetailList,movieList)
         return (
             <div>

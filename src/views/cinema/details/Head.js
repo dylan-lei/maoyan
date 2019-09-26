@@ -1,7 +1,9 @@
 import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
-// import Goods from "./Goods"
+import Goods from "./Goods"
+
+
 import {
     withRouter
 }from "react-router-dom"
@@ -18,7 +20,6 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
-        console.log(this.props)
         return(
           <div>
               <header className="navbar">
@@ -42,7 +43,9 @@ class Head extends React.Component{
 
 
                     <Cinema></Cinema>
-                    {/*<Goods></Goods>*/}
+
+                    <Goods></Goods>
+
           </div>
 
         )

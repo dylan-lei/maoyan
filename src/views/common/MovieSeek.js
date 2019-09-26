@@ -11,16 +11,16 @@ class MovieSeek extends React.Component {
         super(props);
         this.state = {
             key: "",
-            animating: true
+            animating:true
         }
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         setTimeout(() => {
             this.setState({animating: false});
         }, 200)
 
-    }
+    }*/
 
     render() {
         let recordList = this.props.searchRecordList.length > 0 ? this.props.searchRecordList : [];
@@ -33,9 +33,6 @@ class MovieSeek extends React.Component {
                 if (i >= 3) break;
                 arr.push(movieList[i]);
 
-
-
-                
             }
             movieList = arr;
         }
@@ -56,7 +53,7 @@ class MovieSeek extends React.Component {
                 <div className="search-wrapper">
                     {/*搜索框*/}
                     <SearchBar
-                        value={this.state.key}
+                        value={this.state.key || ""}
                         placeholder="Search"
                         onCancel={() => this.clear()}
                         showCancelButton

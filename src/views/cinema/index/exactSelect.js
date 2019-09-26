@@ -102,7 +102,8 @@ class ExactSelect extends React.Component {
             <div className={show ? 'single-menu-active' : ''}>
                 <div>
                     <NavBar
-                        leftContent="Menu"
+                        leftContent="å“�ç‰Œ"
+                        mode="light"
                         onLeftClick={this.handleClick}
                         className="single-top-nav-bar"
                     >

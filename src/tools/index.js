@@ -15,7 +15,7 @@ export const scrollBootom = (callback) => {
                 }
             }
         };
-    } else if (typeof callback === "undefined" || typeof callback === "null") {
+    } else {
         document.onscroll = null;
     }
 }

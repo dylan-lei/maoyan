@@ -37,7 +37,7 @@
 .swiper-wrapper{
     transform: translate3d(0px, 0px, 0px);
 }
-.swiper-slide{
+.expected-item.swiper-slide {
     display: flex;
     justify-content: space-around;
     /* transition: all .2s; */
