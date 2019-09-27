@@ -134,6 +134,9 @@ class Up extends React.Component{
             />
         </div>);
     }
+    componentDidMount(){
+        console.log(this.props)
+    }
 
 }
 

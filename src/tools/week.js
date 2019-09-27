@@ -2,18 +2,18 @@ import React,{Component}from 'react'
 import weeks from './tools' //导入周的方法
 import axios from 'axios'
 import { Tabs } from 'antd-mobile';
-import Up from '../views/cinema/index/up'
 import MovieDetailsUp from '../views/movie/children/duan/MovieDetailsUp'
 export default class Week extends Component{
   constructor(props){
     super(props)
     this.state={
-      results:null
+      results:[]
     }
   }
     renderContent = tab =>
     (<div><MovieDetailsUp {...this.state.results}></MovieDetailsUp></div>);
   render() {
+    console.log(this.state.results)
     const datetime = new Date().toLocaleDateString().replace(/\/+/g,"-") //转换2019-1-1方式
     const old_time = new Date(datetime.replace(/-/g, "/")); //
     const tabs = []
@@ -56,7 +56,13 @@ export default class Week extends Component{
         }
         return (mymonth + "月" + myweekday+"日");   
     }
-    componentDidUpdate(){
-      console.log(this.props.movieId)
+    async componentDidUpdate(){
+      const time = ((new Date().toLocaleDateString().replace(/\/+/g, "-")).substr(0, 5) + "0" + ((new Date().toLocaleDateString().replace(/\/+/g, "-")).slice(-4)))
+          const data =await axios.post('forceUpdate',{
+            movieId: this.props.movieId,//热映的电影id
+            day: time//日期
+          })
+          console.log(data)
+      // console.log(this.props.movieId)
     }
 }
