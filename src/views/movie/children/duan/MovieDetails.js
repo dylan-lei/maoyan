@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "../../../../assets/style/movie/movieDetails.css";
-// import PubSub  from 'pubsub-js'
 import{
     connect
 }from 'react-redux'

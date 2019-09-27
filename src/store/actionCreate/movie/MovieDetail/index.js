@@ -1,6 +1,5 @@
 import {CHANGE_MOVIE_DETAIL} from '../../../actionType/movie/MovieDetail'
 import axios from 'axios'
-import PubSub  from 'pubsub-js'
 export const ChangeMovieDetail = (payload)=>{
     return{
         type:CHANGE_MOVIE_DETAIL,

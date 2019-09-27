@@ -10,13 +10,14 @@ class Up extends React.Component{
      
     }
     render(){
+        const movieLength = this.state.movieDetailsList
             return (
                 <div
                     style={{background:"white"}}
                      className={"cinema-list"}
                 >
                     {
-                        this.state.movieDetailsList.map((v,i)=>(
+                        movieLength.map((v,i)=>(
                             <div style={{background:"white"}} key={i}  className={"item line"} onClick={() => {
                                 this.props.history.push({pathname: '/zdetails', state: {cinemaId: v.id}})
                             }} >

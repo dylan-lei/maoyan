@@ -29,7 +29,7 @@ export default class Week extends Component{
                   movieId: movieDetailsId,//热映的电影id
                   day: yearTime//日期
                 })
-            console.log(data)
+            // console.log(data)
                 Pubsub.publish('movieDetailsListTwo',data)
         }} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
           {this.renderContent}

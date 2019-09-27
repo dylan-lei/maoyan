@@ -146,7 +146,7 @@ export default class MovieMon extends Component {
                     </div>
                     <div className='panel-content'>
                         <a className='panel-content-a' href='##'>
-                            <img className='panel-content-a-img' src='http://p0.meituan.net/movie/cc55767077c11d4b26530cec3db032942256352.jpg@200w_150h_1e_1c.webp' alt='' className='noneBg-jz'/>
+                            <img className='panel-content-a-img noneBg-jz' src='http://p0.meituan.net/movie/cc55767077c11d4b26530cec3db032942256352.jpg@200w_150h_1e_1c.webp' alt=''/>
                             <i className='iconfont mao-fanhui1 fanhui-right'></i>
                             <div className='news-wrapper'>
                                 <div className='news-content'>
