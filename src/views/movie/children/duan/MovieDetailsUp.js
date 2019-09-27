@@ -1,6 +1,9 @@
 import React from "react"
 import Pubsub from 'pubsub-js'
 import axios from "axios";
+import {
+    withRouter
+}from 'react-router-dom'
 class Up extends React.Component{
     constructor(props) {
         super(props);
@@ -19,7 +22,7 @@ class Up extends React.Component{
                     {
                         movieLength.map((v,i)=>(
                             <div style={{background:"white"}} key={i}  className={"item line"} onClick={() => {
-                                this.props.history.push({pathname: '/zdetails', state: {cinemaId: v.id}})
+                                this.props.history.push({pathname:'/zdetails', state:{id:v.id}})
                             }} >
                                 <div className={"title"}>
                                     <span>{v.nm}</span>
@@ -80,4 +83,4 @@ class Up extends React.Component{
     }
 
 }
-export default Up
+export default withRouter(Up)

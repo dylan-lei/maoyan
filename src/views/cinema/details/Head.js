@@ -20,7 +20,7 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
-        console.log(this.props.location.state.id,44444444)
+        console.log(this.props)
         return(
           <div>
               <header className="navbar">
