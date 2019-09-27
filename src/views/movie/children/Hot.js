@@ -58,8 +58,6 @@ class BeingMovieBox extends Component {
                     ))
                 }
 
-
-=======
                 <div style={{
                         width: "20px",
                         margin: "0 auto",
@@ -68,7 +66,6 @@ class BeingMovieBox extends Component {
                         }}>
                     < ActivityIndicator animating />
                 </div>
->>>>>>> 5e28827b72af55baccd1020ab35a617e783fe3b4
                 {/* 渲染部分结束 */}
                 <div style={{
                     display:this.props.nowMovieList.length>=61?"block":"none",

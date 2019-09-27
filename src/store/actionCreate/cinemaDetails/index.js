@@ -2,6 +2,7 @@ import {CHANGE_CINEMA_DATA} from "../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../actionType/cinemaDetails";
 import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
 import {CHANGE_VIP_INFO } from "../../actionType/cinemaDetails";
+import {CHANGE_ADDR } from "../../actionType/cinemaDetails";
 
 import axios from "axios";
 export const changeCinemaData = (payload) =>{
@@ -28,10 +29,17 @@ export const changeVipInfo=(payload)=>{
         payload
     }
 }
+export const changeAddr=(payload)=>{
+    return{
+        type: "CHANGE_ADDR",
+        payload
+    }
+}
 export default {
     getCinemaData() {
         return async (dispatch) => {
             const {data} = await axios.get("cinemaDetail/?cinemaId=" + 107)
+            // const {item} = await axios.get("http://m.maoyan.com/ajax/cinemaAjaxDetail?cinemaId=107")
             console.log(data,888888)
 
             dispatch(changeCinemaData(data.cinemaData))
@@ -39,6 +47,8 @@ export default {
             // console.log(data.showData)
             dispatch(changeDealList(data.dealList))
             dispatch(changeVipInfo(data.showData.vipInfo))
+            dispatch(changeAddr(data.addr))
+            console.log(data.addr)
 
 
         }
