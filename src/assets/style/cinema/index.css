@@ -13,6 +13,18 @@
      width: 0px;
      height: 0px;
 }
+/*总div*/
+.cinema-home{
+    position: relative;
+}
+/*罩层*/
+.wrap-lv-wrap{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.3);
+    z-index: 3;
+}
 /*header*/
 .headers{
     height: 50.5px;
@@ -97,24 +109,15 @@
     display: block;
     border: 0;
 }
-/*select*/
-.am-tabs-default-bar-tab-active {
-     color: #dd403b !important;
-}
-.backcolor{
-    background: #fff !important;
-    position: relative;
-}
-.wrap{
-    color: #777;
-    position: relative;
-    z-index: 10;
-    display: flex;
+/*try*/
+.tabs-top{
+    height: 40px;
     width: 358px;
-    background: #fff;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
+    display: flex;
+    background: #ffffff;
 }
-.wrap>div{
+.tabs-top div{
+    height: 40px;
     -webkit-box-flex: 1;
     flex: 1;
     text-align: center;
@@ -124,17 +127,28 @@
     overflow: hidden;
     font-size: 13px;
     text-overflow: ellipsis;
+    color: #777;
 }
-.wrap>div>i{
-    display: inline-block;
+/*select*/
+.am-tabs-default-bar-tab-active {
+     color: #dd403b !important;
+}
+.backcolor{
+    background: #fff !important;
     position: absolute;
-    top: 14px;
-    width: 0;
-    height: 0;
-    margin-left: 4px;
-    border: 4px solid transparent;
-    border-top-color: #b0b0b0;
+    z-index: 10;
+    width: 100%;
 }
+.wrap{
+    color: #777;
+    position: relative;
+    z-index: 10;
+    width: 358px;
+    background: #fff;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
+}
+
+
 .line{
     background: #fff;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
@@ -144,12 +158,29 @@
     height: 0;
 }
 .am-tabs-default-bar-underline{
-    border:0
+    border:0;
+    height: 2px;
+    background: #f03d37;
+    width: 161.09px !important;
 }
-#m-tabs-0-0,#m-tabs-0-1,#m-tabs-0-2{
+#m-tabs-0-0,#m-tabs-0-1{
     /*border-right: 1px solid #e8e8e8;*/
-    height: 40px;
+    height: 44px;
     font-size: 13px;
+}
+/*边框*/
+.lv-left,.lv-right{
+    position: absolute;
+    height: 20px;
+    border-right: 1px solid #e8e8e8;
+    z-index: 15;
+    top: 10px;
+}
+.lv-left{
+    left: 119px;
+}
+.lv-right{
+    left: 238px;
 }
 /*全城*/
 /*.llllllllllll{*/
@@ -181,10 +212,12 @@
 .district-details-dev-d{
     height: 45px;
     line-height: 45px;
-    padding: 0 0 0 25px;
+    padding: 0 26px 0 25px;
     font-size: 15px;
     overflow: scroll;
     position: relative;
+    display: flex;
+    justify-content:space-between;
 }
 /*品牌*/
 .lv-brand-child {
@@ -196,7 +229,7 @@
     color: #333;
     font-size: 15px;
     justify-content:space-between;
-    width: 341px;
+    width: 317px !important;
 }
 .lv-brand-child .lv-brand-child-02{
     text-align: right;
@@ -226,7 +259,6 @@
 }
 .lv-feature-top-button{
     width: 21.3%;
-    height: 38px;
     padding: 3px 0;
     margin-right: 3%;
     margin-top: 10px;

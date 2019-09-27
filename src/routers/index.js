@@ -7,6 +7,7 @@ import MovieMoney from '../views/movie/children/duan/MovieMoney'
 import Head from '../views/cinema/details/Head'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
+import Try from '../views/cinema/index/try'
 import Sign from '../views/login/Sign'
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
@@ -32,6 +33,12 @@ export default [
         path: "/moviemoney",
         component: MovieMoney,
         title: "我的->电影",
+        exact: false
+    },
+    {
+        path: "/try",
+        component: Try,
+        title: "测试",
         exact: false
     },
     {
