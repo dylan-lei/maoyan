@@ -1,18 +1,18 @@
 import {CHANGE_CINEMA_DATA} from "../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../actionType/cinemaDetails";
-import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
-import {CHANGE_VIP_INFO } from "../../actionType/cinemaDetails";
+// import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
+// import {CHANGE_VIP_INFO } from "../../actionType/cinemaDetails";
 
 import axios from "axios";
 export const changeCinemaData = (payload) =>{
     return{
-        type:"CHANGE_CINEMA_DATA",
+        type:CHANGE_CINEMA_DATA,
         payload,
     }
 }
 export const changeShowData=(payload)=>{
     return{
-        type: "CHANGE_SHOW_DATA",
+        type: CHANGE_SHOW_DATA,
         payload
     }
 }

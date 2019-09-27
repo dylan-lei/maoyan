@@ -12,8 +12,18 @@ class MostExpected extends React.Component {
       wishst: '1'
     })
   }
+  jumpPreview(history, id) {
+    console.log(id);
+    history.push({
+      pathname: "/nav/movie/about/moviemoney",
+      state: {
+        // previewId: id
+        moneyId: id
+      }
+    })
+  }
   render() {
-    const releaseExpectedList = this.props.releaseExpectedList;
+    const { releaseExpectedList, history} = this.props;
     return (
       <div className="App">
         <div className="most-expected">
@@ -26,7 +36,9 @@ class MostExpected extends React.Component {
                 {
                   releaseExpectedList.map(v=>{
                     return (
-                      <div className="expected-item swiper-slide" key={v.id}>
+                      <div className="expected-item swiper-slide" key={v.id} onClick={() => {
+                        this.jumpPreview(history, v.id);
+                      }}>
                         <div className="poster default-img-bg">
                           <span className="wish">
                             <span className="wish-num">{v.wish}</span>

@@ -9,6 +9,9 @@ import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
 import Try from '../views/cinema/index/try'
 import Sign from '../views/login/Sign'
+import Preview from '../views/movie/children/zhang/Preview'
+import ZMovieMoney from '../views/movie/children/zhang/MovieMoney'
+
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
 import MyShop from '../views/my/children/MyShop'
@@ -30,9 +33,21 @@ import About from "../views/movie/children/About"
 export default [
     //一级路由，页面跳转
     {
-        path: "/moviemoney",
+        path: "/nav/movie/about/moviemoney",
+        component: ZMovieMoney,
+        title: "即将上映 -> 详情页",
+        exact: false
+    },
+    {
+        path:"/moviemoney",
         component: MovieMoney,
-        title: "我的->电影",
+        title:"正在热映-> 详情页",
+        exact :false
+    },
+    {
+        path: "/nav/movie/about/preview",
+        component: Preview,
+        title: "即将上映 -> 详情页 -> 预览",
         exact: false
     },
     {
