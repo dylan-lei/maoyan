@@ -1,71 +1,18 @@
 import React from "react"
-import ReactDOM from 'react-dom'
-import {  ListView } from 'antd-mobile';
-import "../../../../assets/style/cinema/index.css"
-import {
-    withRouter
-}from "react-router-dom"
-import {
-    connect
-} from "react-redux";
-import {
-    bindActionCreators
-}from "redux"
-import actionCreate from '../../../../store/actionCreate/cinema/index';
-import axios from "axios"
-
+import Pubsub from 'pubsub-js'
+import { eventNames } from "cluster";
 class Up extends React.Component{
     constructor(props) {
         super(props);
-        const dataSource = new ListView.DataSource({
-            rowHasChanged: (row1, row2) => row1 !== row2,
-        });
-        this.state = {
-            cinemas:[],
-            offset:-20,
-            dataSource,
-            refreshing: false,
-            isLoading: true,
-            height: document.documentElement.clientHeight,
-            useBodyScroll: false,
-        };
-    }
-    async componentDidMount() {
-        // this.props.getCinemaList.call(this)
-        const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
-        this.state.cinemas = [...this.state.cinemas,...data.cinemas]
-        this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
-            height: hei,
-            refreshing: false,
-            isLoading: false,
-        });
-    }
-    onEndReached = async (event) => {
-        if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > this.props.total) {
-            console.log(333333333333,this.lv)
-            this.setState({
-                refreshing:false
-            })
-        }else{
-            this.state.offset += 20;
-            const data = await axios.get("cinemaList?offset="+(this.state.offset ||0))
-            this.state.cinemas = [...this.state.cinemas,...data.cinemas]
-            this.setState({ isLoading: true });
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
-                isLoading: false,
-            });
+        this.state={
+            movieDetailsList:[],
+            movieDetailsListTwo:[]
         }
-
-    };
+     
+    }
     render(){
-        const data=this.props.cinemaList || []
-        const row = (rowData, sectionID, rowID) => {
-            const v =rowData;// data[rowID];
             return (
-                <div key={rowID}
+                <div key={1}
                      style={{
                          backgroundColor: 'white',
                          border:0
@@ -112,30 +59,18 @@ class Up extends React.Component{
                     </div>
                 </div>
             );
-        };
-        return (<div>
-
-            <ListView
-                key={this.state.useBodyScroll ? '0' : '1'}
-                ref={el => this.lv = el}
-                dataSource={this.state.dataSource}
-                renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? '正在加载...' : ''}
-                </div>)}
-                refreshing={this.state.refreshing}
-                renderRow={row}
-                useBodyScroll={this.state.useBodyScroll}
-                style={this.state.useBodyScroll ? {} : {
-                    height: this.state.height,
-                    margin: '5px 0',
-                }}
-                onEndReached={this.onEndReached}
-                pageSize={5}
-            />
-        </div>);
-    }
+    };
     componentDidMount(){
-        console.log(this.props)
+        Pubsub.subscribe('movieDetailsList',(eventNames,data)=>{
+            this.setState({
+                movieDetailsList:data
+            })
+        })
+        Pubsub.subscribe('movieDetailsListTwo',(eventNames,data)=>{
+            this.setState({
+                movieDetailsListTwo:data
+            })
+        })
     }
 
 }

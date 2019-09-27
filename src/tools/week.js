@@ -2,16 +2,14 @@ import React,{Component}from 'react'
 import weeks from './tools' //导入周的方法
 import axios from 'axios'
 import { Tabs } from 'antd-mobile';
+import Pubsub from 'pubsub-js'
 import MovieDetailsUp from '../views/movie/children/duan/MovieDetailsUp'
 export default class Week extends Component{
   constructor(props){
     super(props)
-    this.state={
-      results:[]
-    }
   }
     renderContent = tab =>
-    (<div><MovieDetailsUp {...this.state.results}></MovieDetailsUp></div>);
+    (<div><MovieDetailsUp></MovieDetailsUp></div>);
   render() {
     console.log(this.state.results)
     const datetime = new Date().toLocaleDateString().replace(/\/+/g,"-") //转换2019-1-1方式
@@ -32,7 +30,7 @@ export default class Week extends Component{
                   movieId: movieDetailsId,//热映的电影id
                   day: yearTime//日期
                 })
-                this.setState({results:data})
+                Pubsub.publish('movieDetailsListTwo',data)
                 console.log(data)
         }} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
           {this.renderContent}
@@ -62,6 +60,7 @@ export default class Week extends Component{
             movieId: this.props.movieId,//热映的电影id
             day: time//日期
           })
+          Pubsub.publish('movieDetailsList',data)
           console.log(data)
       // console.log(this.props.movieId)
     }
