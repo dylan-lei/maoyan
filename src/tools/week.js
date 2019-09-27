@@ -9,9 +9,8 @@ export default class Week extends Component{
     super(props)
   }
     renderContent = tab =>
-    (<div><MovieDetailsUp></MovieDetailsUp></div>);
+    (<div style={{background:"white"}}><MovieDetailsUp movieDetailsId={this.props.movieId}></MovieDetailsUp></div>);
   render() {
-    console.log(this.state.results)
     const datetime = new Date().toLocaleDateString().replace(/\/+/g,"-") //转换2019-1-1方式
     const old_time = new Date(datetime.replace(/-/g, "/")); //
     const tabs = []
@@ -30,8 +29,8 @@ export default class Week extends Component{
                   movieId: movieDetailsId,//热映的电影id
                   day: yearTime//日期
                 })
+            console.log(data)
                 Pubsub.publish('movieDetailsListTwo',data)
-                console.log(data)
         }} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
           {this.renderContent}
         </Tabs>
@@ -54,14 +53,5 @@ export default class Week extends Component{
         }
         return (mymonth + "月" + myweekday+"日");   
     }
-    async componentDidUpdate(){
-      const time = ((new Date().toLocaleDateString().replace(/\/+/g, "-")).substr(0, 5) + "0" + ((new Date().toLocaleDateString().replace(/\/+/g, "-")).slice(-4)))
-          const data =await axios.post('forceUpdate',{
-            movieId: this.props.movieId,//热映的电影id
-            day: time//日期
-          })
-          Pubsub.publish('movieDetailsList',data)
-          console.log(data)
-      // console.log(this.props.movieId)
-    }
+
 }
