@@ -32,7 +32,6 @@ export default class MovieMon extends Component {
   render() {
     const { results } = this.state;
     const { movie} = results;
-    console.log(movie,results);
     return (
       <div>
         <div className="movie-navbar-actor">
