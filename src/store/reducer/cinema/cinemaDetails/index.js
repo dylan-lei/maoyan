@@ -3,6 +3,8 @@ import {CHANGE_CINEMA_DATA} from "../../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../../actionType/cinemaDetails";
 import {CHANGE_DEAL_LIST } from "../../../actionType/cinemaDetails";
 import {CHANGE_VIP_INFO } from "../../../actionType/cinemaDetails";
+import {CHANGE_TRY} from "../../../actionType/cinemaDetails/try";
+import {CHANGE_ADDR } from "../../../actionType/cinemaDetails";
 
 export default function(state=initState,{type,payload}){
     state=JSON.parse(JSON.stringify(state));
@@ -18,6 +20,11 @@ export default function(state=initState,{type,payload}){
     if(type===CHANGE_VIP_INFO){
         state.vipInfo = payload;
     }
-
+    if(type===CHANGE_TRY){
+        state.try = payload;
+    }
+    if(type===CHANGE_ADDR){
+        state.try = payload;
+    }
     return state;
 }

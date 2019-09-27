@@ -5,9 +5,6 @@ import { Tabs } from 'antd-mobile';
 import Pubsub from 'pubsub-js'
 import MovieDetailsUp from '../views/movie/children/duan/MovieDetailsUp'
 export default class Week extends Component{
-  constructor(props){
-    super(props)
-  }
     renderContent = tab =>
     (<div style={{background:"white"}}><MovieDetailsUp movieDetailsId={this.props.movieId}></MovieDetailsUp></div>);
   render() {

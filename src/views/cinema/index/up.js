@@ -4,7 +4,6 @@ import {  ListView } from 'antd-mobile';
 import "../../../assets/style/cinema/index.css"
 import {
     withRouter,
-    Link
 }from "react-router-dom"
 import {
     connect

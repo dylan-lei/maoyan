@@ -1,7 +1,7 @@
 import {CHANGE_CINEMA_DATA} from "../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../actionType/cinemaDetails";
-// import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
-// import {CHANGE_VIP_INFO } from "../../actionType/cinemaDetails";
+
+
 
 import axios from "axios";
 export const changeCinemaData = (payload) =>{
@@ -28,22 +28,23 @@ export const changeVipInfo=(payload)=>{
         payload
     }
 }
+export const changeAddr=(payload)=>{
+    return{
+        type: "CHANGE_ADDR",
+        payload
+    }
+}
 export default {
     getCinemaData(id) {
-        console.log(id)
         return async (dispatch) => {
-            //const location = this.history.location ||{state:{id:107}}
-            //const id=location.state.id
-            // console.log(this.history.location.state,9999999777)
              if(id){
                 const {data} = await axios.get("cinemaDetail/?cinemaId=" + id)
-                console.log(data,888888)
                 dispatch(changeCinemaData(data.cinemaData))
                 dispatch(changeShowData(data.showData.movies))
-                // console.log(data.showData)
                 dispatch(changeDealList(data.dealList))
                 dispatch(changeVipInfo(data.showData.vipInfo))
              }
+
 
 
 

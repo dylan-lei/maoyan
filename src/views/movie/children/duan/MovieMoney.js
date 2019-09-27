@@ -10,9 +10,9 @@ export default class MovieMon extends Component {
             movieDetailList:{
                 celebrities:[],
                 relatedFilm:[],
-                mbox:{
-                    mbox:{}
-                },
+                mbox: {
+                    mbox: {}
+                } ,
                 comments:{
                     hotComments:[],
                     total:0
@@ -28,8 +28,6 @@ export default class MovieMon extends Component {
         const {mbox} = movieDetailList.mbox
         const {relatedFilm} = movieDetailList
         const {hotComments,total} = movieDetailList.comments
-        console.log(mbox,111111)
-        console.log(movieDetailList,movieList)
         return (
             <div>
                 <div className="movie-navbar-actor">
@@ -244,9 +242,9 @@ export default class MovieMon extends Component {
     }
     async componentDidMount() {
         const {movieDetailId} = this.props.location.state
-        console.log(movieDetailId)
-        const {data} = await axios.get('getComingDetailsList?comingId='+movieDetailId)
-        const {detailMovie} = await axios.get('detailmovie/'+movieDetailId)
+        const id = window.localStorage.movieDetailId=movieDetailId;
+        const {data} = await axios.get('getComingDetailsList?comingId='+id)
+        const {detailMovie} = await axios.get('detailmovie/'+id)
         this.setState({
             movieDetailList:data,
             movieList:detailMovie

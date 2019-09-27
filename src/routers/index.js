@@ -5,6 +5,7 @@ import City from "../views/common/City"
 import Details from '../views/movie/children/duan/MovieDetails'
 import MovieMoney from '../views/movie/children/duan/MovieMoney'
 import Head from '../views/cinema/details/Head'
+import Address from '../views/cinema/details/Address'
 import MovieSeek from "../views/common/MovieSeek"
 import Search from '../views/cinema/index/Search'
 import Try from '../views/cinema/index/try'
@@ -104,6 +105,13 @@ export default [
         title:"影院详情页",
         exact:false
     },
+    {
+        path:"/address",
+        component:Address,
+        title:"影院详情页->地址详情",
+        exact:false
+    },
+
     {
         path:"/cinemasearch",
         component:Search,

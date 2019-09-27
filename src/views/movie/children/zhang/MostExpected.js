@@ -13,7 +13,6 @@ class MostExpected extends React.Component {
     })
   }
   jumpPreview(history, id) {
-    console.log(id);
     history.push({
       pathname: "/nav/movie/about/moviemoney",
       state: {
@@ -29,7 +28,37 @@ class MostExpected extends React.Component {
         <div className="most-expected">
           <p className="title">近期最受期待</p>
           <div className="most-expected-list">
-            <div className="swiper-container">
+            {
+              releaseExpectedList.map(v => {
+                return (
+                  <div className="expected-item swiper-slide" key={v.id} onClick={() => {
+                    this.jumpPreview(history, v.id);
+                  }}>
+                    <div className="poster default-img-bg">
+                      <span className="wish">
+                        <span className="wish-num">{v.wish}</span>
+                        人想看
+                          </span>
+                      <span className="wish-bg"></span>
+                      <img
+                        src={v.img.replace(/w.h/, '')}
+                        alt=""
+                      />
+                      <div className="toggle-wish" data-wishst={this.state.wishst} onClick={
+                        () => {
+                          this.changeWishst()
+                        }
+                      }>
+                        <span></span>
+                      </div>
+                    </div>
+                    <h5 className="z-name line-ellipsis">{v.nm}</h5>
+                    <p className="date">{v.releaseExpectedListTitle}</p>
+                  </div>
+                )
+              })
+            }
+            {/* <div className="swiper-container">
               <div className="swiper-wrapper" style={{
                 transform: 'translate3d(0px, 0px, 0px)'
               }}>
@@ -64,7 +93,7 @@ class MostExpected extends React.Component {
                   })
                 }
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

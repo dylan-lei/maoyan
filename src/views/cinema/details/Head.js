@@ -20,15 +20,14 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
-        console.log(this.props)
         return(
           <div>
               <header className="navbar">
                   <div className="nav-warp-left">
-                      <a href="##" className="back">
-                          <i onClick={()=>{
-                              this.props.history.push("/nav/cinema")
-                          }} className="icon-back">
+
+                      <a href="##" className="back" onClick={()=>{this.props.history.go(-1)}}>
+                          <i className="icon-back">
+
                           </i>
                       </a>
                   </div>
@@ -54,19 +53,8 @@ class Head extends React.Component{
         )
     }
 
-    // async listMore(){
-    //     //const {data} = await this.axios.get("/maoyan/ajax/cinemaDetail?cinemaId=26195&movieId=359377")
-    //     const {data} = await this.axios.get("cinemaDetail/?cinemaId="+107);
-    //     console.log(data)
-    //     this.setState({
-    //         cinemaData:data.cinemaData
-    //     })
-    // }
-
     componentDidMount() {
-        //this.listMore();
         const idd = this.props.location.state.id;
-        console.log(idd)
         this.props.getCinemaData(idd);
     }
 
