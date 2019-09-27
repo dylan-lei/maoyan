@@ -8,8 +8,17 @@ export default class MostExpected extends React.Component {
     super();
     this.index = 0;
   }
+  jumpPreview(history, id) {
+    history.push({
+      pathname: "/nav/movie/about/moviemoney",
+      state: {
+        // previewId: id
+        moneyId: id
+      }
+    })
+  }
   render() {
-    const releaseList = this.props.releaseList;
+    const {releaseList,history} = this.props;
     return (
       <div className="coming-list">
         {
@@ -17,7 +26,9 @@ export default class MostExpected extends React.Component {
             return (
               <div key={i}>
                 <p className="group-date">{v.comingTitle}</p>
-                <div className="item">
+                <div className="item" onClick={() => {
+                  this.jumpPreview(history,v.id);
+                }}>
                   <div className="main-block">
                     <div className="avatar">
                       <div className="default-img-bg">
