@@ -1,6 +1,4 @@
 // 上拉加载
-
-
 export const scrollBootom = (callback) => {
     if (typeof callback === "function") {
         document.onscroll = (e) => {
@@ -15,10 +13,10 @@ export const scrollBootom = (callback) => {
                 }
             }
         };
-    } else if (typeof callback === "undefined" || typeof callback === "null") {
+    } else {
         document.onscroll = null;
     }
-}
+};
 
 // 生成二维数组
 export function myTowArray(arr, limit) {

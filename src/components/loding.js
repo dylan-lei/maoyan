@@ -16,19 +16,6 @@ export default function loading(MyCom) {
             }
         }
 
-        componentDidMount() {
-            setTimeout(async () => {
-                if (this.props.location.pathname === "/nav/my") {
-                    await this.axios.post("verifytoenk")
-                        .then(({status}) => {
-                            if (status !== 2) {
-                                this.props.history.push({pathname: "/login"});
-                            }
-                        });
-                }
-                this.setState({animating: false});
-            }, 200);
-        }
     }
 
     return Loading;
