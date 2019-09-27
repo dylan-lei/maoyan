@@ -29,16 +29,25 @@ export const changeVipInfo=(payload)=>{
     }
 }
 export default {
-    getCinemaData() {
+    getCinemaData(id) {
+        console.log(id)
         return async (dispatch) => {
-            const {data} = await axios.get("cinemaDetail/?cinemaId=" + 107)
-            console.log(data,888888)
+            //const location = this.history.location ||{state:{id:107}}
+            //const id=location.state.id
+            // console.log(this.history.location.state,9999999777)
+             if(id){
+                const {data} = await axios.get("cinemaDetail/?cinemaId=" + id)
+                console.log(data,888888)
+                dispatch(changeCinemaData(data.cinemaData))
+                dispatch(changeShowData(data.showData.movies))
+                // console.log(data.showData)
+                dispatch(changeDealList(data.dealList))
+                dispatch(changeVipInfo(data.showData.vipInfo))
+             }
 
-            dispatch(changeCinemaData(data.cinemaData))
-            dispatch(changeShowData(data.showData.movies))
-            // console.log(data.showData)
-            dispatch(changeDealList(data.dealList))
-            dispatch(changeVipInfo(data.showData.vipInfo))
+
+
+
 
 
         }

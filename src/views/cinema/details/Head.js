@@ -20,12 +20,15 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 class Head extends React.Component{
     render(){
         const {cinemaData} = this.props
+        console.log(this.props.location.state.id,44444444)
         return(
           <div>
               <header className="navbar">
                   <div className="nav-warp-left">
                       <a href="##" className="back">
-                          <i className="icon-back">
+                          <i onClick={()=>{
+                              this.props.history.push("/nav/cinema")
+                          }} className="icon-back">
                           </i>
                       </a>
                   </div>
@@ -62,7 +65,9 @@ class Head extends React.Component{
 
     componentDidMount() {
         //this.listMore();
-        this.props.getCinemaData();
+        const idd = this.props.location.state.id;
+        console.log(idd)
+        this.props.getCinemaData(idd);
     }
 
 }

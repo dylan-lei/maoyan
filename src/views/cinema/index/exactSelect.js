@@ -42,7 +42,7 @@ class ExactSelect extends React.Component {
         }
     }
 
-    brandShow() {
+    brandShow(brandId) {
         this.setState({
             isCityShow: false,
             isBrandShow: !this.state.isBrandShow,
@@ -53,6 +53,10 @@ class ExactSelect extends React.Component {
         }else {
             PubSub.publish("lala",true)
         }
+
+        if(!(brandId.type === "click"))
+        PubSub.publish("brand",brandId)
+
     }
 
     featureShow() {
@@ -153,7 +157,7 @@ class ExactSelect extends React.Component {
                                 <div className={"district-details-dev"}>
                                     {
                                         this.state.subWay.map(v=>(
-                                            <div  key={v.id} className={"district-details-dev-d"}>
+                                            <div  key={v.id} onClick={this.cityShow.bind(this)}  className={"district-details-dev-d"}>
                                                 <span>{v.name}</span>
                                                 <span>{v.count}</span>
                                             </div>
@@ -168,12 +172,7 @@ class ExactSelect extends React.Component {
                         <div style={{overflow: 'auto', height: '345px', backgroundColor: '#fff'}}>
                             {
                                 brand.map(v => (
-                                    <div onClick={()=>{
-                                        this.setState({
-                                            brandId:v.id
-                                        })
-                                        console.log(this.state.brandId,6666666666)
-                                    }} key={v.id} className={"lv-brand-child"}>
+                                    <div onClick={this.brandShow.bind(this,v.id)} key={v.id}  style={{color:v.id === this.state.brandId?"#dd403b":"#333"}} className={"lv-brand-child"}>
                                         <span>{v.name}</span>
                                         <span className={"lv-brand-child-02"}>{v.count}</span>
                                     </div>
@@ -203,13 +202,11 @@ class ExactSelect extends React.Component {
                                             <div key={v.id} className={"lv-feature-top-button"}>{v.name}</div>
                                         ))
                                     }
-
-
                                 </div>
                             </div>
                             <div className={"lv-feature-bottom"}>
                                 <div className={"lv-feature-bottom-left"}>重置</div>
-                                <div className={"lv-feature-bottom-right"}>确定</div>
+                                <div  onClick={this.featureShow.bind(this)}  className={"lv-feature-bottom-right"}>确定</div>
                             </div>
                         </div>
                     </div>
