@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import {  ListView } from 'antd-mobile';
 import "../../../assets/style/cinema/index.css"
 import {
-    withRouter
+    withRouter,
+    Link
 }from "react-router-dom"
 import {
     connect
@@ -13,7 +14,7 @@ import {
 }from "redux"
 import actionCreate from '../../../store/actionCreate/cinema';
 import axios from "axios"
-
+import PubSub from 'pubsub-js'
 class Up extends React.Component{
     constructor(props) {
         super(props);
@@ -28,13 +29,32 @@ class Up extends React.Component{
             isLoading: true,
             height: document.documentElement.clientHeight,
             useBodyScroll: false,
+
+            brandId: -1
+
         };
     }
     async componentDidMount() {
-
+        PubSub.subscribe("brand",async function (msg,data) {
+            this.setState({
+                brandId:data,
+                offset:0
+            })
+            console.log(this.state.brandId)
+            const dataa = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId)
+            console.log(dataa)
+            this.state.cinemas = [...[],...dataa.cinemas]
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
+                height: hei,
+                refreshing: false,
+                isLoading: false,
+            });
+        }.bind(this))
         // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0));;
+        const data = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId);
+        console.log(data,9999999999)
         this.state.cinemas = [...this.state.cinemas,...data.cinemas]
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
@@ -42,6 +62,7 @@ class Up extends React.Component{
             refreshing: false,
             isLoading: false,
         });
+
     }
     onEndReached = async (event) => {
         if ((this.state.isLoading && !this.state.hasMore) || this.state.offset > this.props.total) {
@@ -51,7 +72,8 @@ class Up extends React.Component{
             })
         }else{
             this.state.offset += 20;
-            const data = await axios.get("cinemaList?offset="+(this.state.offset ||0))
+            const data = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId)
+
             this.state.cinemas = [...this.state.cinemas,...data.cinemas]
             this.setState({ isLoading: true });
             this.setState({
@@ -65,6 +87,7 @@ class Up extends React.Component{
         //const data=this.props.cinemaList || []
         const row = (rowData, sectionID, rowID) => {
             const v =rowData;// data[rowID];
+
             return (
                 <div key={rowID}
                      style={{
@@ -73,8 +96,8 @@ class Up extends React.Component{
                      }}
                      className={"cinema-list"}
                 >
-                    <div  className={"item line"} onClick={() => {
-                        this.props.history.push({pathname: '/zdetails', state: {cinemaId: v.id}})
+                        <div  className={"item line"} onClick={() => {
+                        this.props.history.push({pathname: '/zdetails', state:{id: v.id}})
                     }} >
                         <div className={"title"}>
                             <span>{v.nm}</span>
@@ -111,6 +134,8 @@ class Up extends React.Component{
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             );
         };
