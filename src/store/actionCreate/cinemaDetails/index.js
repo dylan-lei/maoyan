@@ -1,19 +1,21 @@
 import {CHANGE_CINEMA_DATA} from "../../actionType/cinemaDetails"
 import {CHANGE_SHOW_DATA} from "../../actionType/cinemaDetails";
+
+
 import {CHANGE_DEAL_LIST } from "../../actionType/cinemaDetails";
 import {CHANGE_VIP_INFO } from "../../actionType/cinemaDetails";
-import {CHANGE_ADDR } from "../../actionType/cinemaDetails";
+
 
 import axios from "axios";
 export const changeCinemaData = (payload) =>{
     return{
-        type:"CHANGE_CINEMA_DATA",
+        type:CHANGE_CINEMA_DATA,
         payload,
     }
 }
 export const changeShowData=(payload)=>{
     return{
-        type: "CHANGE_SHOW_DATA",
+        type: CHANGE_SHOW_DATA,
         payload
     }
 }
@@ -36,19 +38,23 @@ export const changeAddr=(payload)=>{
     }
 }
 export default {
-    getCinemaData() {
+    getCinemaData(id) {
+        console.log(id)
         return async (dispatch) => {
-            const {data} = await axios.get("cinemaDetail/?cinemaId=" + 107)
-            // const {item} = await axios.get("http://m.maoyan.com/ajax/cinemaAjaxDetail?cinemaId=107")
-            console.log(data,888888)
+             if(id){
+                const {data} = await axios.get("cinemaDetail/?cinemaId=" + id)
+                console.log(data,888888)
+                dispatch(changeCinemaData(data.cinemaData))
+                dispatch(changeShowData(data.showData.movies))
+                // console.log(data.showData)
+                dispatch(changeDealList(data.dealList))
+                dispatch(changeVipInfo(data.showData.vipInfo))
+             }
 
-            dispatch(changeCinemaData(data.cinemaData))
-            dispatch(changeShowData(data.showData.movies))
-            // console.log(data.showData)
-            dispatch(changeDealList(data.dealList))
-            dispatch(changeVipInfo(data.showData.vipInfo))
-            dispatch(changeAddr(data.addr))
-            console.log(data.addr)
+
+
+
+
 
 
         }

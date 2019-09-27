@@ -16,9 +16,7 @@ class BeingMovieBox extends Component {
         this.index=0
     }
     render() {
-        const {nowMovieList} = this.props
-        const {history} = this.props
-        // console.log(this.props.nowMovieList.length)
+        const {nowMovieList,history} = this.props
         return (
             <div>
                 {/*正在热映 渲染部分 this.props.histroy.push('/nav/movie/details')*/}
@@ -66,6 +64,7 @@ class BeingMovieBox extends Component {
                         }}>
                     < ActivityIndicator animating />
                 </div>
+
                 {/* 渲染部分结束 */}
                 <div style={{
                     display:this.props.nowMovieList.length>=61?"block":"none",

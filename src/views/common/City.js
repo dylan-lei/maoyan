@@ -1,10 +1,12 @@
 import React, {Fragment} from "react";
 import "../../assets/style/city.css";
+import loding from "../../components/loding"
 
 class City extends React.Component {
     constructor() {
         super();
         this.state = {
+            animating:true,
             //城市列表
             cityList: localStorage.cityList ? JSON.parse(localStorage.cityList) : {},
             position: localStorage.position ? JSON.parse(localStorage.position) : {},
@@ -141,4 +143,4 @@ class City extends React.Component {
     }
 }
 
-export default City;
+export default loding(City);

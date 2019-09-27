@@ -1,4 +1,4 @@
-.movie-navbar-actor{
+.movie-navbar-actor {
     position: relative;
     top: 0;
     z-index: 10;
@@ -10,16 +10,35 @@
     user-select: none;
 }
 
-.nav-actor{
+.movie-score {
+    color: #ff9900;
+    font-size: .32rem;
+    margin-bottom: .12rem;
+}
+
+.movie-score .noreleased-noscore {
+    margin: .24rem 0 .28rem;
+
+    /* color: #ffcc60; */
+    font-size: .3rem;
+}
+
+.movie-score.noreleased-noscore .number {
+    font-size: .34rem;
+}
+
+.nav-actor {
     width: 100%;
     display: -webkit-box;
 }
-.navbar-logo-actor{
+
+.navbar-logo-actor {
     width: 2rem;
     background-size: 37%;
     user-select: none;
 }
-.navbar-title-actor{
+
+.navbar-title-actor {
     -webkit-box-flex: 1;
     color: #FFF;
     font-size: 18px;
@@ -32,10 +51,12 @@
     left: -1rem;
     user-select: none;
 }
-.navbar-back-actor{
-    cursor: pointer; 
+
+.navbar-back-actor {
+    cursor: pointer;
 }
-.navbar-back-actor:after{
+
+.navbar-back-actor:after {
     content: '';
     top: 16px;
     left: 12px;
@@ -45,15 +66,17 @@
     border: 2px solid #FFF;
     border-width: 0 0 2px 2px;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg)
+    transform: rotate(45deg);
 }
-.movie-header-actor{
+
+.movie-header-actor {
     padding: 0;
     background: #f8f8f8;
     border-bottom: none;
     color: #555;
 }
-.movie-box{
+
+.movie-box {
     color: #fff;
     padding: .3rem;
     line-height: 1;
@@ -63,7 +86,8 @@
     -webkit-filter: blur(0);
     filter: blur(0);
 }
-.movie-background-actor{
+
+.movie-background-actor {
     /* background-image: url(http://p0.meituan.net/177.249/moviemachine/b7362f5….jpg); */
     top: 0;
     left: 0;
@@ -72,8 +96,8 @@
     width: 100%;
     z-index: 0;
     position: absolute;
-    filter: blur(.6rem);
-    -webkit-filter: blur(.6rem);
+    filter: blur(0.6rem);
+    -webkit-filter: blur(0.6rem);
     background-size: cover;
     background-image: gray;
     background-repeat: no-repeat;
@@ -81,7 +105,8 @@
     line-height: 1;
     color: #fff;
 }
-.movie-filter-actor{
+
+.movie-filter-actor {
     top: 0;
     left: 0;
     right: 0;
@@ -91,18 +116,21 @@
     background-color: #40454d;
     opacity: .55;
     line-height: 1;
-    color: #fff;   
+    color: #fff;
 }
-.movie-container-actor{
+
+.movie-container-actor {
     z-index: 1;
     position: relative;
     line-height: 1;
 }
-.movie-container-actor:before{
+
+.movie-container-actor:before {
     content: " ";
     display: table;
 }
-.movie-background-duan{
+
+.movie-background-duan {
     top: 0;
     left: 0;
     right: 0;
@@ -110,8 +138,8 @@
     width: 100%;
     z-index: 0;
     position: absolute;
-    filter: blur(.6rem);
-    -webkit-filter: blur(.6rem);
+    filter: blur(0.6rem);
+    -webkit-filter: blur(0.6rem);
     background-size: cover;
     background-image: gray;
     background-repeat: no-repeat;
@@ -119,7 +147,8 @@
     color: #fff;
     line-height: 1;
 }
-.movie-cover-actor{
+
+.movie-cover-actor {
     float: left;
     width: 2.14rem;
     height: 3rem;
@@ -128,17 +157,19 @@
     -webkit-filter: blur(0);
     border: solid 1px #f0f2f3;
     position: relative;
-    /* background: #c1c1c1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAwFBMV…mytghhgpB+Cgix7I1gjStOqq8c5jhkmLqiJ0McuoXq6j92ZWbxiZAstgAAAABJRU5ErkJggg==) no-repeat center center; */
 
+    /* background: #c1c1c1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAwFBMV…mytghhgpB+Cgix7I1gjStOqq8c5jhkmLqiJ0McuoXq6j92ZWbxiZAstgAAAABJRU5ErkJggg==) no-repeat center center; */
 }
-.movie-content-duan{
+
+.movie-content-duan {
     z-index: 2;
     padding-left: 2.45rem;
     height: 3rem;
     color: #fff;
     line-height: 1;
 }
-.movie-name-duan{
+
+.movie-name-duan {
     color: #fff;
     font-size: .34rem;
     line-height: 1.2;
@@ -148,7 +179,8 @@
     white-space: nowrap;
     overflow: hidden;
 }
-.movie-ename-duan{
+
+.movie-ename-duan {
     font-size: .22rem;
     opacity: .8;
     height: .22rem;
@@ -159,26 +191,30 @@
     line-height: 1;
     color: #fff;
 }
-.movie-score-duan{
+
+.movie-score-duan {
     color: #ff9900;
     font-size: .32rem;
-    margin-bottom: .12rem; 
+    margin-bottom: .12rem;
     line-height: 1;
 }
-.released-score-duan{
+
+.released-score-duan {
     font-size: .32rem;
     line-height: 1;
-    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     padding-top: .02rem;
     color: #ffc600;
 }
-.rating-duan{
+
+.rating-duan {
     font-size: .36rem;
     display: inline-block;
     line-height: 1;
     color: #ffc600;
 }
-.noneBg-duan-one{
+
+.noneBg-duan-one {
     margin-left: 0px;
     background: none;
     width: .36rem;
@@ -190,7 +226,8 @@
     color: #ffc600;
     vertical-align: text-top;
 }
-.noneBg-duan{
+
+.noneBg-duan {
     margin-left: .06rem;
     background: none;
     width: .36rem;
@@ -202,14 +239,16 @@
     color: #ffc600;
     vertical-align: text-top;
 }
-.rating-span{
+
+.rating-span {
     margin-left: .16rem;
     font-size: .36rem;
     vertical-align: top;
     color: #ffc600;
-    font-family: 'Arial, Helvetica, sans-serif'
+    font-family: "Arial, Helvetica, sans-serif";
 }
-.score-num{
+
+.score-num {
     color: #fff;
     opacity: .7;
     font-size: .18rem;
@@ -217,28 +256,33 @@
     margin-bottom: .16rem;
     line-height: 1;
 }
-.movie-category-duan{
+
+.movie-category-duan {
     font-size: .24rem;
     margin-bottom: .12rem;
 }
-.movie-cat-duan{
+
+.movie-cat-duan {
     opacity: .7;
     vertical-align: middle;
     font-size: .24rem;
 }
-.movie-content-row-duan{
+
+.movie-content-row-duan {
     font-size: .24rem;
     opacity: .7;
     margin-bottom: .12rem;
 }
-.movie-ugc-duan{
+
+.movie-ugc-duan {
     position: relative;
     z-index: 2;
     margin-top: .2rem;
     opacity: .7;
     color: #fff;
 }
-.section-seperate-two{
+
+.section-seperate-two {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     margin: .2rem 0;
@@ -248,7 +292,8 @@
     color: #555;
     background: #fff;
 }
-.btn-block-btn-pay{
+
+.btn-block-btn-pay {
     margin: 0 0 .2rem;
     display: block;
     padding: .2rem;
@@ -261,36 +306,41 @@
     color: #fff;
     text-decoration: none;
 }
-.intro-duan{
+
+.intro-duan {
     cursor: pointer;
     font-size: .3rem;
     background-color: white;
 }
-.text-expander-content-duan{
+
+.text-expander-content-duan {
     margin: 0;
     line-height: .4rem;
     text-overflow: ellipsis;
     overflow: hidden;
     cursor: pointer;
     font-size: .3rem;
-    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     max-height: 1.16rem;
 }
-.text-expander-duan{
+
+.text-expander-duan {
     color: #aaa;
     text-align: center;
     height: .44rem;
     cursor: pointer;
     font-size: .3rem;
 }
-.section-seperate-three{
+
+.section-seperate-three {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     margin: .2rem 0;
     background: #fff;
     color: #555;
 }
-.movie-celebrities{
+
+.movie-celebrities {
     width: 100%;
     padding: .3rem 0 .1rem .3rem;
     margin: 0;
@@ -300,19 +350,22 @@
     box-sizing: border-box;
     color: #555;
 }
-.movie-celebrities-li{
+
+.movie-celebrities-li {
     padding: 0 .03rem;
     text-align: center;
     display: inline-block;
     white-space: nowrap;
 }
-.link-duan{
+
+.link-duan {
     color: black;
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
 }
-.noneBg-duan-two{
+
+.noneBg-duan-two {
     width: 1.3rem;
     height: 1.8rem;
     margin: .04rem;
@@ -323,7 +376,8 @@
     white-space: nowrap;
     text-align: center;
 }
-.span-one-duan{
+
+.span-one-duan {
     width: 1.33rem;
     display: block;
     font-size: .22rem;
@@ -333,8 +387,10 @@
     color: black;
     cursor: pointer;
     text-align: center;
+    margin-top: 5px;
 }
-.span-two-duan{
+
+.span-two-duan {
     width: 1.33rem;
     display: block;
     font-size: .22rem;
@@ -343,20 +399,24 @@
     text-overflow: ellipsis;
     color: #999;
     text-align: center;
+    margin: 7px 0;
 }
-.one-li{
+
+.one-li {
     padding-left: 0;
 }
-.all-actor-duan{
+
+.all-actor-duan {
     border-top: 1px solid #e5e5e5;
     padding: 0 .3rem;
     display: block;
     line-height: .8rem;
     cursor: pointer;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.all-actor-duan:after{
+
+.all-actor-duan:after {
     clear: both;
     content: ' ';
     display: block;
@@ -366,21 +426,25 @@
     width: 0;
     height: 0;
 }
-.icon-chevron-left{
+
+.icon-chevron-left {
     float: left;
 }
-.icon-chevron-right{
+
+.icon-chevron-right {
     float: right;
-    font-size: .22rem
+    font-size: 0.22rem;
 }
-.section-media-duan{
+
+.section-media-duan {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     margin: .2rem 0;
     background: #fff;
     color: #555;
 }
-.movie-page-h3{
+
+.movie-page-h3 {
     border-bottom: none;
     margin: 0;
     color: #666;
@@ -388,15 +452,23 @@
     padding: .2rem .3rem;
     display: block;
 }
-.movie-stages-ul-duan{
+
+.movie-stages-ul-duan {
     padding-left: .3rem;
     margin: 0;
     overflow-x: scroll;
     white-space: nowrap;
     color: #555;
 }
-.stage-img-container-duan-li{
-    width: auto;
+
+.movie-stages-ul-duan .stage-img-container-duan-li:nth-child(1n+1) + .stage-img-container-duan-li {
+    width: 1.8rem;
+    height: 1.4rem;
+    background-size: .8rem;
+}
+
+.stage-img-container-duan-li {
+    width: 2.5rem;
     position: relative;
     margin: 0 .1rem 0 0;
     list-style: none;
@@ -406,15 +478,17 @@
     white-space: nowrap;
     color: #555;
 }
-.video-a-duan{
+
+.video-a-duan {
     display: block;
     cursor: pointer;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     white-space: nowrap;
 }
-.movie-page-mig{
-    width: 2.5rem;
+
+.movie-page-mig {
+    width: 100%;
     height: 1.4rem;
     margin-top: 0;
     background-size: .8rem;
@@ -423,14 +497,16 @@
     cursor: pointer;
     white-space: nowrap;
 }
-.link-group-duan{
+
+.link-group-duan {
     width: 100%;
     display: table;
     padding-left: .3rem;
     box-sizing: border-box;
     color: #555;
 }
-.link-more-d{
+
+.link-more-d {
     width: 2.5rem;
     display: table-cell;
     margin: 0 .2rem 0 .3rem;
@@ -438,7 +514,8 @@
     cursor: pointer;
     text-decoration: none;
 }
-.size-h4{
+
+.size-h4 {
     position: relative;
     color: #666;
     margin: 0;
@@ -446,13 +523,15 @@
     line-height: .8rem;
     cursor: pointer;
 }
-.data-video{
-    font-weight: lighter;   
+
+.data-video {
+    font-weight: lighter;
     line-height: .8rem;
     cursor: pointer;
     color: #666;
 }
-.fanhui{
+
+.fanhui {
     color: #aaa;
     line-height: inherit;
     vertical-align: middle;
@@ -463,7 +542,8 @@
     font-weight: lighter;
     float: right;
 }
-.link-num-duan{
+
+.link-num-duan {
     float: right;
     margin-right: 10px;
     font-weight: lighter;
@@ -471,42 +551,49 @@
     line-height: .8rem;
     cursor: pointer;
 }
-.link-more-d-two{
+
+.link-more-d-two {
     margin: 0 .3rem 0 .2rem;
     display: block;
     line-height: .8rem;
     cursor: pointer;
     text-decoration: none;
 }
-.size-h4-two{
+
+.size-h4-two {
     position: relative;
     color: #666;
     margin: 0;
     font-weight: lighter;
     cursor: pointer;
 }
- .link-num-two{
+
+.link-num-two {
     float: right;
     margin-right: 10px;
     color: #666;
     font-weight: lighter;
     line-height: .8rem;
 }
-.movie-news{
+
+.movie-news {
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
     color: #555;
     padding-bottom: .3rem;
 }
-.panel-title-duan{
+
+.panel-title-duan {
     border-width: 0px;
     line-height: 1;
     padding: .3rem 0 .2rem 0;
     margin: 0 0 0 .26rem;
+
     /* border-bottom: 1px solid #e6e6e6; */
     color: #555;
 }
-.movie-news-duan-zx{
+
+.movie-news-duan-zx {
     padding: 0;
     margin: 0;
     font-size: .3rem;
@@ -515,20 +602,22 @@
     line-height: 1.2;
 }
 
-.panel-content-a{
+.panel-content-a {
     color: #333;
     display: block;
     position: relative;
     cursor: pointer;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.panel-content{
+
+.panel-content {
     padding: 0 .3rem;
     overflow: hidden;
     color: #555;
 }
-.noneBg-jz{
+
+.noneBg-jz {
     float: left;
     width: 2rem;
     height: 1.5rem;
@@ -538,16 +627,18 @@
     color: #333;
     cursor: pointer;
 }
-.fanhui-right{
+
+.fanhui-right {
     color: #aaa;
     float: right;
     line-height: 1.5rem;
     display: inline;
     vertical-align: middle;
     font-size: 1em;
-    font-style: italic; 
+    font-style: italic;
 }
-.news-wrapper{
+
+.news-wrapper {
     font-size: .32rem;
     display: table;
     padding-left: .2rem;
@@ -555,7 +646,8 @@
     color: #333;
     cursor: pointer;
 }
-.news-content{
+
+.news-content {
     display: table-cell;
     vertical-align: middle;
     padding-right: .2rem;
@@ -563,10 +655,12 @@
     color: #333;
     cursor: pointer;
 }
-i{
+
+i {
     font-style: normal !important;
 }
-.panel{
+
+.panel {
     border-width: 1px;
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
@@ -574,7 +668,8 @@ i{
     border-top: 1px solid #e6e6e6;
     cursor: pointer;
 }
-.movie-box-two{
+
+.movie-box-two {
     width: 94%;
     display: flex;
     float: left;
@@ -583,15 +678,16 @@ i{
     cursor: pointer;
 }
 
-.cell{
+.cell {
     -webkit-box-flex: 1;
     flex: 1;
     flex-grow: 1;
     text-align: center;
     vertical-align: middle;
-    cursor: pointer
+    cursor: pointer;
 }
-.cell-num{
+
+.cell-num {
     height: .7rem;
     color: #e54847;
     font-size: .5rem;
@@ -600,7 +696,8 @@ i{
     margin: .1rem 0 .08rem 0;
     text-align: center;
 }
-.cell-desc{
+
+.cell-desc {
     color: #999;
     font-size: .22rem;
     margin: .08rem 0 .1rem 0;
@@ -608,7 +705,7 @@ i{
     cursor: pointer;
 }
 
-.section-seperate-main{
+.section-seperate-main {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     margin: .2rem 0;
@@ -616,7 +713,8 @@ i{
     background: #fff;
     color: #555;
 }
-.clearfix{
+
+.clearfix {
     height: .56rem;
     line-height: .56rem;
     margin: 0;
@@ -626,7 +724,8 @@ i{
     border-bottom: 1px solid #e5e5e5;
     font-weight: bold;
 }
-.title-text-left{
+
+.title-text-left {
     margin-top: .23rem;
     margin-bottom: .08rem;
     font-size: .28rem;
@@ -636,14 +735,16 @@ i{
     text-align: left;
     display: block;
 }
-.list-view{
+
+.list-view {
     margin-left: .3rem;
     margin: 0;
     padding: 0;
     list-style: none;
     color: #555;
 }
-.list-view-item{
+
+.list-view-item {
     padding-left: 0;
     list-style: none;
     font-size: .28rem;
@@ -653,46 +754,52 @@ i{
     display: list-item;
     color: #555;
 }
-.comment{
+
+.comment {
     display: flex;
     -webkit-box-pack: start;
     padding: 0 .03rem;
     font-size: .28rem;
     color: #555;
 }
-.comment-left{
+
+.comment-left {
     font-size: .28rem;
     text-align: -webkit-match-parent;
     color: #555;
     min-width: .68rem;
 }
-.avatar-img{
+
+.avatar-img {
     float: left;
     width: .68rem;
     height: .68rem;
     border-radius: 50%;
     display: inline-block;
+
     /* background: #f5f5f5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFW…HDfdkoiC97xRpgTjE4ZnG34E7juCc/qPZSXmuUGP4vwAADixAniKIzrAAAAABJRU5ErkJggg==) no-repeat 50%; */
     background-size: 100%;
     border: 0;
     font-size: .28rem;
     color: #555;
 }
-.comment-right{
+
+.comment-right {
     flex-grow: 1;
     margin-left: .2rem;
     -webkit-box-flex: 1;
     font-size: .28rem;
     color: #555;
 }
-.mid-wrapper{
+
+.mid-wrapper {
     align-items: center;
     display: flex;
     -webkit-box-align: center;
     color: #555;
 }
-.ellipsis{
-    
+
+.ellipsis {
     display: inline-block;
     max-width: 3rem;
     color: #333333;
@@ -703,7 +810,8 @@ i{
     overflow: hidden;
     white-space: nowrap;
 }
-.nick-level{
+
+.nick-level {
     /* background: url(http://p1.meituan.net/moviemachine/36af47b….png) no-repeat; */
     background-size: contain;
     margin-left: .1rem;
@@ -712,12 +820,14 @@ i{
     height: .34rem;
     font-size: .28rem;
 }
-.comment-score{
+
+.comment-score {
     font-size: .22rem;
     line-height: .32rem;
     color: #999999;
 }
-.tack-two{
+
+.tack-two {
     background: #fff;
     margin-top: .1rem;
     margin-bottom: .1rem;
@@ -726,7 +836,8 @@ i{
     font-size: .28rem;
     color: #555;
 }
-.content{
+
+.content {
     margin: 0;
     color: #333;
     font-size: .28rem;
@@ -736,27 +847,31 @@ i{
     padding: 0 !important;
     cursor: pointer;
 }
-.comment footer{
+
+.comment footer {
     margin-top: .2rem;
     margin-bottom: .05rem;
     line-height: .5rem;
     vertical-align: middle;
     font-size: .28rem;
 }
-.timeago{
+
+.timeago {
     color: #999;
     position: relative;
     font-size: .24rem;
     margin-right: .1rem;
     line-height: .5rem;
 }
-.pull-right{
+
+.pull-right {
     float: right;
     line-height: .5rem;
     font-size: .28rem;
     color: #555;
 }
-.comment-like{
+
+.comment-like {
     color: #999;
     margin: 0 0 0 .2rem;
     font-size: .24rem;
@@ -765,37 +880,42 @@ i{
     border-radius: 1rem;
     cursor: pointer;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     line-height: .5rem;
 }
-.comments-link-a{
+
+.comments-link-a {
     display: block;
     line-height: .8rem;
     cursor: pointer;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.comments-link-a h4{
+
+.comments-link-a h4 {
     font-weight: lighter;
     text-align: center;
     color: #f63 !important;
     line-height: .8rem;
 }
-.section-related-section-seperate{
+
+.section-related-section-seperate {
     margin: .2rem 0;
     border-top: 1px solid #e5e5e5;
     border-bottom: none !important;
     background: #fff;
     color: #555;
 }
-.section-related-section-seperate h3{
+
+.section-related-section-seperate h3 {
     margin: 0;
     color: #666;
     font-size: .3rem;
     padding: .2rem .3rem;
     border-bottom: 1px solid #e5e5e5;
 }
-.movie-celebrities-two{
+
+.movie-celebrities-two {
     width: 100%;
     padding: .3rem 0 .1rem .3rem;
     margin: 0;
@@ -805,35 +925,41 @@ i{
     box-sizing: border-box;
     color: #555;
 }
-.movie-celebrities-two li{
+
+.movie-celebrities-two li {
     padding: 0 .03rem;
     text-align: center;
     display: inline-block;
 }
-.movie-celebrities{
+
+.movie-celebrities {
     padding: 0 .03rem;
     text-align: center;
     display: inline-block;
     white-space: nowrap;
 }
-.movie-celebrities-link{
+
+.movie-celebrities-link {
     color: black;
     text-decoration: none;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
 }
-.movie-celebrities-link img{
+
+.movie-celebrities-link img {
     width: 1.3rem;
     height: 1.8rem;
     margin: .04rem;
     border: 0;
     display: inline-block;
+
     /* background: #f5f5f5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAAEGkgCiAAAAGXRFW…yfOv/JmZQYchQTcch2XTuAx4IoGlRqlTgFOA3CBANUFk73AXANIMtuS9E+AAAAAElFTkSuQmCC) no-repeat 50%; */
     background-size: 50%;
     color: black;
 }
-.movie-celebrities-link span{
+
+.movie-celebrities-link span {
     width: 1.4rem;
     display: block;
     font-size: .22rem;
@@ -844,7 +970,8 @@ i{
     cursor: pointer;
     text-align: center;
 }
-.load-wrapper-duan{
+
+.load-wrapper-duan {
     margin: .2rem;
     padding: .2rem;
     cursor: pointer;
@@ -856,7 +983,11 @@ i{
     color: #fff;
     text-decoration: none;
 }
-.footer-duan{
+
+.footer-duan {
     text-align: center;
     line-height: 2.5em;
+}
+.footer-duan p:nth-child(1n)+p{
+    color: #9e9e9e;
 }
