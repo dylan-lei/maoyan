@@ -213,7 +213,9 @@ export default class MovieMon extends Component {
                       
                     </ul>
                     <a href='##' className='comments-link-a'>
-                        <h4>查看全部{total}条讨论 </h4>
+                        <h4 onClick={()=>{
+                            this.props.history.push('/MovieLook')
+                        }}>查看全部{total}条讨论 </h4>
                     </a>
                 </section>
                 <section className='section-related-section-seperate'>
@@ -244,7 +246,6 @@ export default class MovieMon extends Component {
         // const {movieDetailId} = this.props.location.state
         // const id = window.localStorage.movieDetailId=movieDetailId;
         const id = window.localStorage.movieDetailId
-        console.log(window.localStorage.movieDetailId)
         const {data} = await axios.get('getComingDetailsList?comingId='+id)
         const {detailMovie} = await axios.get('detailmovie/'+id)
         this.setState({

@@ -12,6 +12,7 @@ import Try from '../views/cinema/index/try'
 import Sign from '../views/login/Sign'
 import Preview from '../views/movie/children/zhang/Preview'
 import ZMovieMoney from '../views/movie/children/zhang/MovieMoney'
+import MovieLook from '../views/movie/children/duan/MovieLook'
 
 // 我的模块
 import MyMovie from '../views/my/children/MyMovie'
@@ -37,6 +38,12 @@ export default [
         path: "/nav/movie/about/moviemoney",
         component: ZMovieMoney,
         title: "即将上映 -> 详情页",
+        exact: false
+    },
+    {
+        path: "/movielook",
+        component: MovieLook,
+        title: "评论",
         exact: false
     },
     {
