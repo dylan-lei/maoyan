@@ -98,13 +98,6 @@ input.p-mt[type=checkbox] {
     -webkit-user-select: none;
 }
 
-.am-tabs-default-bar-tab-active {
-    color: black !important;
-}
-
-.am-tabs-default-bar-underline {
-    border: 2px #FFC300 solid;
-}
 
 /*顶部导航*/
 .p-navbar {

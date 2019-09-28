@@ -8,8 +8,8 @@ class City extends React.Component {
         this.state = {
             animating:true,
             //城市列表
-            cityList: localStorage.cityList ? JSON.parse(localStorage.cityList) : {},
-            position: localStorage.position ? JSON.parse(localStorage.position) : {},
+            cityList:{},
+            position: {}
         }
     }
 
@@ -20,14 +20,13 @@ class City extends React.Component {
         if (hotCity.length > 0) {
             Object.keys(this.state.cityList.cityList).forEach(key => cityList.push(this.state.cityList.cityList[key]));
         }
-
         return (
             <div id="city-list" className="city-list-container" ref={"cityList"}>
                 <section>
                     <div id="locate" className="city-title">
                         定位城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         <div className="location-city">
                             {position.city ? position.city : "定位失败，请点击重试"}
                         </div>
@@ -39,7 +38,7 @@ class City extends React.Component {
                     <div className="city-title">
                         最近访问城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         <div className="city-item">
                             北京
                         </div>
@@ -56,7 +55,7 @@ class City extends React.Component {
                     <div className="city-title">
                         热门城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         {
                             hotCity.map((v => (
                                 <div className="city-item" key={v.id}>
@@ -117,7 +116,6 @@ class City extends React.Component {
                     this.setState({
                         position: res
                     });
-                    console.log(res)
                 })
         }
 
@@ -132,14 +130,22 @@ class City extends React.Component {
             const cityList = await this.axios.get("getCityList");
             window.localStorage.cityList = JSON.stringify(cityList.city);
             this.setState({
-                cityList: cityList.city
+                cityList: cityList.city,
+                animating: false
             });
+        }else {
+            this.setState({
+                cityList:localStorage.cityList ? JSON.parse(localStorage.cityList) : {},
+                position:localStorage.position ? JSON.parse(localStorage.position) : {}
+            })
         }
     }
 
-    componentDidMount() {
-        this.getCityList();
-        this.position();
+    async componentDidMount() {
+        await this.getCityList();
+        await this.position();
+        this.setState({animating: false})
+
     }
 }
 

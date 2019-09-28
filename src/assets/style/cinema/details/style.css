@@ -217,7 +217,7 @@ a, div {
 /*    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAAGXRFW…DgLorvI3AVJWozsELJuhmYocyaCvQo1f2jeiT/cK8AAwBzvH2t7aaajQAAAABJRU5ErkJggg==) no-repeat;*/
 /*    background-size: contain;*/
 /*}*/
- .swiper-slide img {
+ .swiper-slide .l-img {
     width: 65px !important;
     height: 95px !important;
    transform: scale(1) !important;

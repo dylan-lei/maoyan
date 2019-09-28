@@ -144,7 +144,7 @@ class Up extends React.Component{
                 ref={el => this.lv = el}
                 dataSource={this.state.dataSource}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? '正在加载...' : ''}
+                    {this.state.isLoading ? '正在加载...' : '没有了'}
                 </div>)}
                 refreshing={this.state.refreshing}
                 renderRow={row}

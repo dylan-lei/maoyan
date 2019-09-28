@@ -12,6 +12,7 @@ class MovieDetails extends Component{
     render(){
         const {movieDetail} = this.props.movieDetail;
         document.title = movieDetail.nm || ""
+        window.localStorage.movieDetailId=movieDetail.id
         return(
             <div>
                 <header className="Movie-navbar">

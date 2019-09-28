@@ -241,8 +241,10 @@ export default class MovieMon extends Component {
         )
     }
     async componentDidMount() {
-        const {movieDetailId} = this.props.location.state
-        const id = window.localStorage.movieDetailId=movieDetailId;
+        // const {movieDetailId} = this.props.location.state
+        // const id = window.localStorage.movieDetailId=movieDetailId;
+        const id = window.localStorage.movieDetailId
+        console.log(window.localStorage.movieDetailId)
         const {data} = await axios.get('getComingDetailsList?comingId='+id)
         const {detailMovie} = await axios.get('detailmovie/'+id)
         this.setState({

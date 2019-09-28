@@ -10,7 +10,6 @@ class Up extends React.Component{
         this.state={
             movieDetailsList:[]
         }
-     
     }
     render(){
         const movieLength = this.state.movieDetailsList
@@ -68,13 +67,12 @@ class Up extends React.Component{
     async componentDidMount(){
         const time = ((new Date().toLocaleDateString().replace(/\/+/g, "-")).substr(0, 5) + "0" + ((new Date().toLocaleDateString().replace(/\/+/g, "-")).slice(-4)))
         const {data} =await axios.post('forceUpdate',{
-            movieId: this.props.movieDetailsId/1,//热映的电影id
+            movieId: this.props.movieDetailsId,//热映的电影id
             day: time//日期
         })
         this.setState({
             movieDetailsList:data.cinemas
         })
-        // console.log(data.cinemas)
         Pubsub.subscribe('movieDetailsListTwo',(eventNames,{data})=>{
             this.setState({
                 movieDetailsList:data.cinemas

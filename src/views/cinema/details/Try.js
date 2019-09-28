@@ -24,7 +24,7 @@ class Try extends React.Component{
                         <div className="swiper-wrapper" >
                             <div className="swiper-slide">
                                 <div className="post" data-bid="dp_wx_cinema_movie_pic_click">
-                                    <img src="" alt=""/>
+                                    <img className={"l-img"} src="" alt=""/>
                                 </div>
                             </div>
                         </div>

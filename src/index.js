@@ -13,7 +13,6 @@ React.Component.prototype.axios = axios;
 //请求地址信息不携带token
 const cityUrl= "https://restapi.amap.com/v3/ip?output=JSON&ip=114.247.50.2&key=22f0b6bee27905fa6a1aa3c528d6cbd7";
 
-
 //axios请求拦截
 axios.interceptors.request.use(config => {
 
@@ -23,10 +22,10 @@ axios.interceptors.request.use(config => {
         }
     }
     if(config.url.includes("https://")||config.url.includes("http://")){
-
         return config;
     } else {
         config.url = "http://47.94.99.226/" + config.url;
+        //config.url = "http://59.110.227.217/" + config.url;
         return config;
     }
 

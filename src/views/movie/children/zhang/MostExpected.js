@@ -13,12 +13,9 @@ class MostExpected extends React.Component {
     })
   }
   jumpPreview(history, id) {
+    window.localStorage.moneyId = id;
     history.push({
-      pathname: "/nav/movie/about/moviemoney",
-      state: {
-        // previewId: id
-        moneyId: id
-      }
+      pathname: "/nav/movie/about/moviemoney"
     })
   }
   render() {
