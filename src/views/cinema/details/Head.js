@@ -41,7 +41,7 @@ class Head extends React.Component{
               </header>
 
 
-              <div className = "name" >
+              <div className = "name">
                   <div className = "title">{cinemaData.nm}</div>
                   <div className="info">{cinemaData.addr}</div>
                   <div className="location">

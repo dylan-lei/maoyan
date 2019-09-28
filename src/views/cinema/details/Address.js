@@ -11,19 +11,27 @@ import {
 } from "redux"
 
 import actionCreate from "../../../store/actionCreate/cinemaDetails"
+
 class Address extends React.Component{
+    constructor(props){
+        super(props)
+
+    }
     render(){
+        console.log(this.props);
+
+
         return(
             <div>
-                <header className="navbar">
-                    <div className="nav-wrap-left">
-                        <a href="##" className="back">
-                            <i className="icon-back">
+                <header className="navbars">
+                    <div className="nav-wraps-left">
+                        <a href="#" className="backs">
+                            <i className="icon-backs">
 
                             </i>
                         </a>
                     </div>
-                    <h1 className="nav-header">猫眼电影</h1>
+                    <h1 className="nav-headers">猫眼电影</h1>
                 </header>
 
                 <div className="body" >
@@ -63,7 +71,11 @@ class Address extends React.Component{
         )
     }
     componentDidMount() {
-        //this.listMore();
+        // const idd = this.props.location.state.id;
+
+        // console.log(idd)
+
+
         this.props.getCinemaData();
     }
 }

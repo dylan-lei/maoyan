@@ -3,12 +3,14 @@ import '../../../../assets/style/movie/movieLook.css'
 import axios from 'axios'
 import {scrollBootom} from '../../../../tools/index'
 import { ActivityIndicator } from 'antd-mobile';
-export default class Comment extends Component{
+import loding from "../../../../components/loding"
+class Comment extends Component{
     constructor(){
         super()
         this.state = {
             movieDetailList:[],
-            index:0
+            index:0,
+            animating:true
         }
     }
     render(){
@@ -84,13 +86,11 @@ export default class Comment extends Component{
     }
     async getLook(){
         const id = window.localStorage.movieDetailId
-        console.log(id)
         this.setState({ 
             index:this.state.index+=15
         })
         const {lookList} = await axios.get('movieLook?movieId='+id+"&offset="+(this.state.index))
         // console.log(this.state.movieDetailList,lookList.data.hotComments)
-        console.log(lookList.data.comments)
         this.setState({
             movieDetailList:[...this.state.movieDetailList,...lookList.data.comments]
         })
@@ -99,9 +99,12 @@ export default class Comment extends Component{
     async componentDidMount(){
         const id = window.localStorage.movieDetailId
         const {data} = await axios.get('getComingDetailsList?comingId='+id)
-        this.setState({
-            movieDetailList:data.comments.hotComments
-        })
+        setTimeout(()=>{
+            this.setState({
+                movieDetailList:data.comments.hotComments,
+                animating:false
+            })
+        },300)
         scrollBootom(()=>{
             this.getLook()
         })
@@ -111,3 +114,5 @@ export default class Comment extends Component{
         scrollBootom()
     }
 }
+
+export default loding(Comment)
