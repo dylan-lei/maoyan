@@ -21,15 +21,15 @@ class BootomNav extends React.Component {
             </Switch>
             <nav className="bottom-nav-bar">
                 <NavLink to={"/nav/movie"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
-                    <span className="iconfont icon mao-movie-cl"></span>
+                    <span className="iconfont p-icon mao-movie-cl"></span>
                     <span className="nav-text">电影</span>
                 </NavLink>
                 <NavLink to={"/nav/cinema"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
-                    <span className="iconfont icon mao-yingyuan1 nav-mao-yingyuan1"></span>
+                    <span className="iconfont p-icon mao-yingyuan1 nav-mao-yingyuan1"></span>
                     <span className="nav-text">影院</span>
                 </NavLink>
                 <NavLink to={"/nav/my"} activeStyle={{color: "#f03d37"}} className="nav-icon-wrapper">
-                    <span className="iconfont icon mao-wode1 nav-mao-wode1"></span>
+                    <span className="iconfont p-icon mao-wode1 nav-mao-wode1"></span>
                     <span className="nav-text">我的</span>
                 </NavLink>
             </nav>

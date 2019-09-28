@@ -145,49 +145,117 @@ class Cinema extends React.Component {
             <div className="seat-inner-wrap">
                 <div className="seat-list">
                     <div id={'list-wrap'} className="list-wrap">
-                    {
-                       data.map((v,i)=>{
-                           return(
-                               <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
-                                   <div className="item box-flex">
-                                       <div className="time-block" key={i}>
-                                           <div className="begin">{v.tm}</div>
-                                           <div className="end">
-                                               <span className="tui">散场</span>
-                                           </div>
-                                       </div>
-                                       <div className="info-block">
-                                           <div className="lan">
-                                               {v.lang}
-                                               {v.tp}
-                                           </div>
-                                           <div className="hall">{v.th}</div>
-                                       </div>
-                                       <div className="price">
-                                           <div className="sellPr">
-                                               <span className="d">￥</span>
-                                               <span className="stonefont">{v.vipPrice?v.vipPrice/1+5:39}</span>
-
-                                           </div>
-                                           <div className="vipPrice">
-                                               <span className="icons">{v.vipPriceName}</span>
-                                               <span className="num">
+                    <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+                <div className="item box-flex">
+                    <div className="time-block">
+                        <div className="begin">11:00</div>
+                        <div className="end">
+                            12:41
+                            <span className="tui">散场</span>
+                        </div>
+                    </div>
+                    <div className="info-block">
+                        <div className="lan">
+                            国语
+                            2D
+                        </div>
+                        <div className="hall">2号厅</div>
+                    </div>
+                    <div className="price">
+                        <div className="sellPr">
+                            <span className="d">￥</span>
+                            <span>
+                                <span className="stonefont"></span>
+                            </span>
+                        </div>
+                        <div className="vipPrice">
+                            <span className="icon">折扣卡</span>
+                            <span className="num">
+                                ￥
+                                33
+                            </span>
+                        </div>
+                        <div className="extraDesc">折扣卡首单特惠</div>
+                    </div>
+                    <div className="button-block">
+                        <div className="button" data-bid="dp_wx_cinema_show_btn">购票</div>
+                    </div>
+                </div>
+            </div>
+            <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+                <div className="item box-flex">
+                    <div className="time-block">
+                        <div className="begin">11:00</div>
+                        <div className="end">
+                            12:41
+                            <span className="tui">散场</span>
+                        </div>
+                    </div>
+                    <div className="info-block">
+                        <div className="lan">
+                            国语
+                            2D
+                        </div>
+                        <div className="hall">2号厅</div>
+                    </div>
+                    <div className="price">
+                        <div className="sellPr">
+                            <span className="d">￥</span>
+                            <span>
+                                                    <span className="stonefont"></span>
+                                                </span>
+                        </div>
+                        <div className="vipPrice">
+                            <span className="icon">折扣卡</span>
+                            <span className="num">
                                                     ￥
-                                                   {v.vipPrice}
-                                            </span>
-                                           </div>
-                                           <div className="extraDesc">{v.extraDesc}</div>
-                                       </div>
-                                       <div className="button-blocks">
-                                           <div className="button" data-bid="dp_wx_cinema_show_btn">购票</div>
-                                       </div>
-                                   </div>
-                               </div>
-                           )
-
-                       })
-
-                    }
+                                                    33
+                                                </span>
+                        </div>
+                        <div className="extraDesc">折扣卡首单特惠</div>
+                    </div>
+                    <div className="button-block">
+                        <div className="button" data-bid="dp_wx_cinema_show_btn">购票</div>
+                    </div>
+                </div>
+            </div>
+            <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+                <div className="item box-flex">
+                    <div className="time-block">
+                        <div className="begin">11:00</div>
+                        <div className="end">
+                            12:41
+                            <span className="tui">散场</span>
+                        </div>
+                    </div>
+                    <div className="info-block">
+                        <div className="lan">
+                            国语
+                            2D
+                        </div>
+                        <div className="hall">2号厅</div>
+                    </div>
+                    <div className="price">
+                        <div className="sellPr">
+                            <span className="d">￥</span>
+                            <span>
+                                                    <span className="stonefont"></span>
+                                                </span>
+                        </div>
+                        <div className="vipPrice">
+                            <span className="icon">折扣卡</span>
+                            <span className="num">
+                                                    ￥
+                                                    33
+                                                </span>
+                        </div>
+                        <div className="extraDesc">折扣卡首单特惠</div>
+                    </div>
+                    <div className="button-block">
+                        <div className="button" data-bid="dp_wx_cinema_show_btn">购票</div>
+                    </div>
+                </div>
+            </div>
                     </div>
                 </div>
             </div>

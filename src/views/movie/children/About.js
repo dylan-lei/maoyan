@@ -14,7 +14,7 @@ class Release extends React.Component {
             <div className="page-wrap">
                 <div className="tab-block">
                     <div className="page f-hot active">
-                        <div className="list-wrap">
+                        <div className="z-list_wrap">
                             <MostExpected {...this.props}></MostExpected>
                             <ComingList {...this.props}></ComingList>
                         </div>
