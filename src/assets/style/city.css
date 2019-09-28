@@ -33,7 +33,7 @@
     width: 87.5%;
 }
 
-.clearfix:after {
+.p-clearfix:after {
     content: " ";
     display: table;
     clear: both;

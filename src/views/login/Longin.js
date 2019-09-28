@@ -23,7 +23,6 @@ class Longin extends React.Component {
     }
 
     async getVerifyCode() {
-        console.log(this.refs.regMobile.value)
         if (true) {
             this.state.disabled = true;
             this.setState({
@@ -177,6 +176,7 @@ class Longin extends React.Component {
     }
 
     login() {
+        console.log(1111111111111)
         this.axios.post("userLogin", {
             account:this.state.reg ? null : this.refs.account.value,
             mobile: this.state.reg ? this.refs.account.value : null,
@@ -186,12 +186,12 @@ class Longin extends React.Component {
             .then(({status, token}) => {
                 if (status === 2) {
                     Toast.success('登录成功 !!!', 2);
-                    console.log(status)
                     window.localStorage.token = token;
                     setTimeout(() => {
                         this.props.history.push("/nav/my");
                     }, 400);
                 } else if (status === 4) {
+                    console.log(status)
                     Toast.offline('登录失败，请输入正确的账号或密码!!!', 2);
                 }
             })

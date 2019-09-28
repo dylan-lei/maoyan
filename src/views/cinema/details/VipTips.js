@@ -16,7 +16,7 @@ class VipTips extends React.Component{
                    VipInfo.map((v,i)=>(
                        <div className="discount-block" key={i}>
                            <div className="vip-tips">
-                               <a href="#">
+                               <a href="##">
                                    <div className="label">{v.tag}</div>
                                    <div className="label-text line-ellipsis">{v.title}</div>
                                    <div className="process">

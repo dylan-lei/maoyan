@@ -22,11 +22,10 @@ axios.interceptors.request.use(config => {
         }
     }
     if(config.url.includes("https://")||config.url.includes("http://")){
-
         return config;
     } else {
-       // config.url = "http://47.94.99.226/" + config.url;
-        config.url = "http://59.110.227.217/" + config.url;
+        config.url = "http://47.94.99.226/" + config.url;
+        //config.url = "http://59.110.227.217/" + config.url;
         return config;
     }
 

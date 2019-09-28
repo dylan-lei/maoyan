@@ -11,18 +11,6 @@ class My extends React.Component {
         }
     }
 
-    componentDidMount() {
-        if (this.props.location.pathname === "/nav/my") {
-            this.axios.post("verifytoenk")
-                .then(({status}) => {
-                    if (status !== 2) {
-                        this.setState({animating: false});
-                        this.props.history.push({pathname: "/login"});
-
-                    }
-                });
-        }
-    }
 
     render() {
         return (
@@ -107,7 +95,26 @@ class My extends React.Component {
             </div>
         );
     }
+    componentDidMount(){
+        if (this.props.location.pathname === "/nav/my") {
+            this.axios.post("verifytoenk")
+                .then(({status}) => {
+                    if (status !== 2) {
+                        this.setState({animating: false});
+                        this.props.history.push({pathname: "/login"});
 
+                    }else {
+                        this.setState({animating: false});
+                    }
+                });
+        }
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextState===true){
+            return false
+        }
+        return true
+    }
 }
 
 export default withRouter(loding(My));

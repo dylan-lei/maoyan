@@ -12,7 +12,9 @@ export default {
             const {detailsId} = this.location.state //这里this指向props
             const data =await axios.get('detailmovie/'+detailsId)
             dispatch(ChangeMovieDetail(data.detailMovie))
-            // console.log(data)
+            // const lala=data.detailMovie
+            // PubSub.publish('movieDetails',data.detailMovie);
+            // console.log(data.detailMovie)
             // console.log(detailsId)
         }
     }

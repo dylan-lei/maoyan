@@ -20,14 +20,13 @@ class City extends React.Component {
         if (hotCity.length > 0) {
             Object.keys(this.state.cityList.cityList).forEach(key => cityList.push(this.state.cityList.cityList[key]));
         }
-    console.log(hotCity,this.state.cityList)
         return (
             <div id="city-list" className="city-list-container" ref={"cityList"}>
                 <section>
                     <div id="locate" className="city-title">
                         定位城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         <div className="location-city">
                             {position.city ? position.city : "定位失败，请点击重试"}
                         </div>
@@ -39,7 +38,7 @@ class City extends React.Component {
                     <div className="city-title">
                         最近访问城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         <div className="city-item">
                             北京
                         </div>
@@ -56,7 +55,7 @@ class City extends React.Component {
                     <div className="city-title">
                         热门城市
                     </div>
-                    <div className="city-list city-list-inline clearfix">
+                    <div className="city-list city-list-inline p-clearfix">
                         {
                             hotCity.map((v => (
                                 <div className="city-item" key={v.id}>

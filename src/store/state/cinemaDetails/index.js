@@ -3,4 +3,11 @@ export default{
     showData:[{nm:'',img:'',shows:[{dateShow:''}]}],
     dealList:{},
     vipInfo:[],
+    try:[],
+    addr:[]
+
+
+
+
+
 }

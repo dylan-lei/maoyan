@@ -24,8 +24,10 @@ class Head extends React.Component{
           <div>
               <header className="navbar">
                   <div className="nav-warp-left">
-                      <a href="##" className="back">
+
+                      <a href="##" className="back" onClick={()=>{this.props.history.go(-1)}}>
                           <i className="icon-back">
+
                           </i>
                       </a>
                   </div>
@@ -51,18 +53,9 @@ class Head extends React.Component{
         )
     }
 
-    // async listMore(){
-    //     //const {data} = await this.axios.get("/maoyan/ajax/cinemaDetail?cinemaId=26195&movieId=359377")
-    //     const {data} = await this.axios.get("cinemaDetail/?cinemaId="+107);
-    //     console.log(data)
-    //     this.setState({
-    //         cinemaData:data.cinemaData
-    //     })
-    // }
-
     componentDidMount() {
-        //this.listMore();
-        this.props.getCinemaData();
+        const idd = this.props.location.state.id;
+        this.props.getCinemaData(idd);
     }
 
 }

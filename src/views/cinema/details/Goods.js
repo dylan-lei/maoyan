@@ -19,8 +19,8 @@ class Goods extends React.Component{
 
                     {
 
-                        dealList.map(v=>(
-                            <div className="tuan-item mb-line-b" key={v.curNumberDesc}>
+                        dealList.map((v,i)=>(
+                            <div className="tuan-item mb-line-b" key={i}>
                             <img src={v.imageUrl.replace(/w.h/,"")} alt=""/>
                                 <span className="hot-tag" style={
                                     {
