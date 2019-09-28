@@ -11,6 +11,7 @@ import Week from '../../../../tools/week'
 class MovieDetails extends Component{
     render(){
         const {movieDetail} = this.props.movieDetail;
+        document.title = movieDetail.nm || ""
         return(
             <div>
                 <header className="Movie-navbar">
