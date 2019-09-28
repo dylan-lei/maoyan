@@ -53,7 +53,6 @@ class Up extends React.Component{
         // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
         const data = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId);
-        console.log(data,9999999999)
         this.state.cinemas = [...this.state.cinemas,...data.cinemas]
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
@@ -145,7 +144,7 @@ class Up extends React.Component{
                 ref={el => this.lv = el}
                 dataSource={this.state.dataSource}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? '正在加载...' : ''}
+                    {this.state.isLoading ? '正在加载...' : '没有了'}
                 </div>)}
                 refreshing={this.state.refreshing}
                 renderRow={row}

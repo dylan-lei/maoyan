@@ -49,7 +49,7 @@ class MovieMon extends Component {
         const {results} = this.state;
         const {movie} = results;
         if (this.props.location.pathname === '/nav/movie/about/moviemoney') {
-            document.title = results.$title;
+            document.title = results.$title || "";
         }
         return (
             <div>
