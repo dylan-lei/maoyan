@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from "react-router-dom"
 import '../../../assets/style/cinema/details/style.css'
 import {
     connect
@@ -86,8 +87,6 @@ class Cinema extends React.Component {
     render(){
         const {ShowData} = this.props;
         const data =ShowData[0].shows[0].plist || []
-        // let {imgIndex} = this.state;
-
 
         if (JSON.stringify(ShowData) === "{}") {
             return (
@@ -170,7 +169,7 @@ class Cinema extends React.Component {
 
                                            </div>
                                            <div className="vipPrice">
-                                               <span className="icons">{v.vipPriceName}</span>
+                                               <span className="icon">{v.vipPriceName}</span>
                                                <span className="num">
                                                     ￥
                                                    {v.vipPrice}
@@ -178,8 +177,12 @@ class Cinema extends React.Component {
                                            </div>
                                            <div className="extraDesc">{v.extraDesc}</div>
                                        </div>
-                                       <div className="button-blocks">
-                                           <div className="button" data-bid="dp_wx_cinema_show_btn">购票</div>
+                                       <div className="button-block">
+                                           <div className="button" data-bid="dp_wx_cinema_show_btn" onClick={()=>{
+                                               this.props.history.push({
+                                                   pathname:'/nav/my'
+                                               })
+                                           }}>购票</div>
                                        </div>
                                    </div>
                                </div>
@@ -227,4 +230,4 @@ function mapDispatchProps(dispatch) {
     return bindActionCreators(actionCreate, dispatch)
 }
 
-export default connect(mapStateProps, mapDispatchProps)(Cinema)
+export default connect(mapStateProps, mapDispatchProps)(withRouter(Cinema))

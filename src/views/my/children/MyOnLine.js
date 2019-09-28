@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../../assets/style/my/myOnLine.css';
+import loding from '../../../components/loding'
 class MyOnLine extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            animating: true
+        }
+    }
     render(){
         return (
             <div>
@@ -30,10 +37,13 @@ class MyOnLine extends React.Component{
         );
     }
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({animating: false});
+        },300)
         if (this.props.location.pathname === "/myonline") {
             document.title = "猫眼电影"
         }
     }
 }
 
-export default MyOnLine;
+export default loding(MyOnLine);

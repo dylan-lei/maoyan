@@ -3,10 +3,12 @@ import '../../../../assets/style/movie/MovieMoney.css'
 import '../../../../assets/js/flexble'
 import axios from 'axios'
 // import PubSub  from 'pubsub-js'
-export default class MovieMon extends Component {
+import loding from '../../../../components/loding'
+class MovieMon extends Component {
     constructor(props){
         super(props)
         this.state = {
+            animating:true,
             movieDetailList:{
                 celebrities:[],
                 relatedFilm:[],
@@ -244,13 +246,13 @@ export default class MovieMon extends Component {
         // const {movieDetailId} = this.props.location.state
         // const id = window.localStorage.movieDetailId=movieDetailId;
         const id = window.localStorage.movieDetailId
-        console.log(window.localStorage.movieDetailId)
         const {data,status} = await axios.get('getComingDetailsList?comingId='+id);
         if(status===2){
             const {detailMovie} = await axios.get('detailmovie/'+id)
             this.setState({
                 movieDetailList:data,
-                movieList:detailMovie
+                movieList:detailMovie,
+                animating:false
             })
         }else {
             this.props.history.goBack();
@@ -264,5 +266,5 @@ export default class MovieMon extends Component {
             return
         }
     }
-
 }
+export default loding(MovieMon)

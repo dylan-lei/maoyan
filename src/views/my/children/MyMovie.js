@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../../assets/style/my/myMovie.css';
+import loding from '../../../components/loding'
 class MyMovie extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            animating: true
+        }
+    }
     render(){
         return (
             <div>
@@ -27,10 +34,13 @@ class MyMovie extends React.Component{
         );
     }
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({animating: false});
+        },300)
         if (this.props.location.pathname === "/mymovie") {
             document.title = "我的电影订单"
         }
     }
 }
 
-export default MyMovie;
+export default loding(MyMovie);

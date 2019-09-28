@@ -15,12 +15,12 @@ class MovieSeek extends React.Component {
         }
     }
 
-    /*componentDidMount() {
+    componentDidMount() {
         setTimeout(() => {
             this.setState({animating: false});
-        }, 200)
+        }, 300)
 
-    }*/
+    }
 
     render() {
             let recordList = this.props.searchRecordList.length > 0 ? this.props.searchRecordList : [];
@@ -36,7 +36,6 @@ class MovieSeek extends React.Component {
                 }
                 movieList = arr;
             }
-            console.log(movieList)
         return (
             <div className="p-cinema-search">
                 {/*顶部导航*/}
@@ -92,7 +91,6 @@ class MovieSeek extends React.Component {
                                             {/*搜索到的电影*/}
                                             <div className="movie cell" onClick={()=>{
                                                 window.localStorage.movieDetailId=v.id;
-                                                console.log(window.localStorage.movieDetailId)
                                                 this.props.history.push({pathname:"/moviemoney"})
                                             }}>
                                                 <img className="poster"
@@ -164,4 +162,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(MovieSeek)
+export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(loding(MovieSeek))

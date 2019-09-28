@@ -8,7 +8,14 @@ import {
 }from 'redux'
 import MovieDetail from '../../../../store/actionCreate/movie/MovieDetail'
 import Week from '../../../../tools/week'
+import loding from '../../../../components/loding'
 class MovieDetails extends Component{
+    constructor(){
+        super();
+        this.state ={
+            animating:true
+        }
+    }
     render(){
         const {movieDetail} = this.props.movieDetail;
         document.title = movieDetail.nm || ""
@@ -65,7 +72,6 @@ class MovieDetails extends Component{
         }
         //大于6位数是十万 (以10W分割 10W以下全部显示)
         else if (numStr.length > 5) {
-            console.log(point,111111)
             // let decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + point)
             let decimal =numStr.substring(2,numStr.length-3)
             return parseFloat(parseInt(num / 10000) + '.' + decimal) + '万';
@@ -73,6 +79,12 @@ class MovieDetails extends Component{
     } 
     componentDidMount(){
         this.props.getDetails()
+        setTimeout(()=>{
+            this.setState({
+                animating: false
+            });
+        },300)
+
     }
 }
 function mapStateToProps(state){
@@ -83,4 +95,4 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return bindActionCreators(MovieDetail,dispatch)
 }
-export default connect(mapStateToProps,mapDispatchToProps) (MovieDetails)
+export default connect(mapStateToProps,mapDispatchToProps) (loding(MovieDetails))

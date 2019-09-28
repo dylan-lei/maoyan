@@ -139,10 +139,13 @@ class City extends React.Component {
         if (!window.localStorage.cityList) {
             const cityList = await this.axios.get("getCityList");
             window.localStorage.cityList = JSON.stringify(cityList.city);
-            this.setState({
-                cityList: cityList.city,
-                animating: false
-            });
+            setTimeout(()=>{
+                this.setState({
+                    cityList: cityList.city,
+                    animating: false
+                });
+            },300)
+
         }else {
             this.setState({
                 cityList:localStorage.cityList ? JSON.parse(localStorage.cityList) : {},
@@ -154,8 +157,11 @@ class City extends React.Component {
     async componentDidMount() {
         await this.getCityList();
         await this.position();
-        this.setState({animating: false})
-
+        setTimeout(()=>{
+            this.setState({
+                animating: false
+            });
+        },300)
     }
 }
 

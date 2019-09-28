@@ -152,7 +152,6 @@ class MovieSeek extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log(state)
     return {
         searchRecordList: state.common.seek.searchRecordList,
         searchMovie: state.common.seek.searchMovie

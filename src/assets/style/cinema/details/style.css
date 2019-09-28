@@ -182,6 +182,7 @@ a, div {
 }
 .swiper-slide+.swiper-slide {
     margin-left: 15px;
+    margin-top:17px;
 }
 .cinema-nav .swiper-slide {
     width: 65px;

@@ -2,7 +2,7 @@ import React from "react";
 import '../../../assets/style/cinema/details/style.css'
 import Cinema from "./Cinema"
 import Goods from "./Goods"
-
+import loding from '../../../components/loding'
 
 import {
     withRouter
@@ -18,6 +18,12 @@ import actionCreate from "../../../store/actionCreate/cinemaDetails"
 
 
 class Head extends React.Component{
+    constructor(){
+        super();
+        this.state ={
+            animating:true
+        }
+    }
     render(){
         const {cinemaData} = this.props
         return(
@@ -56,6 +62,11 @@ class Head extends React.Component{
     componentDidMount() {
         const idd = this.props.location.state.id;
         this.props.getCinemaData(idd);
+        setTimeout(()=>{
+            this.setState({
+                animating: false
+            });
+        },300)
     }
 
 }
@@ -68,7 +79,7 @@ function mapStateProps(state){
 function mapDispatchProps(dispatch){
     return bindActionCreators(actionCreate,dispatch)
 }
-export default withRouter(connect(mapStateProps,mapDispatchProps)(Head))
+export default withRouter(connect(mapStateProps,mapDispatchProps)(loding(Head)))
 
 
 
