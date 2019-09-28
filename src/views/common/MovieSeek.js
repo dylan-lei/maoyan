@@ -11,7 +11,7 @@ class MovieSeek extends React.Component {
         super(props);
         this.state = {
             key: "",
-            animating:true
+            animating: true
         }
     }
 
@@ -23,19 +23,19 @@ class MovieSeek extends React.Component {
     }*/
 
     render() {
-        let recordList = this.props.searchRecordList.length > 0 ? this.props.searchRecordList : [];
-        let movieList = this.props.searchMovie.movies ? this.props.searchMovie.movies : [];
-        movieList = movieList.list && this.state.key.length > 0 ? movieList.list : [];
-        const num = movieList.length;
-        let arr = [];
-        if (movieList.length >= 3) {
-            for (let i = 0; i < movieList.length; i++) {
-                if (i >= 3) break;
-                arr.push(movieList[i]);
+            let recordList = this.props.searchRecordList.length > 0 ? this.props.searchRecordList : [];
+            let movieList = this.props.searchMovie.movies ? this.props.searchMovie.movies : [];
+            movieList = movieList.list && this.state.key.length > 0 ? movieList.list : [];
+            const num = movieList.length;
+            let arr = [];
+            if (movieList.length >= 3) {
+                for (let i = 0; i < movieList.length; i++) {
+                    if (i >= 3) break;
+                    arr.push(movieList[i]);
 
+                }
+                movieList = arr;
             }
-            movieList = arr;
-        }
         return (
             <div className="p-cinema-search">
                 {/*顶部导航*/}
@@ -159,4 +159,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(loding(MovieSeek))
+export default connect(mapStateToProps, (dispatch) => bindActionCreators(actionSeek, dispatch))(MovieSeek)

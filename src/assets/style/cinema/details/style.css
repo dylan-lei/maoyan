@@ -217,7 +217,7 @@ a, div {
 /*    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAAGXRFW…DgLorvI3AVJWozsELJuhmYocyaCvQo1f2jeiT/cK8AAwBzvH2t7aaajQAAAABJRU5ErkJggg==) no-repeat;*/
 /*    background-size: contain;*/
 /*}*/
- .swiper-slide img {
+ .swiper-slide .l-img {
     width: 65px !important;
     height: 95px !important;
    transform: scale(1) !important;
@@ -532,11 +532,11 @@ img{
     border-radius:2px;
     font-size:12px;
 }
-.vipPrice .icons, .vipPrice .num {
+.vipPrice .icon, .vipPrice .num {
     display: inline-block;
     padding: 0 2px;
 }
-.vipPrice .icons {
+.vipPrice .icon {
     color: #fff;
     background-color: #f90;
 
@@ -552,12 +552,12 @@ img{
     font-size: 11px;
     color: #999;
 }
-.seat-list .list-wrap .item .button-blocks {
+.seat-list .list-wrap .item .button-block {
     width: 45px;
     margin-left: 2px !important;
     position: relative;
 }
-.list-wrap .item .button-blocks .button {
+.list-wrap .item .button-block .button {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);

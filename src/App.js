@@ -6,10 +6,7 @@ class App extends React.Component{
         return (
             <Router>
                 <Switch>
-                {
-                    Routers.map((item,i)=>{
-                    return   <Route key={item.path}  path={item.path} component={item.component}/>
-                })}
+                    {Routers.map((item,i)=>(<Route key={item.path}  path={item.path} component={item.component}/>))}
                     <Redirect  from={"/"} to={"/nav"}/>
                 </Switch>
 

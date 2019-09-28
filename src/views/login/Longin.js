@@ -23,7 +23,6 @@ class Longin extends React.Component {
     }
 
     async getVerifyCode() {
-        console.log(this.refs.regMobile.value)
         if (true) {
             this.state.disabled = true;
             this.setState({
@@ -186,7 +185,6 @@ class Longin extends React.Component {
             .then(({status, token}) => {
                 if (status === 2) {
                     Toast.success('登录成功 !!!', 2);
-                    console.log(status)
                     window.localStorage.token = token;
                     setTimeout(() => {
                         this.props.history.push("/nav/my");

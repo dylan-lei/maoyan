@@ -8,22 +8,22 @@
     position: absolute;
     width: 100%;
 }
-.list-wrap {
+.z-list_wrap {
     background-color: #f5f5f5;
 }
 /* 上边的轮播图 */
-.list-wrap .most-expected {
+.z-list_wrap .most-expected {
     padding: 12px 0 25px 15px;
     background-color: #fff;
     margin-bottom: 15px;
 }
-.list-wrap .most-expected .title {
+.z-list_wrap .most-expected .title {
     margin: 0;
     font-size: 14px;
     color: #333;
     margin-bottom: 12px;
 }
-.list-wrap .most-expected-list {
+.z-list_wrap .most-expected-list {
     overflow: scroll;
     white-space: nowrap;
     overflow-y: hidden;
@@ -31,7 +31,7 @@
     width: 94%;
     /* padding-left: 20px; */
 }
-.list-wrap .most-expected-list::-webkit-scrollbar {
+.z-list_wrap .most-expected-list::-webkit-scrollbar {
     display: none;
 }
 .swiper-wrapper{
@@ -42,16 +42,16 @@
     justify-content: space-around;
     /* transition: all .2s; */
 }
-.list-wrap .expected-item {
+.z-list_wrap .expected-item {
     display: inline-block;
     width: 90px;
     overflow: hidden;
     margin-right: 15px;
 }
-.list-wrap .expected-item:last-child{
+.z-list_wrap .expected-item:last-child{
     margin-right: 0;
 }
-.list-wrap .expected-item .poster {
+.z-list_wrap .expected-item .poster {
     width: 90px;
     height: 115px;
     position: relative;
@@ -65,11 +65,11 @@
     width: 100%;
     height: 100%;
 }
-.list-wrap .expected-item .poster img {
+.z-list_wrap .expected-item .poster img {
     width: 100%;
     height: 100%;
 }
-.list-wrap .expected-item .poster .wish-bg {
+.z-list_wrap .expected-item .poster .wish-bg {
     display: inline-block;
     width: 100%;
     height: 35px;
@@ -78,7 +78,7 @@
     background-image: -webkit-linear-gradient(top, rgba(77, 77, 77, 0), #000);
     background-image: linear-gradient(-180deg, rgba(77, 77, 77, 0), #000);
 }
-.list-wrap .expected-item .poster .wish {
+.z-list_wrap .expected-item .poster .wish {
     position: absolute;
     left: 4px;
     bottom: 2px;
@@ -87,7 +87,7 @@
     z-index: 1;
     font-weight: 600;
 }
-.list-wrap .expected-item .poster .toggle-wish {
+.z-list_wrap .expected-item .poster .toggle-wish {
     width: 28px;
     height: 28px;
     line-height: 28px;
@@ -98,56 +98,56 @@
     top: 0;
     left: 0;
 }
-.list-wrap .expected-item .poster .toggle-wish span {
+.z-list_wrap .expected-item .poster .toggle-wish span {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAoCAYAAACFFRgXAAAABGdBTUEAALGPC/xhBQAAAytJREFUWAnVmLtrFFEUh3cWFAtRE5FEEUREsFAkooUIgl3+CUEU7LVR1LBIMERCLFLZRG1CrFJYpLBQENRGC4n4wBeKRUQ2PlAQX+v3m70z7MzemZ3HZp05cPbce86553w7O7Mzc51KjDQaDYfwDvSAseux69Cv6Ef0LXoHXXAc5y82UqhVJbgLPYhuQTega9DPaB19ht6VpVYDaxUBWYUGewkcQzdbE4LOJabXaHQ76G7OqHWI0RG0v+mJ/XxPdJpaD2xZbcAUX0XiSXS/bUEH3yPil2imL1Chln6RE+huzVPKffJV60frugAwDfoI1tBtrUkpx4vknzVrLmAHU65vTX/F5DzQnzynDwzsCpwX0e1eMIfV+S3ReZpXXlDgFNC/VEgXgifHGXQDVvUE2g1Y1RKT2FxxgTm6cg4bXxHNsGH0j/DhIlKGmFzGKuSbCAyFgkWcDsG6UaeE/m/LIvsEvKcstGIV8ECJgAcErJtFWaRPwCvLQitWAbv3/ZJALwlYj3ZlkbqA9YBRFnkp4HtloRWrgJ+g/uNbgeHF+LTKY5tebWYLDOqhzYpVR1hyE33njor5ITYxNp/WIP/DeBINvI4ooQAipknD6D9eVnC8JjCOxr799vgLiGXcsLmtvVPCnRB4yGDanRTjQ2/PYvIlACwvCTcwM37G/xvMGJYAQRuwoiRex8wFMns7mTMMbV2twMpiwVXMfNuK5XfMm97WTpHAJvsy9pZ15fI41Us9IyUWmG+qPa4ptBe3b/WYMj2zAWsVBfQfPYEGrlbFuiiqPWF6xZaNPcLeSgr9ZjyGLni+LlrVHDM9OpZNBKwqFPyJGUWfa94lUa1RUztRSX9vLVE2SewNrMboaG9NuiYi7w3+M8B+i4hb3amBVQXotRjdxpPsHWtJWLQHfBrYL+FAp3kmYBUFWnu/2u1Mu03wgTXajaxjU0tmYHUCehAj6H7NE4ggBSvoTJL4orNVp/Eifm1eJ/lplXMuD6wYcgGrAAA6H0fQ75pHiGIjJjciJZk7N7DaAKIrvobarnj5aiaHYT7JdQ6HW5sL8Sj+nSb2GHsF2EwXWLi+5v8ArR6xIZ+h44wAAAAASUVORK5CYII=);
     display: inline-block;
     width: 10px;
     height: 10px;
     background-size: 100%;
 }
-.list-wrap .expected-item .z-name {
+.z-list_wrap .expected-item .z-name {
     margin: 0;
     font-size: 13px;
     color: #222;
     margin-bottom: 3px;
 }
-.line-ellipsis {
+.z-line-ellipsis {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-.list-wrap .expected-item .date {
+.z-list_wrap .expected-item .date {
     margin: 0;
     font-size: 12px;
     color: #999;
 }
 
 /* 电影列表 */
-.list-wrap .coming-list {
+.z-list_wrap .coming-list {
     background-color: #fff;
 }
-.list-wrap .coming-list .group-date {
+.z-list_wrap .coming-list .group-date {
     padding: 12px 15px 0;
     margin: 0;
     font-size: 14px;
     color: #333;
 }
-.list-wrap .item {
+.z-list_wrap .z-item {
     padding-left: 15px;
     background-color: #fff;
 }
-.list-wrap .item .main-block {
+.z-list_wrap .z-item .main-block {
     position: relative;
     width: 100%;
 }
-.list-wrap .item .avatar {
+.z-list_wrap .z-item .avatar {
     width: 64px;
     height: 90px;
     position: relative;
     margin-top: 12px;
     float: left;
 }
-.list-wrap .item .avatar:before {
+.z-list_wrap .z-item .avatar:before {
     content: "";
     display: block;
     position: absolute;
@@ -160,31 +160,31 @@
     background-color: #e1e1e1;
     background-size: 100% 100%;
 }
-.list-wrap .item .avatar img {
+.z-list_wrap .z-item .avatar img {
     background-color: transparent;
     height: 90px;
 }
-.list-wrap .item .content-wrapper {
+.z-list_wrap .z-item .content-wrapper {
     padding: 12px 14px 12px 0;
     margin-left: 74px;
     height: 90px;
     max-height: 90px;
     position: relative;
 }
-.list-wrap .item .content {
+.z-list_wrap .z-item .content {
     padding-right: 5px;
     margin-right: 48px;
     overflow: hidden;
 }
-.list-wrap .item .movie-title {
+.z-list_wrap .z-item .movie-title {
     max-height: 24px;
     margin-bottom: 7px;
     line-height: 24px;
     overflow: hidden;
     position: relative;
 }
-.list-wrap .item .z-name,
-.list-wrap .item .title {
+.z-list_wrap .z-item .z-name,
+.z-list_wrap .z-item .title {
     font-size: 17px;
     color: #333;
     font-weight: 700;
@@ -192,7 +192,7 @@
     flex-shrink: 1;
 }
 
-.line-ellipsis {
+.z-line-ellipsis {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -219,32 +219,32 @@
     margin-right: 3px;
 }
 
-.list-wrap .item .detail {
+.z-list_wrap .z-item .detail {
     box-sizing: border-box;
     line-height: 1;
     overflow: hidden;
 }
-.list-wrap .item .detail .wantsee .person {
+.z-list_wrap .z-item .detail .wantsee .person {
     color: #faaf00;
     font-size: 15px;
     font-weight: 600;
 }
-.list-wrap .item .detail .wantsee .p-suffix {
+.z-list_wrap .z-item .detail .wantsee .p-suffix {
     font-size: 13px;
     margin-left: 2px;
     display: inline-block;
     color: #666;
 }
-.list-wrap .item .detail .actor{
+.z-list_wrap .z-item .detail .actor{
     font-size: 13px;
     color: #666;
     display: block;
 }
-.list-wrap .item .detail>div+div {
+.z-list_wrap .z-item .detail>div+div {
     margin-top: 6px;
     line-height: 15px;
 }
-.list-wrap .item .button-block {
+.z-list_wrap .z-item .z-button-block {
     font-size: 12px;
     position: absolute;
     right: 20px;
@@ -253,13 +253,13 @@
     height: 27px;
     margin: auto;
 }
-.list-wrap .item .button-block .btn.pre {
+.z-list_wrap .z-item .z-button-block .btn.pre {
     background-color: #3c9fe6;
 }
-.list-wrap .item .button-block .btn.y-pre {
+.z-list_wrap .z-item .z-button-block .btn.y-pre {
     background-color: #faaf00;
 }
-.list-wrap .item .button-block .btn {
+.z-list_wrap .z-item .z-button-block .btn {
     width: 47px;
     height: 27px;
     line-height: 28px;
@@ -272,7 +272,7 @@
     font-size: 12px;
     cursor: pointer;
 }
-.list-wrap .item .button-block .btn {
+.z-list_wrap .z-item .z-button-block .btn {
     width: 47px;
     height: 27px;
     line-height: 28px;

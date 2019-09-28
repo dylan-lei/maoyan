@@ -9,12 +9,9 @@ export default class MostExpected extends React.Component {
     this.index = 0;
   }
   jumpPreview(history, id) {
+    window.localStorage.moneyId = id;
     history.push({
-      pathname: "/nav/movie/about/moviemoney",
-      state: {
-        // previewId: id
-        moneyId: id
-      }
+      pathname: "/nav/movie/about/moviemoney"
     })
   }
   render() {
@@ -26,7 +23,7 @@ export default class MostExpected extends React.Component {
             return (
               <div key={i}>
                 <p className="group-date">{v.comingTitle}</p>
-                <div className="item" onClick={() => {
+                <div className="z-item" onClick={() => {
                   this.jumpPreview(history,v.id);
                 }}>
                   <div className="main-block">
@@ -54,7 +51,7 @@ export default class MostExpected extends React.Component {
                           <div className="actor line-ellipsis">{v.rt}上映</div>
                         </div>
                       </div>
-                      <div className="button-block">
+                      <div className="z-button-block">
                         < div className = {
                           v.showst === 4 ? 'btn pre' : 'btn y-pre'
                         } >

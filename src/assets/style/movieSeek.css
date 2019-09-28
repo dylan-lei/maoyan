@@ -292,6 +292,7 @@
     padding-right: 10px;
     margin-right: 48px;
     min-height: 27px;
+    text-align: left;
 }
 .p-movie-info .detail-section .detail-items .p-ename {
     font-size: 13px;

@@ -21,7 +21,6 @@ export default {
         return async (dispatch) => {
             axios.get("searchMovieList/?key=" + value)
                 .then(data => {
-                    console.log(data,6666)
                     dispatch(changeSearchMovie(data));
                 });
 
