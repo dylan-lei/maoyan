@@ -36,6 +36,7 @@ class MovieSeek extends React.Component {
                 }
                 movieList = arr;
             }
+            console.log(movieList)
         return (
             <div className="p-cinema-search">
                 {/*顶部导航*/}
@@ -89,7 +90,11 @@ class MovieSeek extends React.Component {
                                     movieList.map(v => (
                                         <div className="search-result-list" key={v.id}>
                                             {/*搜索到的电影*/}
-                                            <div className="movie cell">
+                                            <div className="movie cell" onClick={()=>{
+                                                window.localStorage.movieDetailId=v.id;
+                                                console.log(window.localStorage.movieDetailId)
+                                                this.props.history.push({pathname:"/moviemoney"})
+                                            }}>
                                                 <img className="poster"
                                                      src={v.img.replace(/w.h/g, "")}
                                                      alt=""/>

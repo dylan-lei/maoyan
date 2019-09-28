@@ -245,12 +245,17 @@ export default class MovieMon extends Component {
         // const id = window.localStorage.movieDetailId=movieDetailId;
         const id = window.localStorage.movieDetailId
         console.log(window.localStorage.movieDetailId)
-        const {data} = await axios.get('getComingDetailsList?comingId='+id)
-        const {detailMovie} = await axios.get('detailmovie/'+id)
-        this.setState({
-            movieDetailList:data,
-            movieList:detailMovie
-        })
+        const {data,status} = await axios.get('getComingDetailsList?comingId='+id);
+        if(status===2){
+            const {detailMovie} = await axios.get('detailmovie/'+id)
+            this.setState({
+                movieDetailList:data,
+                movieList:detailMovie
+            })
+        }else {
+            this.props.history.goBack();
+        }
+
     }    
     componentWillUnmount() {
         // 卸载异步操作设置状态
