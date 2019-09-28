@@ -103,9 +103,10 @@ class Cinema extends React.Component {
                         {ShowData.map((v,i)=>{
                             return(
                                 <div className="swiper-slide post" key={i}>
-                                <img className={"l-img"} src={v.img.replace(/w.h/, "")} alt=""/>
+                                <img src={v.img.replace(/w.h/, "")} alt=""/>
                                 </div>
                             )
+
                         })}
                     </div>
                     </div>
@@ -149,7 +150,7 @@ class Cinema extends React.Component {
                            return(
                                <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item" key={i}>
                                    <div className="item box-flex">
-                                       <div className="time-block" key={i}>
+                                       <div className="time-block">
                                            <div className="begin">{v.tm}</div>
                                            <div className="end">
                                                <span className="tui">散场</span>

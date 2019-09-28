@@ -49,7 +49,7 @@ class MostExpected extends React.Component {
                         <span></span>
                       </div>
                     </div>
-                    <h5 className="z-name line-ellipsis">{v.nm}</h5>
+                    <h5 className="z-name z-line-ellipsis">{v.nm}</h5>
                     <p className="date">{v.releaseExpectedListTitle}</p>
                   </div>
                 )
