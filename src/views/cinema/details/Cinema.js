@@ -85,7 +85,7 @@ class Cinema extends React.Component {
 
     render(){
         const {ShowData} = this.props;
-        const data =ShowData[0].shows.plist || []
+        const data =ShowData[0].shows[0].plist || []
         // let {imgIndex} = this.state;
 
 
