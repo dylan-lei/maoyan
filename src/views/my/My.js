@@ -100,11 +100,14 @@ class My extends React.Component {
             this.axios.post("verifytoenk")
                 .then(({status}) => {
                     if (status !== 2) {
-                        this.setState({animating: false});
-                        this.props.history.push({pathname: "/login"});
-
+                        setTimeout(()=>{
+                            this.setState({animating: false});
+                            this.props.history.push({pathname: "/login"});
+                        },300)
                     }else {
-                        this.setState({animating: false});
+                        setTimeout(()=>{
+                            this.setState({animating: false});
+                        },300)
                     }
                 });
         }

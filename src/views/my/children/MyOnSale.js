@@ -1,7 +1,14 @@
 import React from "react";
 import "../../../assets/style/my/myOnSale.css";
 import { SearchBar, WhiteSpace } from "antd-mobile";
+import loding from '../../../components/loding'
 class MyOnSale extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            animating: true
+        }
+    }
   render() {
     return (
       <div>
@@ -37,11 +44,13 @@ class MyOnSale extends React.Component {
     );
   }
   componentDidMount() {
-    this.autoFocusInst.focus();
+      setTimeout(()=>{
+          this.setState({animating: false});
+      },300)
     if (this.props.location.pathname === "/myonsale") {
        document.title = "我的优惠券"
      }
   }
 }
 
-export default MyOnSale;
+export default loding(MyOnSale);

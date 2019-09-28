@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../../assets/style/my/myShop.css';
+import loding from '../../../components/loding'
 class MyShop extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            animating: true
+        }
+    }
     render(){
         return (
             <div>
@@ -30,10 +37,13 @@ class MyShop extends React.Component{
         );
     }
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({animating: false});
+        },300)
         if (this.props.location.pathname === "/myshop") {
             document.title = "我的周边商品"
         }
     }
 }
 
-export default MyShop;
+export default loding(MyShop);

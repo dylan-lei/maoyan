@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../../assets/style/my/myDiscount.css';
+import loding from '../../../components/loding'
 class MyDiscount extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            animating: true
+        }
+    }
     render(){
         return (
             <div>
@@ -33,10 +40,13 @@ class MyDiscount extends React.Component {
         );
     }
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({animating: false});
+        },300)
         if (this.props.location.pathname === "/mydiscount") {
             document.title = "我的折扣卡"
         }
     }
 }
 
-export default MyDiscount;
+export default loding(MyDiscount);

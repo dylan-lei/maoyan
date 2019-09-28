@@ -1,6 +1,7 @@
 import React from 'react';
 import "../../assets/style/login/login.css"
 import {Toast, Button, Steps, WingBlank, WhiteSpace} from 'antd-mobile';
+import loding from '../../components/loding'
 
 
 const Step = Steps.Step;
@@ -17,6 +18,7 @@ class Sign extends React.Component {
     constructor() {
         super();
         this.state = {
+            animating: true,
             valiPhone: false,//手机号验证状态
             mobile: "",//手机号码
             randomCode: "",//验证码
@@ -216,6 +218,9 @@ class Sign extends React.Component {
 
     //修改站标
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({animating: false});
+        },300)
         if (this.props.location.pathname === "/sign") {
             document.title = "美团网账号注册-手机美团官网";
         }
@@ -224,4 +229,4 @@ class Sign extends React.Component {
 
 }
 
-export default Sign;
+export default loding(Sign);

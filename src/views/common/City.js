@@ -27,7 +27,9 @@ class City extends React.Component {
                         定位城市
                     </div>
                     <div className="city-list city-list-inline p-clearfix">
-                        <div className="location-city">
+                        <div className="location-city" onClick={()=>{
+                            this.props.history.goBack();
+                        }}>
                             {position.city ? position.city : "定位失败，请点击重试"}
                         </div>
                     </div>
@@ -39,13 +41,19 @@ class City extends React.Component {
                         最近访问城市
                     </div>
                     <div className="city-list city-list-inline p-clearfix">
-                        <div className="city-item">
+                        <div className="city-item" onClick={()=>{
+                            this.props.history.goBack();
+                        }}>
                             北京
                         </div>
-                        <div className="city-item">
+                        <div className="city-item" onClick={()=>{
+                            this.props.history.goBack();
+                        }}>
                             天津
                         </div>
-                        <div className="city-item">
+                        <div className="city-item" onClick={()=>{
+                            this.props.history.goBack();
+                        }}>
                             安溪
                         </div>
                     </div>
@@ -58,7 +66,9 @@ class City extends React.Component {
                     <div className="city-list city-list-inline p-clearfix">
                         {
                             hotCity.map((v => (
-                                <div className="city-item" key={v.id}>
+                                <div className="city-item" key={v.id} onClick={()=>{
+                                    this.props.history.goBack();
+                                }}>
                                     {v.name}
                                 </div>
                             )))
@@ -129,10 +139,13 @@ class City extends React.Component {
         if (!window.localStorage.cityList) {
             const cityList = await this.axios.get("getCityList");
             window.localStorage.cityList = JSON.stringify(cityList.city);
-            this.setState({
-                cityList: cityList.city,
-                animating: false
-            });
+            setTimeout(()=>{
+                this.setState({
+                    cityList: cityList.city,
+                    animating: false
+                });
+            },300)
+
         }else {
             this.setState({
                 cityList:localStorage.cityList ? JSON.parse(localStorage.cityList) : {},
@@ -144,8 +157,11 @@ class City extends React.Component {
     async componentDidMount() {
         await this.getCityList();
         await this.position();
-        this.setState({animating: false})
-
+        setTimeout(()=>{
+            this.setState({
+                animating: false
+            });
+        },300)
     }
 }
 

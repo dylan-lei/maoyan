@@ -23,11 +23,16 @@ class ExactSelect extends React.Component {
             subWay:[],
             subItems:[],
             brandId:-1,
-            districtId:-1
+            districtId:-1,
+            serviceId:-1,
+            hallType:-1,
+            areaId:-1,
+            lineId:-1,
+            stationId:-1
         }
     }
 
-    cityShow() {
+    cityShow(sid,dataC) {
         this.setState({
             isCityShow: !this.state.isCityShow,
             isBrandShow: false,
@@ -41,6 +46,12 @@ class ExactSelect extends React.Component {
         }else {
             PubSub.publish("lala",true)
         }
+        // if((!(dataC.type === "click"))|| true){
+        //     this.setState({
+        //         areaId:sid
+        //     })
+        //     PubSub.publish("area",dataC)
+        // }
     }
 
     brandShow(brandId) {
@@ -60,7 +71,7 @@ class ExactSelect extends React.Component {
 
     }
 
-    featureShow() {
+    featureShow(iddd) {
         this.setState({
             isCityShow: false,
             isBrandShow: false,
@@ -71,6 +82,8 @@ class ExactSelect extends React.Component {
         }else {
             PubSub.publish("lala",true)
         }
+        if(!(iddd.type === "click"))
+        PubSub.publish("change",iddd)
     }
 
     render() {
@@ -119,9 +132,10 @@ class ExactSelect extends React.Component {
                                         district.map(v=>(
                                             <div className={"district-details"} onClick={()=>{
                                                 this.setState({
-                                                    subItems:v.subItems || []
+                                                    subItems:v.subItems || [],
+                                                    districtId:v.id
                                                 })
-                                            }} key={v.id}>
+                                            }} key={v.id} style={{color:this.state.districtId === v.id ?"#dd403b":"#333"}}>
                                                 {v.name}({v.count})
                                             </div>
                                         ))
@@ -131,7 +145,7 @@ class ExactSelect extends React.Component {
                                 <div className={"district-details-dev"}>
                                     {
                                         this.state.subItems.map(v=>(
-                                            <div key={v.id} onClick={this.cityShow.bind(this)} className={"district-details-dev-d"}>
+                                            <div key={v.id} onClick={this.cityShow.bind(this,v.id,this.state)} style={{color:this.state.areaId === v.id ?"#dd403b":"#333"}} className={"district-details-dev-d"}>
                                                 <span>{v.name}</span>
                                                 <span>{v.count}</span>
                                             </div>
@@ -146,9 +160,11 @@ class ExactSelect extends React.Component {
                                         subway.map(v=>(
                                             <div className={"district-details"} onClick={()=>{
                                                 this.setState({
-                                                    subWay:v.subItems || []
+                                                    subWay:v.subItems || [],
+                                                    lineId:v.id
                                                 })
-                                            }} key={v.id}>{v.name}({v.count})</div>
+                                            }} key={v.id} style={{color:this.state.lineId === v.id ?"#dd403b":"#333"}}
+                                            >{v.name}({v.count})</div>
                                         ))
                                     }
                                 </div>
@@ -156,7 +172,7 @@ class ExactSelect extends React.Component {
                                 <div className={"district-details-dev"}>
                                     {
                                         this.state.subWay.map(v=>(
-                                            <div  key={v.id} onClick={this.cityShow.bind(this)}  className={"district-details-dev-d"}>
+                                            <div  key={v.id} onClick={this.cityShow.bind(this)} style={{color:this.state.stationId === v.id ?"#dd403b":"#333"}} className={"district-details-dev-d"}>
                                                 <span>{v.name}</span>
                                                 <span>{v.count}</span>
                                             </div>
@@ -171,7 +187,7 @@ class ExactSelect extends React.Component {
                         <div style={{overflow: 'auto', height: '345px', backgroundColor: '#fff'}}>
                             {
                                 brand.map(v => (
-                                    <div onClick={this.brandShow.bind(this,v.id)} key={v.id}  style={{color:v.id === this.state.brandId?"#dd403b":"#333"}} className={"lv-brand-child"}>
+                                    <div onClick={this.brandShow.bind(this,v.id)} key={v.id}  style={{color:this.state.brandId===v.id  ?"#dd403b":"#333"}} className={"lv-brand-child"}>
                                         <span>{v.name}</span>
                                         <span className={"lv-brand-child-02"}>{v.count}</span>
                                     </div>
@@ -188,7 +204,15 @@ class ExactSelect extends React.Component {
                                 <div className={"lv-feature-top-one"}>
                                     {
                                         service.map(v => (
-                                            <div key={v.id} className={"lv-feature-top-button"}>{v.name}</div>
+                                            <div
+                                                style={{color:this.state.serviceId === v.id?"#f03d37":"#777",background:this.state.serviceId === v.id?"#fcf0f0":"#fff",border:this.state.serviceId === v.id?"1px solid #f03d37":"1px solid #ccc"}}
+                                                key={v.id} className={"lv-feature-top-button"}
+                                                onClick={()=>{
+                                                    this.setState({
+                                                        serviceId:v.id
+                                                    })
+                                                }}
+                                            >{v.name}</div>
                                         ))
                                     }
                                 </div>
@@ -198,14 +222,30 @@ class ExactSelect extends React.Component {
                                 <div className={"lv-feature-top-one"} style={{height: '192px'}}>
                                     {
                                         hallType.map(v => (
-                                            <div key={v.id} className={"lv-feature-top-button"}>{v.name}</div>
+                                            <div
+                                                style={{color:this.state.hallType === v.id?"#f03d37":"#777",background:this.state.hallType === v.id?"#fcf0f0":"#fff",border:this.state.hallType === v.id?"1px solid #f03d37":"1px solid #ccc"}}
+                                                key={v.id} className={"lv-feature-top-button"}
+                                                onClick={()=>{
+                                                    this.setState({
+                                                        hallType:v.id
+                                                    })
+                                                }}
+                                            >{v.name}</div>
                                         ))
                                     }
                                 </div>
                             </div>
                             <div className={"lv-feature-bottom"}>
-                                <div className={"lv-feature-bottom-left"}>重置</div>
-                                <div  onClick={this.featureShow.bind(this)}  className={"lv-feature-bottom-right"}>确定</div>
+                                <div className={"lv-feature-bottom-left"}
+                                     onClick={()=>{
+                                         this.setState({
+                                             serviceId:-1,
+                                             hallType:-1
+                                         })
+                                     }}
+                                >重置</div>
+                                <div  onClick={this.featureShow.bind(this,this.state)}  className={"lv-feature-bottom-right"}
+                                >确定</div>
                             </div>
                         </div>
                     </div>
