@@ -147,7 +147,7 @@ class Cinema extends React.Component {
                     {
                        data.map((v,i)=>{
                            return(
-                               <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item">
+                               <div className="item-outer mb-line-b" data-bid="dp_wx_cinema_show_item" key={i}>
                                    <div className="item box-flex">
                                        <div className="time-block" key={i}>
                                            <div className="begin">{v.tm}</div>
