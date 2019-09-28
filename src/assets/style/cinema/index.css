@@ -112,7 +112,7 @@
 /*try*/
 .tabs-top{
     height: 40px;
-    width: 358px;
+    width: 100%;
     display: flex;
     background: #ffffff;
 }
@@ -143,7 +143,7 @@
     color: #777;
     position: relative;
     z-index: 10;
-    width: 358px;
+    width: 100%;
     background: #fff;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAABlBMVEUAAADh4eGdLxMbAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjYGA4AAAAxADBPcXUKgAAAABJRU5ErkJggg==) 0 bottom repeat-x;
 }
@@ -161,7 +161,7 @@
     border:0;
     height: 2px;
     background: #f03d37;
-    width: 161.09px !important;
+    width: 45% !important;
 }
 #m-tabs-0-0,#m-tabs-0-1{
     /*border-right: 1px solid #e8e8e8;*/
@@ -169,25 +169,12 @@
     font-size: 13px;
 }
 /*边框*/
-.lv-left,.lv-right{
-    position: absolute;
-    height: 20px;
-    border-right: 1px solid #e8e8e8;
-    z-index: 15;
-    top: 10px;
-}
-.lv-left{
-    left: 119px;
-}
-.lv-right{
-    left: 238px;
-}
 /*全城*/
 /*.llllllllllll{*/
 /*    position: relative !important;*/
 /*}*/
 .district{
-    width: 125.3px !important;
+    width: 35% !important;
     background: #f5f5f5;
     position: relative !important;
 }
@@ -200,14 +187,14 @@
     white-space: nowrap;
     overflow: hidden;
     padding-right: 15px;
-    width: 108.3px !important;
+
     display: flex;
     background: #fff !important;
 
 }
 .district-details-dev{
     background: #f5f5f5;
-    width: 232.69px;
+    width: 65%;
 }
 .district-details-dev-d{
     height: 45px;
@@ -229,7 +216,7 @@
     color: #333;
     font-size: 15px;
     justify-content:space-between;
-    width: 317px !important;
+    margin-right: 30px;
 }
 .lv-brand-child .lv-brand-child-02{
     text-align: right;
@@ -254,7 +241,6 @@
     display: flex;
     align-content:   stretch;
     white-space : normal;
-    width: 334px;
     flex-wrap: wrap
 }
 .lv-feature-top-button{
@@ -311,8 +297,8 @@
 
     /*list*/
 .cinema-list{
-    width: 358px;
-
+    width:100%;
+    /*padding-right: 30px;*/
 }
 .cinema-list .item{
     padding: 13px 15px 13px 0;
@@ -323,6 +309,7 @@
     font-size: 14px;
     color: #777;
     font-family: PingFangSC-Regular,Hiragino Sans GB,sans-serif;
+    margin-right: 20px;
 }
 .cinema-list .item .title{
     height: 23px;
@@ -352,6 +339,7 @@
     line-height: 1.5;
 }
 .cinema-list .item .locationindex .location-item{
+    width: 55px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -359,6 +347,7 @@
     color: #666;
     -webkit-box-flex: 1;
     flex: 1;
+
 }
 .cinema-list .item .locationindex .distance{
     margin-left: 5px;

@@ -85,8 +85,6 @@ class ExactSelect extends React.Component {
         return (
 
             <div className={"backcolor"}>
-                <div className={"lv-left"}></div>
-                <div className={"lv-right"}></div>
                 <div className={"wrap"}>
                     <div className={"tabs-top line"}>
                         <div style={{color:this.state.isCityShow ? "#e54847" : "#777"}} onClick={this.cityShow.bind(this)}>全城
