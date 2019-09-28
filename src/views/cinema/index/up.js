@@ -21,18 +21,21 @@ class Up extends React.Component{
             rowHasChanged: (row1, row2) => row1 !== row2,
         });
         this.state = {
-            cinemas:[],
-            offset:-20,
+            cinemas: [],
+            offset: -20,
             dataSource,
             refreshing: false,
             isLoading: true,
             height: document.documentElement.clientHeight,
             useBodyScroll: false,
 
-            brandId: -1
-
-        };
-    }
+            brandId: -1,
+            serviceId: -1,
+            hallType: -1,
+            areaId: -1,
+            districtId:-1
+        }
+    };
     async componentDidMount() {
         PubSub.subscribe("brand",async function (msg,data) {
             this.setState({
@@ -50,6 +53,42 @@ class Up extends React.Component{
                 isLoading: false,
             });
         }.bind(this))
+        PubSub.subscribe("change",async function (msg,data) {
+            console.log(data)
+            this.setState({
+                hallType:data.hallType,
+                serviceId:data.serviceId,
+                offset:0
+            })
+            console.log(this.state.brandId)
+            const dataat = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId +"&hallType="+this.state.hallType+"&serviceId="+this.state.serviceId)
+            console.log(dataat)
+            this.state.cinemas = [...[],...dataat.cinemas]
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
+                height: hei,
+                refreshing: false,
+                isLoading: false,
+            });
+        }.bind(this));
+        // PubSub.subscribe("area",async function (msg,data) {
+        //     console.log(data)
+        //     this.setState({
+        //         districtId:data.districtId || -1,
+        //         areaId:data.areaId,
+        //         offset:0
+        //     })
+        //     console.log(this.state.brandId)
+        //     const dataatw = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId +"&hallType="+this.state.hallType+"&serviceId="+this.state.serviceId)
+        //     console.log(dataatw)
+        //     this.state.cinemas = [...[],...dataatw.cinemas]
+        //     this.setState({
+        //         dataSource: this.state.dataSource.cloneWithRows(this.state.cinemas),
+        //         height: hei,
+        //         refreshing: false,
+        //         isLoading: false,
+        //     });
+        // }.bind(this))
         // this.props.getCinemaList.call(this)
         const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
         const data = await axios.get("cinemaList?offset="+(this.state.offset ||0)+"&brandId="+this.state.brandId);
@@ -145,7 +184,7 @@ class Up extends React.Component{
                 ref={el => this.lv = el}
                 dataSource={this.state.dataSource}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-                    {this.state.isLoading ? '正在加载...' : ''}
+                    {this.state.isLoading ? '正在加载...' : '没有了'}
                 </div>)}
                 refreshing={this.state.refreshing}
                 renderRow={row}
