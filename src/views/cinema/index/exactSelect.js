@@ -22,7 +22,8 @@ class ExactSelect extends React.Component {
 
             subWay:[],
             subItems:[],
-            brandId:-1
+            brandId:-1,
+            districtId:-1
         }
     }
 
